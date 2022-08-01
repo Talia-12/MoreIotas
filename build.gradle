@@ -8,8 +8,8 @@ buildscript {
     }
 }
 
-import com.diluv.schoomp.Webhook
-import com.diluv.schoomp.message.Message
+//import com.diluv.schoomp.Webhook
+//import com.diluv.schoomp.message.Message
 
 plugins {
     id 'java'
@@ -52,11 +52,11 @@ void setupJar(Object project) {
         manifest {
             attributes([
                     'Specification-Title'     : modID,
-                    'Specification-Vendor'    : "petra-kat",
+                    'Specification-Vendor'    : "talia",
                     'Specification-Version'   : project.jar.archiveVersion,
                     'Implementation-Title'    : project.name,
                     'Implementation-Version'  : project.jar.archiveVersion,
-                    'Implementation-Vendor'   : "petra-kat",
+                    'Implementation-Vendor'   : "talia",
                     'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
                     'Timestampe'              : System.currentTimeMillis(),
                     'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
@@ -92,7 +92,7 @@ subprojects {
     apply plugin: 'kotlin'
     apply plugin: 'maven-publish'
 
-    group = "at.petra-k.$modID" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+    group = "ram.talia.$modID" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
     version = "${modVersion}"
     if (!isRelease() && System.getenv('BUILD_NUMBER') != null) {
         version += "-pre-" + System.getenv('BUILD_NUMBER')
@@ -152,6 +152,9 @@ subprojects {
     processResources {
         exclude '.cache'
     }
+    processTestResources {
+        exclude '.cache'
+    }
     sourcesJar {
         duplicatesStrategy 'exclude'
     }
@@ -196,22 +199,22 @@ def getGitChangelog = { ->
     }
 }
 
-task sendWebhook {
-    doLast {
-        try {
-            if (System.getenv('discordWebhook') == null || System.getenv("BUILD_URL") == null) {
-                println "Cannot send the webhook without the webhook url or the build url"
-                return
-            }
-            def webhook = new Webhook(System.getenv('discordWebhook'), 'Petrak@ Patreon Gradle')
-
-            def message = new Message()
-            message.setUsername("Patreon Early Access")
-            message.setContent("New **$modName** release! Download it here: ${System.getenv("BUILD_URL")}\nChangelog:\n${getGitChangelog()}")
-
-            webhook.sendMessage(message)
-        } catch (ignored) {
-            project.logger.error("Failed to push Discord webhook.")
-        }
-    }
-}
+//task sendWebhook {
+//    doLast {
+//        try {
+//            if (System.getenv('discordWebhook') == null || System.getenv("BUILD_URL") == null) {
+//                println "Cannot send the webhook without the webhook url or the build url"
+//                return
+//            }
+//            def webhook = new Webhook(System.getenv('discordWebhook'), 'Petrak@ Patreon Gradle')
+//
+//            def message = new Message()
+//            message.setUsername("Patreon Early Access")
+//            message.setContent("New **$modName** release! Download it here: ${System.getenv("BUILD_URL")}\nChangelog:\n${getGitChangelog()}")
+//
+//            webhook.sendMessage(message)
+//        } catch (ignored) {
+//            project.logger.error("Failed to push Discord webhook.")
+//        }
+//    }
+//}

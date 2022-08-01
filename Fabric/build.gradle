@@ -5,9 +5,9 @@ plugins {
 archivesBaseName = getArtifactID("fabric")
 
 loom {
-    mixin.defaultRefmapName = "hexcasting.mixins.refmap.json"
+    mixin.defaultRefmapName = "moreiotas.mixins.refmap.json"
 
-    accessWidenerPath = file("src/main/resources/fabricasting.accesswidener")
+    accessWidenerPath = file("src/main/resources/moreiotas.accesswidener")
 
     runs {
         client {
@@ -63,6 +63,7 @@ dependencies {
     compileOnly project(":Common")
 
     modImplementation "at.petra-k.paucal:paucal-fabric-$minecraftVersion:$paucalVersion"
+    modImplementation "at.petra-k.hexcasting:hexcasting-fabric-$minecraftVersion:$hexcastingVersion"
     modImplementation "vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FABRIC"
 
     modImplementation "me.zeroeightsix:fiber:$fiberVersion"
@@ -93,6 +94,9 @@ dependencies {
     })
 
     implementation 'org.jetbrains:annotations:23.0.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 }
 
 tasks.withType(JavaCompile) {

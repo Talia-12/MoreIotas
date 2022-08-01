@@ -1,9 +1,3 @@
-# Hex Casting
+# MoreIotas
 
-A minecraft mod about casting Hexes, powerful and programmable magical effects, inspired by PSI.
-
-[Curseforge Link](https://www.curseforge.com/minecraft/mc-mods/hexcasting)
-
-This mod requires PAUCAL, Patchouli and Kotlin for Forge!
-
-## [Read the documentation online here!](https://gamma-delta.github.io/HexMod/)
+A minecraft mod which is an addon for [Hex Casting](https://github.com/gamma-delta/HexMod/), adding new types of iotas such as Strings. Intended to be approximately a library mod for other addons to use.
