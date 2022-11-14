@@ -22,7 +22,7 @@ object Patterns {
 
 	// ================================ Strings =======================================
 	@JvmField
-	val STRING_SPACE = make(HexPattern.fromAngles("awd", HexDir.SOUTH_WEST),
+	val STRING_SPACE = make(HexPattern.fromAngles("awdwa", HexDir.SOUTH_EAST),
 	                        modLoc("string/space"),
 	                        Action.makeConstantOp(StringIota(" ")))
 	@JvmField
@@ -39,6 +39,10 @@ object Patterns {
 	val STRING_IOTA = make(HexPattern.fromAngles("wawqwawaw", HexDir.EAST), modLoc("string/iota"), OpIotaString)
 	@JvmField
 	val STRING_ADD = make(HexPattern.fromAngles("waawaqwawqq", HexDir.NORTH_EAST), modLoc("string/add"), OpAddStrings)
+	@JvmField
+	val STRING_SPLIT = make(HexPattern.fromAngles("aqwaqa", HexDir.EAST), modLoc("string/split"), OpSplitString)
+	@JvmField
+	val STRING_PARSE = make(HexPattern.fromAngles("aqwaq", HexDir.EAST), modLoc("string/parse"), OpParseString)
 
 
 	private fun make (pattern: HexPattern, location: ResourceLocation, operator: Action, isPerWorld: Boolean = false): Triple<HexPattern, ResourceLocation, Action> {

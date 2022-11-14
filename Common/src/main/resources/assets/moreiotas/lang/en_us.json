@@ -1,4 +1,6 @@
 {
+  "hexcasting.iota.moreiotas:string": "String",
+
   "hexcasting.spell.moreiotas:string/space": "Blank Reflection",
   "hexcasting.spell.moreiotas:string/comma": "Comma Reflection",
   "hexcasting.spell.moreiotas:string/block": "Reader's Purification",
@@ -6,6 +8,8 @@
   "hexcasting.spell.moreiotas:string/chat/all": "Listener's Reflection",
   "hexcasting.spell.moreiotas:string/iota": "Scrivener's Purification",
   "hexcasting.spell.moreiotas:string/add": "Concatenation Distillation",
+  "hexcasting.spell.moreiotas:string/split": "Separation Distillation",
+  "hexcasting.spell.moreiotas:string/parse": "Input Purification",
 
   "moreiotas.entry.strings": "Strings",
   "moreiotas.page.strings.string/space": "Add a blank space string to the stack, useful for combining with other strings.",
@@ -15,7 +19,11 @@
   "moreiotas.page.strings.string/chat/all": "Adds the last message anyone sent to the stack as a string.",
   "moreiotas.page.strings.string/iota": "Converts the iota on top of the stack into a string.",
   "moreiotas.page.strings.string/add": "Removes the top two strings from the stack and combines them together.",
+  "moreiotas.page.strings.string/split": "Removes the top two strings from the stack and splits the first string, using the second string as the delimiter and returning as a list.",
+  "moreiotas.page.strings.string/parse": "Removes a string from the top of the stack and returns the number that string parses as (or null if it doesn't parse).",
 
+
+  "hexcasting.mishap.invalid_value.class.string": "a string",
 
 
   "hexal.memories": "...%s...",

@@ -48,6 +48,22 @@
     },
     {
       "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/split",
+      "anchor": "moreiotas:string/split",
+      "input": "string, string",
+      "output": "[string]",
+      "text": "moreiotas.page.strings.string/split"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/parse",
+      "anchor": "moreiotas:string/parse",
+      "input": "string",
+      "output": "number/null",
+      "text": "moreiotas.page.strings.string/parse"
+    },
+    {
+      "type": "hexcasting:pattern",
       "op_id": "moreiotas:string/space",
       "anchor": "moreiotas:string/space",
       "input": "",
