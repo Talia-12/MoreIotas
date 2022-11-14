@@ -8,6 +8,7 @@ import at.petrak.hexcasting.api.spell.math.HexPattern
 import at.petrak.hexcasting.common.casting.operators.selectors.*
 import net.minecraft.resources.ResourceLocation
 import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
+import ram.talia.moreiotas.api.spell.iota.StringIota
 import ram.talia.moreiotas.common.casting.actions.*
 import ram.talia.moreiotas.common.casting.actions.spells.*
 import ram.talia.moreiotas.common.casting.actions.strings.OpAddStrings
@@ -22,6 +23,14 @@ object Patterns {
 	val PER_WORLD_PATTERNS: MutableList<Triple<HexPattern, ResourceLocation, Action>> = ArrayList()
 
 	// ================================ Strings =======================================
+	@JvmField
+	val STRING_SPACE = make(HexPattern.fromAngles("awd", HexDir.SOUTH_WEST),
+	                        modLoc("string/space"),
+	                        Action.makeConstantOp(StringIota(" ")))
+	@JvmField
+	val STRING_COMMA = make(HexPattern.fromAngles("qa", HexDir.EAST),
+			modLoc("string/comma"),
+			Action.makeConstantOp(StringIota(",")))
 	@JvmField
 	val STRING_BLOCK = make(HexPattern.fromAngles("awqwawqe", HexDir.EAST), modLoc("string/block"), OpBlockString)
 	@JvmField

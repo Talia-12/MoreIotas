@@ -29,6 +29,22 @@
       "input": "vec",
       "output": "string",
       "text": "moreiotas.page.strings.string/add"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/space",
+      "anchor": "moreiotas:string/space",
+      "input": "",
+      "output": "string",
+      "text": "moreiotas.page.strings.string/space"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/comma",
+      "anchor": "moreiotas:string/comma",
+      "input": "",
+      "output": "string",
+      "text": "moreiotas.page.strings.string/comma"
     }
   ]
 }

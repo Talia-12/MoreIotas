@@ -1,9 +1,13 @@
 {
+  "hexcasting.spell.moreiotas:string/space": "Blank Reflection",
+  "hexcasting.spell.moreiotas:string/comma": "Comma Reflection",
   "hexcasting.spell.moreiotas:string/block": "Reader's Purification",
   "hexcasting.spell.moreiotas:string/iota": "Scrivener's Purification",
   "hexcasting.spell.moreiotas:string/add": "Concatenation Distillation",
 
   "moreiotas.entry.strings": "Strings",
+  "moreiotas.page.strings.string/space": "Add a blank space string to the stack, useful for combining with other strings.",
+  "moreiotas.page.strings.string/comma": "Add a comma string to the stack, useful for combining with other strings.",
   "moreiotas.page.strings.string/block": "Removes a vector from the stack. If that vector is pointing at a sign, it returns that sign's text to the stack. Otherwise, it returns null.",
   "moreiotas.page.strings.string/iota": "Converts the iota on top of the stack into a string.",
   "moreiotas.page.strings.string/add": "Removes the top two strings from the stack and combines them together.",
