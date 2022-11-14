@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "id": "hexcasting",
+  "id": "moreiotas",
   "version": "${version}",
 
-  "name": "Hex Casting",
-  "description": "Cast powerful Hexes on the fly by drawing patterns with a staff.",
+  "name": "MoreIotas",
+  "description": "Extension mod for Hex Casting to add new patterns (and whatever else I feel like).",
   "authors": [
-    "petrak@ (aka gamma-delta)"
+    "Talia"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/hexcasting",
-    "sources": "https://github.com/gamma-delta/HexMod"
+    "homepage": "https://modrinth.com/mod/moreiotas",
+    "sources": "https://github.com/Talia-12/MoreIotas"
   },
 
   "license": "MIT",
@@ -19,58 +19,48 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      {"adapter": "kotlin", "value": "at.petrak.hexcasting.fabric.FabricHexInitializer"}
+      {"adapter": "kotlin", "value": "ram.talia.moreiotas.fabric.FabricMoreIotasInitializer"}
     ],
     "client": [
-      {"adapter": "kotlin", "value": "at.petrak.hexcasting.fabric.FabricHexClientInitializer"}
+      {"adapter": "kotlin", "value": "ram.talia.moreiotas.fabric.FabricMoreIotasClientInitializer"}
     ],
     "fabric-datagen": [
-      "at.petrak.hexcasting.fabric.datagen.HexFabricDataGenerators"
+      "ram.talia.moreiotas.fabric.datagen.MoreIotasFabricDataGenerators"
     ],
     "cardinal-components": [
-      "at.petrak.hexcasting.fabric.cc.HexCardinalComponents"
+      "ram.talia.moreiotas.fabric.cc.MoreIotasCardinalComponents"
     ],
     "rei_plugins_v0": [
-      "at.petrak.hexcasting.fabric.interop.rei.HexREIPlugin"
+      "ram.talia.moreiotas.fabric.interop.rei.MoreIotasREIPlugin"
     ],
     "emi": [
-      "at.petrak.hexcasting.fabric.interop.emi.HexEMIPlugin"
+      "ram.talia.moreiotas.fabric.interop.emi.MoreIotasEMIPlugin"
     ]
   },
   "mixins": [
-    "hexplat.mixins.json",
-    "fabricasting.mixins.json"
+    "moreiotasplat.mixins.json",
+    "moreiotas.mixins.json"
   ],
-  "accessWidener": "fabricasting.accesswidener",
+  "accessWidener": "moreiotas.accesswidener",
 
   "depends": {
-    "fabricloader": ">=0.13",
-    "fabric": ">=0.50",
-    "minecraft": "=1.18.2",
+    "minecraft": "=1.19.2",
     "java": ">=17",
+    "fabricloader": ">=0.14",
+    "fabric": ">=0.64",
     "fabric-language-kotlin": ">=1.7.4+kotlin.1.6.21",
-    "cardinal-components": "~4.1.4",
-    "patchouli": ">=1.18.2-69",
-    "paucal": "~0.4.6"
+    "cardinal-components": ">=5.0.2",
+    "patchouli": ">=1.19.2-77",
+    "paucal": "0.5.x",
+    "hexcasting": ">=1.0-pre-449"
   },
   "suggests": {
-    "gravitychanger": "0.7.7+fabric",
-    "pehkui": "3.3.2+1.14.4-1.19"
+    "gravitychanger": "0.7.21+fabric",
+    "pehkui": "3.6.0+1.14.4-1.19"
   },
 
   "custom": {
     "cardinal-components": [
-      "hexcasting:brainswept",
-      "hexcasting:favored_colorizer",
-      "hexcasting:sentinel",
-      "hexcasting:flight",
-      "hexcasting:harness",
-      "hexcasting:patterns",
-
-      "hexcasting:colorizer",
-      "hexcasting:iota_holder",
-      "hexcasting:media_holder",
-      "hexcasting:hex_holder"
     ]
   }
 }
