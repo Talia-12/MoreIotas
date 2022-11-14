@@ -10,3 +10,4 @@ operator fun Vec3.plus(vec3: Vec3): Vec3 = this.add(vec3)
 operator fun Vec3.minus(vec3: Vec3): Vec3 = this.subtract(vec3)
 operator fun Vec3.unaryMinus(): Vec3 = this.scale(-1.0)
 
+inline val String.asActionResult get() = listOf(StringIota(this))
