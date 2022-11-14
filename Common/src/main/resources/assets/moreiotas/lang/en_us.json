@@ -1,3 +1,28 @@
 {
-  
+  "hexcasting.spell.moreiotas:string/block": "Reader's Purification",
+  "hexcasting.spell.moreiotas:string/iota": "Scrivener's Purification",
+  "hexcasting.spell.moreiotas:string/add": "Concatenation Distillation",
+
+  "moreiotas.entry.strings": "Strings",
+  "moreiotas.page.strings.string/block": "Removes a vector from the stack. If that vector is pointing at a sign, it returns that sign's text to the stack. Otherwise, it returns null.",
+  "moreiotas.page.strings.string/iota": "Converts the iota on top of the stack into a string.",
+  "moreiotas.page.strings.string/add": "Removes the top two strings from the stack and combines them together.",
+
+
+
+  "hexal.memories": "...%s...",
+  "hexal.memories.0" : "I really hope I hear back from Maria soon. It's been over three months since her last letter, surely the next can't take that long to get here? Maybe something's gone wrong with the system.",
+  "hexal.memories.1" : "I should try and get back to sleep, got lots to do tomorrow. Cows need feeding, pigs need feeding, everything needs feeding. Wonder what Sam's doing after the work's done?",
+  "hexal.memories.2" : "How could I let everything pile up and then only notice it when it all went wrong! God what am I going to do? My rabbit's going to get sick, my cat's going to be hungry, the crops're going to get all mouldy. And if that happens I'll never get paid!",
+  "hexal.memories.3" : "Hmm, well better make some food for the dog then. I wonder if that new cat's eaten his food yet?",
+  "hexal.memories.4" : "I really hate having to walk so far every morning to get to work, but the farm's a good day's walk away so I guess I might as well, it beats being a squaddie then.",
+  "hexal.memories.5" : "Hmm, I should really start planting my tomato patch then. What about tomorrow?",
+  "hexal.memories.6" : "They haven't done anything, have they? Never done anything useful in their lives! Is this their idea of work? They've barely managed to make a dent in the haystacks! I'm never going to get my debt cleared if they don't start doing something useful.",
+  "hexal.memories.7" : "Maybe it's for the best, I wasn't having much luck anyway. Sure, they could have something interesting to say if I just gave them a chance, but I could never make up my mind if I wanted to have anything to do with those mutts.",
+  "hexal.memories.8" : "Hmm, I wonder if anyone's been round today. I hate leaving my little hut alone",
+  "hexal.memories.9" : "Wonder if today's any different to any other. Wouldn't they be telling me that if they had any news?",
+  "hexal.memories.10" : "I can't see a change in the light at all. If they're starting at my walls and moving towards the farm now then I might as well just open the door and get the upper hand.",
+  "hexal.memories.11" : "Oh I so hope she enjoys it, I've spent such a long time planning for her, and I really did think she'd like it. Do you think the news has anything to do with her mum?",
+  "hexal.memories.12" : "Been a while since the last traveller came from Brackenfalls. It's starting to get dark out here now, I'd better light the torches on the wall just in case.",
+  "hexal.memories.13" : "I wonder what's taking so long to get that new hen house finished? The ones we've had in the past have been so rubbish, it'll be good to finally have one that doesn't leak."
 }
