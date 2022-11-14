@@ -7,6 +7,7 @@ import net.minecraft.core.Registry
 import net.minecraft.resources.ResourceLocation
 import org.jetbrains.annotations.ApiStatus
 import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
+import ram.talia.moreiotas.api.spell.iota.MatrixIota
 import ram.talia.moreiotas.api.spell.iota.StringIota
 import java.util.function.BiConsumer
 
@@ -23,7 +24,9 @@ object MoreIotasIotaTypes {
     private val TYPES: MutableMap<ResourceLocation, IotaType<*>> = LinkedHashMap()
 
     @JvmField
-    val STRING_TYPE: IotaType<StringIota> = type("iota_type", StringIota.TYPE)
+    val STRING_TYPE: IotaType<StringIota> = type("string", StringIota.TYPE)
+    @JvmField
+    val MATRIX_TYPE: IotaType<MatrixIota> = type("matrix", MatrixIota.TYPE)
 
     private fun <U : Iota, T : IotaType<U>> type(name: String, type: T): T {
         val old = TYPES.put(modLoc(name), type)

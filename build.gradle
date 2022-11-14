@@ -130,6 +130,10 @@ subprojects {
         }
     }
 
+    dependencies {
+        implementation group: "org.jblas", name: "jblas", version: "1.2.5"
+    }
+
 
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = 'UTF-8'

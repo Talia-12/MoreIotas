@@ -1,5 +1,6 @@
 {
   "hexcasting.iota.moreiotas:string": "String",
+  "hexcasting.iota.moreiotas:matrix": "Matrix",
 
   "hexcasting.spell.moreiotas:string/space": "Blank Reflection",
   "hexcasting.spell.moreiotas:string/comma": "Comma Reflection",
@@ -24,6 +25,10 @@
 
 
   "hexcasting.mishap.invalid_value.class.string": "a string",
+  "hexcasting.mishap.invalid_value.class.matrix": "a matrix",
+  "hexcasting.mishap.invalid_value.class.numvecmat": "a number, vector, or matrix",
+  "hexcasting.mishap.invalid_value.class.possible_matrix": "an iota able to be converted to a matrix",
+  "hexcasting.mishap.invalid_value.matrix.wrong_size": "a matrix %s by %s",
 
 
   "hexal.memories": "...%s...",
