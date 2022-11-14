@@ -11,9 +11,7 @@ import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
 import ram.talia.moreiotas.api.spell.iota.StringIota
 import ram.talia.moreiotas.common.casting.actions.*
 import ram.talia.moreiotas.common.casting.actions.spells.*
-import ram.talia.moreiotas.common.casting.actions.strings.OpAddStrings
-import ram.talia.moreiotas.common.casting.actions.strings.OpBlockString
-import ram.talia.moreiotas.common.casting.actions.strings.OpIotaString
+import ram.talia.moreiotas.common.casting.actions.strings.*
 
 object Patterns {
 
@@ -33,6 +31,10 @@ object Patterns {
 			Action.makeConstantOp(StringIota(",")))
 	@JvmField
 	val STRING_BLOCK = make(HexPattern.fromAngles("awqwawqe", HexDir.EAST), modLoc("string/block"), OpBlockString)
+	@JvmField
+	val STRING_CHAT_CASTER = make(HexPattern.fromAngles("waqa", HexDir.EAST), modLoc("string/chat/caster"), OpChatString(false))
+	@JvmField
+	val STRING_CHAT_ALL = make(HexPattern.fromAngles("wded", HexDir.EAST), modLoc("string/chat/all"), OpChatString(true))
 	@JvmField
 	val STRING_IOTA = make(HexPattern.fromAngles("wawqwawaw", HexDir.EAST), modLoc("string/iota"), OpIotaString)
 	@JvmField

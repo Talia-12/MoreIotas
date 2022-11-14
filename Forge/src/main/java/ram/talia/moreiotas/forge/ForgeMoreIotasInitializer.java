@@ -13,6 +13,7 @@ import ram.talia.moreiotas.forge.datagen.MoreIotasForgeDataGenerators;
 import ram.talia.moreiotas.api.MoreIotasAPI;
 import ram.talia.moreiotas.common.casting.RegisterPatterns;
 import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes;
+import ram.talia.moreiotas.forge.eventhandlers.ChatEventHandler;
 import ram.talia.moreiotas.forge.network.ForgePacketHandler;
 import thedarkcolour.kotlinforforge.KotlinModLoadingContext;
 
@@ -60,7 +61,8 @@ public class ForgeMoreIotasInitializer {
 //		});
 		
 		modBus.register(MoreIotasForgeDataGenerators.class);
-		
+
+		evBus.register(ChatEventHandler.class);
 		evBus.register(CapSyncers.class);
 	}
 	

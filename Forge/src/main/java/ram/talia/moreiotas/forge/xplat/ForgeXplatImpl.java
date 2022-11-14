@@ -13,10 +13,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.PacketDistributor;
+import org.jetbrains.annotations.Nullable;
+import ram.talia.moreiotas.forge.eventhandlers.ChatEventHandler;
 import ram.talia.moreiotas.forge.network.ForgePacketHandler;
 import ram.talia.moreiotas.xplat.IXplatAbstractions;
-
-import java.util.List;
 
 public class ForgeXplatImpl implements IXplatAbstractions {
 	
@@ -40,5 +40,10 @@ public class ForgeXplatImpl implements IXplatAbstractions {
 	@Override
 	public boolean isBreakingAllowed (Level level, BlockPos pos, BlockState state, Player player) {
 		return !MinecraftForge.EVENT_BUS.post(new BlockEvent.BreakEvent(level, pos, state, player));
+	}
+
+	@Override
+	public @Nullable String lastMessage(@Nullable Player player) {
+		return ChatEventHandler.getLastMessage(player);
 	}
 }

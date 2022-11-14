@@ -1,14 +1,17 @@
 package ram.talia.moreiotas.fabric
 
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.message.v1.ServerMessageEvents
 import net.minecraft.core.Registry
 import net.minecraft.resources.ResourceLocation
-import ram.talia.moreiotas.fabric.network.FabricPacketHandler
 import ram.talia.moreiotas.api.MoreIotasAPI
 import ram.talia.moreiotas.common.casting.RegisterPatterns
 import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes
+import ram.talia.moreiotas.fabric.eventhandlers.ChatEventHandler
+import ram.talia.moreiotas.fabric.network.FabricPacketHandler
 import java.util.function.BiConsumer
 
+@Suppress("unused")
 object FabricMoreIotasInitializer : ModInitializer {
     override fun onInitialize() {
         MoreIotasAPI.LOGGER.info("Hello Fabric World!")
@@ -23,11 +26,11 @@ object FabricMoreIotasInitializer : ModInitializer {
     }
 
     private fun initListeners() {
-
+        ServerMessageEvents.CHAT_MESSAGE.register(ChatEventHandler::receiveChat)
     }
 
     private fun initRegistries() {
-        MoreIotasIotaTypes.registerTypes();
+        MoreIotasIotaTypes.registerTypes()
     }
 
 

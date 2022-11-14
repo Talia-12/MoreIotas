@@ -12,10 +12,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
+import ram.talia.moreiotas.fabric.eventhandlers.ChatEventHandler;
 import ram.talia.moreiotas.xplat.IXplatAbstractions;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class FabricXplatImpl implements IXplatAbstractions {
 //    @Override
@@ -71,7 +70,12 @@ public class FabricXplatImpl implements IXplatAbstractions {
     public boolean isBreakingAllowed (Level level, BlockPos pos, BlockState state, Player player) {
         return PlayerBlockBreakEvents.BEFORE.invoker().beforeBlockBreak(level, player, pos, state, level.getBlockEntity(pos));
     }
-    
+
+    @Override
+    public @Nullable String lastMessage(@Nullable Player player) {
+        return ChatEventHandler.lastMessage(player);
+    }
+
     //    @Override
 //    public <T extends BlockEntity> BlockEntityType<T> createBlockEntityType(BiFunction<BlockPos, BlockState, T> func,
 //        Block... blocks) {
