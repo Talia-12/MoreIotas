@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation
 import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
 import ram.talia.moreiotas.api.spell.iota.StringIota
 import ram.talia.moreiotas.common.casting.actions.*
+import ram.talia.moreiotas.common.casting.actions.matrices.*
 import ram.talia.moreiotas.common.casting.actions.spells.*
 import ram.talia.moreiotas.common.casting.actions.strings.*
 
@@ -44,6 +45,21 @@ object Patterns {
 	@JvmField
 	val STRING_PARSE = make(HexPattern.fromAngles("aqwaq", HexDir.EAST), modLoc("string/parse"), OpParseString)
 
+	// ================================ Matrices =======================================
+	@JvmField
+	val MATRIX_MAKE = make(HexPattern.fromAngles("awwaeawwaadwa", HexDir.SOUTH_WEST), modLoc("matrix/make"), OpMakeMatrix)
+	@JvmField
+	val MATRIX_IDENTITY = make(HexPattern.fromAngles("awwaeawwaqw", HexDir.SOUTH_WEST), modLoc("matrix/identity"), OpIdentityMatrix)
+	@JvmField
+	val MATRIX_ZERO = make(HexPattern.fromAngles("awwaeawwa", HexDir.SOUTH_WEST), modLoc("matrix/zero"), OpZeroMatrix)
+	@JvmField
+	val MATRIX_ADD = make(HexPattern.fromAngles("waawawaeawwaea", HexDir.EAST), modLoc("matrix/add"), OpAddMatrix)
+	@JvmField
+	val MATRIX_MUL = make(HexPattern.fromAngles("waqawawwaeaww", HexDir.SOUTH_EAST), modLoc("matrix/mul"), OpMulMatrix)
+	@JvmField
+	val MATRIX_TRANSPOSE = make(HexPattern.fromAngles("wwaeawwaede", HexDir.EAST), modLoc("matrix/transpose"), OpTransposeMatrix)
+	@JvmField
+	val MATRIX_INVERSE = make(HexPattern.fromAngles("wawawwwdwdw", HexDir.NORTH_EAST), modLoc("matrix/inverse"), OpInverseMatrix)
 
 	private fun make (pattern: HexPattern, location: ResourceLocation, operator: Action, isPerWorld: Boolean = false): Triple<HexPattern, ResourceLocation, Action> {
 		val triple = Triple(pattern, location, operator)

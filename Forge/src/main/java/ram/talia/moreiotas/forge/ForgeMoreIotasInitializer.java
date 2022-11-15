@@ -31,7 +31,7 @@ public class ForgeMoreIotasInitializer {
 	}
 	
 	private static void initConfig () {
-	
+
 	}
 	
 	private static void initRegistry () {
