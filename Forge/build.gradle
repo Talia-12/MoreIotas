@@ -17,10 +17,16 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
+apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 archivesBaseName = getArtifactID("forge")
+
+configurations {
+    shade
+    implementation.extendsFrom shade
+}
 
 // Adds KFF as dependency and Kotlin libs to the runtime classpath
 // If you already know how to add the Kotlin plugin to Gradle, this is the only line you need for KFF
@@ -169,7 +175,7 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${minecraftVersion}-${forgeVersion}"
     compileOnly project(":Common")
-    shade group: "org.jblas", name: "jblas", version: "1.2.5"
+    shade 'org.jblas:jblas:1.2.5'
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
@@ -274,11 +280,14 @@ processTestResources {
     }
 }
 
+setupJar(this)
+//jar.finalizedBy('reobfJar')
+
 shadowJar {
     archiveClassifier = ''
     configurations = [project.configurations.shade]
-    finalizedBy 'reobfShadowJar'
     relocate "org.jblas.jblas", "${project.group}.relocated.jblas"
+    finalizedBy 'reobfShadowJar'
 }
 
 assemble.dependsOn shadowJar
@@ -287,5 +296,3 @@ reobf {
     shadowJar {}
 }
 
-jar.finalizedBy('reobfJar')
-setupJar(this)
