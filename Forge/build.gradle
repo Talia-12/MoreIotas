@@ -179,13 +179,10 @@ dependencies {
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    compileOnly fg.deobf("at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion")
-    runtimeOnly fg.deobf("at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion")
-    compileOnly fg.deobf("${modID}:hexcasting-forge-$minecraftVersion:$hexcastingVersion")
-    runtimeOnly fg.deobf("${modID}:hexcasting-forge-$minecraftVersion:$hexcastingVersion")
+    implementation fg.deobf("at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion")
+    implementation fg.deobf("${modID}:hexcasting-forge-$minecraftVersion:$hexcastingVersion")
 
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion")
+    implementation fg.deobf("vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion")
 
     // Testing dependencies:
     testCompileOnly project(":Common")

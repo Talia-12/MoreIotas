@@ -53,6 +53,8 @@ object Patterns {
 	@JvmField
 	val MATRIX_ZERO = make(HexPattern.fromAngles("awwaeawwa", HexDir.SOUTH_WEST), modLoc("matrix/zero"), OpZeroMatrix)
 	@JvmField
+	val MATRIX_ROTATION = make(HexPattern.fromAngles("awwaeawwawawddw", HexDir.SOUTH_WEST), modLoc("matrix/rotation"), OpRotationMatrix)
+	@JvmField
 	val MATRIX_ADD = make(HexPattern.fromAngles("waawawaeawwaea", HexDir.EAST), modLoc("matrix/add"), OpAddMatrix)
 	@JvmField
 	val MATRIX_MUL = make(HexPattern.fromAngles("waqawawwaeaww", HexDir.SOUTH_EAST), modLoc("matrix/mul"), OpMulMatrix)

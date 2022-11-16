@@ -6,6 +6,7 @@ import at.petrak.hexcasting.api.spell.iota.Vec3Iota
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
 import net.minecraft.core.BlockPos
+import net.minecraft.core.Position
 import net.minecraft.world.phys.Vec3
 import org.jblas.DoubleMatrix
 import ram.talia.moreiotas.api.spell.iota.MatrixIota
@@ -18,6 +19,11 @@ operator fun Vec3.div(d: Double): Vec3 = this.scale(1/d)
 operator fun Vec3.plus(vec3: Vec3): Vec3 = this.add(vec3)
 operator fun Vec3.minus(vec3: Vec3): Vec3 = this.subtract(vec3)
 operator fun Vec3.unaryMinus(): Vec3 = this.scale(-1.0)
+
+operator fun Position.component1(): Double = this.x()
+operator fun Position.component2(): Double = this.y()
+operator fun Position.component3(): Double = this.z()
+
 
 operator fun Double.times(mat: DoubleMatrix): DoubleMatrix = mat.mul(this)
 operator fun DoubleMatrix.times(d: Double): DoubleMatrix = this.mul(d)

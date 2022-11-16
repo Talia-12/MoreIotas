@@ -3,6 +3,7 @@ package ram.talia.moreiotas.api.spell.iota;
 import at.petrak.hexcasting.api.spell.iota.DoubleIota;
 import at.petrak.hexcasting.api.spell.iota.Iota;
 import at.petrak.hexcasting.api.spell.iota.IotaType;
+import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota;
 import at.petrak.hexcasting.api.utils.HexUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.*;
@@ -13,8 +14,15 @@ import org.jetbrains.annotations.NotNull;
 import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes;
 
 public class MatrixIota extends Iota {
-    public MatrixIota(@NotNull DoubleMatrix matrix) {
+    public MatrixIota(@NotNull DoubleMatrix matrix) throws MishapInvalidIota {
         super(MoreIotasIotaTypes.MATRIX_TYPE, matrix);
+        if (matrix.rows > MAX_SIZE || matrix.columns > MAX_SIZE)
+            throw MishapInvalidIota.of(this,
+                    0,
+                    "matrix.max_size",
+                    MatrixIota.MAX_SIZE,
+                    matrix.rows,
+                    matrix.columns);
     }
 
     public DoubleMatrix getMatrix() {
@@ -59,7 +67,11 @@ public class MatrixIota extends Iota {
         @Override
         public MatrixIota deserialize(Tag tag, ServerLevel world) throws IllegalArgumentException {
             var ctag = HexUtils.downcast(tag, CompoundTag.TYPE);
-            return new MatrixIota(deserialise(ctag));
+            try {
+                return new MatrixIota(deserialise(ctag));
+            } catch (MishapInvalidIota e) {
+                throw new IllegalArgumentException(e);
+            }
         }
 
         @Override
@@ -127,4 +139,6 @@ public class MatrixIota extends Iota {
     private static final String TAG_ROWS = "rows";
     private static final String TAG_COLS = "cols";
     private static final String TAG_MAT = "mat";
+
+    public static final int MAX_SIZE = 144;
 }

@@ -2,6 +2,7 @@ package ram.talia.moreiotas.api.spell.iota;
 
 import at.petrak.hexcasting.api.spell.iota.Iota;
 import at.petrak.hexcasting.api.spell.iota.IotaType;
+import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota;
 import at.petrak.hexcasting.api.utils.HexUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.StringTag;
@@ -12,8 +13,10 @@ import org.jetbrains.annotations.NotNull;
 import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes;
 
 public class StringIota extends Iota {
-    public StringIota(@NotNull String string) {
+    public StringIota(@NotNull String string) throws MishapInvalidIota {
         super(MoreIotasIotaTypes.STRING_TYPE, string);
+        if (string.length() > MAX_SIZE)
+            throw MishapInvalidIota.of(this, 0, "string.max_size", MAX_SIZE, string.length());
     }
 
     public String getString() {
@@ -42,7 +45,11 @@ public class StringIota extends Iota {
         public StringIota deserialize(Tag tag, ServerLevel world) throws IllegalArgumentException {
             var stag = HexUtils.downcast(tag, StringTag.TYPE);
 
-            return new StringIota(stag.getAsString());
+            try {
+                return new StringIota(stag.getAsString());
+            } catch (MishapInvalidIota e) {
+                throw new IllegalArgumentException(e);
+            }
         }
 
         @Override
@@ -58,4 +65,6 @@ public class StringIota extends Iota {
             return 0xff_ff55ff;
         }
     };
+
+    public static final int MAX_SIZE = 1728;
 }
