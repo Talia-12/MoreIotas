@@ -32,7 +32,10 @@ object OpMulMatrix : ConstMediaAction {
             arg1.flatMap({d1 -> (mat0*d1).asActionResult},
                 { vec1 ->
                     if (mat0.columns != 3) throw MishapInvalidIota.matrixWrongSize(args[0], 1, null, 3)
-                    (mat0*vec1).asActionResult
+                    val out = mat0*vec1
+                    if (out.columns == 1 && out.rows == 3)
+                        out.asVec3.asActionResult
+                    else out.asActionResult
                 },
                 { mat1 ->
                     if (mat0.columns != mat1.rows)

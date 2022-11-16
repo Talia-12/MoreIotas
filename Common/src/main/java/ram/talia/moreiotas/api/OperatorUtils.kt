@@ -5,7 +5,6 @@ import at.petrak.hexcasting.api.spell.iota.Iota
 import at.petrak.hexcasting.api.spell.iota.Vec3Iota
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
-import com.mojang.datafixers.util.Either
 import net.minecraft.core.BlockPos
 import net.minecraft.world.phys.Vec3
 import org.jblas.DoubleMatrix
@@ -65,7 +64,7 @@ fun List<Iota>.getNumOrVecOrMatrix(idx: Int, argc: Int = 0): Anyone<Double, Vec3
 inline val String.asActionResult get() = listOf(StringIota(this))
 inline val DoubleMatrix.asActionResult get() = listOf(MatrixIota(this))
 
-inline val Vec3.asMatrix get() = DoubleMatrix(1, 3, this.x, this.y, this.z)
+inline val Vec3.asMatrix get() = DoubleMatrix(3, 1, this.x, this.y, this.z)
 inline val BlockPos.asMatrix get() = DoubleMatrix(1, 3, this.x.toDouble(), this.y.toDouble(), this.z.toDouble())
 inline val List<Vec3>.asMatrix get(): DoubleMatrix {
     val matrix = DoubleMatrix(this.size, 3)
@@ -74,8 +73,15 @@ inline val List<Vec3>.asMatrix get(): DoubleMatrix {
         matrix.put(i, 1, vec.y)
         matrix.put(i, 2, vec.z)
     }
-    return matrix;
+    return matrix
 }
+
+inline val Anyone<Double, Vec3, DoubleMatrix>.asMatrix get() = this.flatMap(
+        {d -> DoubleMatrix(1,1,d)},
+        {v -> v.asMatrix},
+        {mat -> mat})
+
+inline val DoubleMatrix.asVec3 get() = Vec3(this[0], this[1], this[2])
 
 fun MishapInvalidIota.Companion.matrixWrongSize(perpetrator: Iota,
                                                 reverseIdx: Int,

@@ -75,7 +75,25 @@ public class MatrixIota extends Iota {
                 return Component.translatable("hexcasting.spelldata.unknown");
             }
 
-            return Component.literal(mat.toString()).withStyle(ChatFormatting.BLUE);
+            var out = Component.empty();
+
+            out.append(String.format("(%d, %d)", mat.rows, mat.columns));
+            if (!mat.isEmpty())
+                out.append(" | ");
+
+            for (int r = 0; r < mat.rows; r++) {
+                for (int c = 0; c < mat.columns; c++) {
+                    out.append(Component.literal(String.format("%.2f", mat.get(r,c))).withStyle(ChatFormatting.GREEN));
+                    if (c < mat.columns - 1) {
+                        out.append(", ");
+                    }
+                }
+                if (r < mat.rows - 1) {
+                    out.append("; ");
+                }
+            }
+
+            return Component.translatable("hexcasting.tooltip.list_contents", out).withStyle(ChatFormatting.BLUE);
         }
 
         private DoubleMatrix deserialise(CompoundTag ctag) throws IllegalArgumentException {
