@@ -64,6 +64,16 @@ object Patterns {
 	val MATRIX_TRANSPOSE = make(HexPattern.fromAngles("wwaeawwaede", HexDir.EAST), modLoc("matrix/transpose"), OpTransposeMatrix)
 	@JvmField
 	val MATRIX_INVERSE = make(HexPattern.fromAngles("wwdqdwwdqaq", HexDir.WEST), modLoc("matrix/inverse"), OpInverseMatrix)
+	@JvmField
+	val MATRIX_CONCAT_VERT = make(
+			HexPattern.fromAngles("awwaeawwawawdedwa", HexDir.SOUTH_WEST),
+			modLoc("matrix/concat/vert"),
+			OpConcatMatrix(true))
+	@JvmField
+	val MATRIX_CONCAT_HORI = make(
+			HexPattern.fromAngles("dwwdqdwwdwdwaqawd", HexDir.SOUTH_EAST),
+			modLoc("matrix/concat/hori"),
+			OpConcatMatrix(false))
 
 	private fun make (pattern: HexPattern, location: ResourceLocation, operator: Action, isPerWorld: Boolean = false): Triple<HexPattern, ResourceLocation, Action> {
 		val triple = Triple(pattern, location, operator)

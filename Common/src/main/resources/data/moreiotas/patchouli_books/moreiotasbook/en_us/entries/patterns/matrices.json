@@ -82,6 +82,22 @@
       "input": "mat",
       "output": "mat",
       "text": "moreiotas.page.matrices.matrix/inverse"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:matrix/concat/vert",
+      "anchor": "moreiotas:matrix/concat/vert",
+      "input": "mat, mat",
+      "output": "mat",
+      "text": "moreiotas.page.matrices.matrix/concat/vert"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:matrix/concat/hori",
+      "anchor": "moreiotas:matrix/concat/hori",
+      "input": "mat, mat",
+      "output": "mat",
+      "text": "moreiotas.page.matrices.matrix/concat/hori"
     }
   ]
 }
