@@ -11,8 +11,6 @@ import at.petrak.hexcasting.common.casting.operators.lists.OpIndex
 import at.petrak.hexcasting.common.casting.operators.lists.OpSplat
 import at.petrak.hexcasting.common.casting.operators.math.logic.OpBoolIf
 import at.petrak.hexcasting.common.casting.operators.spells.OpPrint
-import at.petrak.hexcasting.common.casting.operators.stack.OpDuplicate
-import at.petrak.hexcasting.common.casting.operators.stack.OpSwap
 import net.minecraft.resources.ResourceLocation
 import ram.talia.moreiotas.api.MoreIotasAPI
 
@@ -25,8 +23,6 @@ object Patterns {
 
 	@JvmField
 	val DROP = PatternIota(HexPattern.fromAngles("a", HexDir.SOUTH_EAST))
-	@JvmField
-	val SWAP = patternOf(OpSwap)
 
 	@JvmField
 	val EQUALITY = patternOf(HexAPI.modLoc("equals"))
@@ -45,8 +41,6 @@ object Patterns {
 	@JvmField
 	val FOUR = PatternIota(HexPattern.fromAngles("aqaawaa", HexDir.EAST))
 
-	@JvmField
-	val GEMINIS_DISINTEGRATION = patternOf(OpDuplicate)
 	@JvmField
 	val FLOCKS_DISINTEGRATION = patternOf(OpSplat)
 
