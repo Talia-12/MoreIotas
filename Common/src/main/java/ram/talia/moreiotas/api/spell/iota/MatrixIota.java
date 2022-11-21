@@ -105,7 +105,7 @@ public class MatrixIota extends Iota {
                 }
             }
 
-            return Component.translatable("hexcasting.tooltip.list_contents", out).withStyle(ChatFormatting.BLUE);
+            return Component.translatable("hexcasting.tooltip.list_contents", out).withStyle(ChatFormatting.AQUA);
         }
 
         private DoubleMatrix deserialise(CompoundTag ctag) throws IllegalArgumentException {
@@ -132,7 +132,7 @@ public class MatrixIota extends Iota {
 
         @Override
         public int color() {
-            return 0xff_5555ff;
+            return 0xff_55ffff;
         }
     };
 

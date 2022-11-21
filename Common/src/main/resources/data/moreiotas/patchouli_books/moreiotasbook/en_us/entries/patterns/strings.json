@@ -8,18 +8,10 @@
   "pages": [
     {
       "type": "hexcasting:pattern",
-      "op_id": "moreiotas:string/block",
-      "anchor": "moreiotas:string/block",
-      "input": "vec",
-      "output": "string",
-      "text": "moreiotas.page.strings.string/block"
-    },
-    {
-      "type": "hexcasting:pattern",
       "op_id": "moreiotas:string/chat/caster",
       "anchor": "moreiotas:string/chat/caster",
       "input": "",
-      "output": "string",
+      "output": "str",
       "text": "moreiotas.page.strings.string/chat/caster"
     },
     {
@@ -27,15 +19,23 @@
       "op_id": "moreiotas:string/chat/all",
       "anchor": "moreiotas:string/chat/all",
       "input": "",
-      "output": "string",
+      "output": "str",
       "text": "moreiotas.page.strings.string/chat/all"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/block",
+      "anchor": "moreiotas:string/block",
+      "input": "vec",
+      "output": "str",
+      "text": "moreiotas.page.strings.string/block"
     },
     {
       "type": "hexcasting:pattern",
       "op_id": "moreiotas:string/iota",
       "anchor": "moreiotas:string/iota",
       "input": "any",
-      "output": "string",
+      "output": "str",
       "text": "moreiotas.page.strings.string/iota"
     },
     {
@@ -43,31 +43,39 @@
       "op_id": "moreiotas:string/add",
       "anchor": "moreiotas:string/add",
       "input": "vec",
-      "output": "string",
+      "output": "str",
       "text": "moreiotas.page.strings.string/add"
     },
     {
       "type": "hexcasting:pattern",
       "op_id": "moreiotas:string/split",
       "anchor": "moreiotas:string/split",
-      "input": "string, string",
-      "output": "[string]",
+      "input": "str, str",
+      "output": "[str]",
       "text": "moreiotas.page.strings.string/split"
     },
     {
       "type": "hexcasting:pattern",
       "op_id": "moreiotas:string/parse",
       "anchor": "moreiotas:string/parse",
-      "input": "string",
-      "output": "number/null",
+      "input": "str",
+      "output": "num | null",
       "text": "moreiotas.page.strings.string/parse"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/empty",
+      "anchor": "moreiotas:string/empty",
+      "input": "",
+      "output": "str",
+      "text": "moreiotas.page.strings.string/empty"
     },
     {
       "type": "hexcasting:pattern",
       "op_id": "moreiotas:string/space",
       "anchor": "moreiotas:string/space",
       "input": "",
-      "output": "string",
+      "output": "str",
       "text": "moreiotas.page.strings.string/space"
     },
     {
@@ -75,7 +83,7 @@
       "op_id": "moreiotas:string/comma",
       "anchor": "moreiotas:string/comma",
       "input": "",
-      "output": "string",
+      "output": "str",
       "text": "moreiotas.page.strings.string/comma"
     }
   ]

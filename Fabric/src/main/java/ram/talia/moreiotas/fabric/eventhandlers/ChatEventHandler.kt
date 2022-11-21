@@ -11,8 +11,10 @@ object ChatEventHandler {
     var lastMessage: String? = null
 
     fun receiveChat(message: PlayerChatMessage, player: ServerPlayer, params: ChatType.Bound) {
-        lastMessages[player.uuid] = message.toString()
-        lastMessage = message.toString()
+        val string = message.signedBody.content.plain + message.unsignedContent.map { it.string }.orElse("")
+
+        lastMessages[player.uuid] = string
+        lastMessage = string
     }
 
     @JvmStatic

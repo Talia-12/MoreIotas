@@ -2,7 +2,10 @@
   "hexcasting.iota.moreiotas:string": "String",
   "hexcasting.iota.moreiotas:matrix": "Matrix",
 
-  "hexcasting.spell.moreiotas:string/space": "Blank Reflection",
+  "hexal.tooltip.string": "\"%s\"",
+
+  "hexcasting.spell.moreiotas:string/empty": "Blank Reflection",
+  "hexcasting.spell.moreiotas:string/space": "Spacing Reflection",
   "hexcasting.spell.moreiotas:string/comma": "Comma Reflection",
   "hexcasting.spell.moreiotas:string/block": "Reader's Purification",
   "hexcasting.spell.moreiotas:string/chat/caster": "Whisper Reflection",
@@ -30,6 +33,7 @@
   "hexcasting.spell.book.moreiotas:matrix/mul": "Mul. Dstl.: Matrix",
 
   "moreiotas.entry.strings": "Strings",
+  "moreiotas.page.strings.string/empty": "Add an empty string to the stack, useful for combining with other strings.",
   "moreiotas.page.strings.string/space": "Add a blank space string to the stack, useful for combining with other strings.",
   "moreiotas.page.strings.string/comma": "Add a comma string to the stack, useful for combining with other strings.",
   "moreiotas.page.strings.string/block": "Removes a vector from the stack. If that vector is pointing at a sign, it returns that sign's text to the stack. Otherwise, it returns null.",

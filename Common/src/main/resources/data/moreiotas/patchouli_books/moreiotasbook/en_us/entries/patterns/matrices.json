@@ -2,7 +2,7 @@
   "name": "moreiotas.entry.matrices",
   "category": "hexcasting:patterns",
   "icon": "minecraft:daylight_detector",
-  "sortnum": 3.75,
+  "sortnum": 11.5,
   "advancement": "hexcasting:root",
   "read_by_default": true,
   "pages": [

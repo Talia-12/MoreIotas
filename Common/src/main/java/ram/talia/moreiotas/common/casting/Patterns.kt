@@ -23,7 +23,11 @@ object Patterns {
 
 	// ================================ Strings =======================================
 	@JvmField
-	val STRING_SPACE = make(HexPattern.fromAngles("awdwa", HexDir.SOUTH_EAST),
+	val STRING_EMPTY = make(HexPattern.fromAngles("awdwa", HexDir.SOUTH_EAST),
+			modLoc("string/empty"),
+			Action.makeConstantOp(StringIota("")))
+	@JvmField
+	val STRING_SPACE = make(HexPattern.fromAngles("awdwaaww", HexDir.SOUTH_EAST),
 	                        modLoc("string/space"),
 	                        Action.makeConstantOp(StringIota(" ")))
 	@JvmField

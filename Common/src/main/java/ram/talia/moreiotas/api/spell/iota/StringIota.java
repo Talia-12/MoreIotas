@@ -57,7 +57,8 @@ public class StringIota extends Iota {
             if (!(tag instanceof StringTag stag)) {
                 return Component.translatable("hexcasting.spelldata.unknown");
             }
-            return Component.literal(stag.getAsString()).withStyle(ChatFormatting.LIGHT_PURPLE);
+            return Component.translatable("hexal.tooltip.string", stag.getAsString())
+                    .withStyle(ChatFormatting.LIGHT_PURPLE);
         }
 
         @Override
