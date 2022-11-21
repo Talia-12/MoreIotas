@@ -38,11 +38,13 @@ public class ChatEventHandler {
     public static void chatMessageSent(ServerChatEvent event) {
         var uuid = event.getPlayer().getUUID();
         var text = event.getRawText();
-        lastMessage = text;
 
+        if (event.isCanceled())
+            return;
 
         if (!prefixes.containsKey(uuid)) {
             lastMessages.put(uuid, text);
+            lastMessage = text;
             return;
         }
 
@@ -50,14 +52,17 @@ public class ChatEventHandler {
 
         if (prefix == null) {
             lastMessages.put(uuid, text);
+            lastMessage = text;
             return;
         }
-
 
         if (text.startsWith(prefix)) {
             event.setCanceled(true);
             lastMessages.put(uuid, text.substring(prefix.length()));
+            return;
         }
+
+        lastMessage = text;
     }
 
     @SubscribeEvent

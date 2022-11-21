@@ -13,12 +13,12 @@ object ChatEventHandler {
 
     fun receiveChat(message: PlayerChatMessage, player: ServerPlayer, params: ChatType.Bound): Boolean {
         val text = message.signedBody.content.plain + message.unsignedContent.map { it.string }.orElse("")
-        lastMessage = text
 
         val prefix = MoreIotasCardinalComponents.CHAT_PREFIX_HOLDER.get(player).prefix
 
         if (prefix == null) {
             lastMessages[player.uuid] = text
+            lastMessage = text
             return true
         }
 
