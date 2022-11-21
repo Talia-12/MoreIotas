@@ -31,15 +31,15 @@ object OpUnmakeMatrix : ConstMediaAction {
                 list.add(Vec3Iota(Vec3(mat[i, 0], mat[i, 1], mat[i, 2])))
             }
         } else {
-            for (r in 0 until mat.rows) {
+            for (c in 0 until mat.columns) {
                 val toAdd = mutableListOf<Iota>()
-                for (c in 0 until mat.columns) {
+                for (r in 0 until mat.rows) {
                     toAdd.add(DoubleIota(mat[r,c]))
                 }
                 list.add(ListIota(toAdd))
             }
         }
 
-        return list
+        return list.asActionResult
     }
 }
