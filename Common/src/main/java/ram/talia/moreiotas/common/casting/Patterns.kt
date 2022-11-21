@@ -41,6 +41,10 @@ object Patterns {
 	@JvmField
 	val STRING_CHAT_ALL = make(HexPattern.fromAngles("wded", HexDir.EAST), modLoc("string/chat/all"), OpChatString(true))
 	@JvmField
+	val STRING_CHAT_PREFIX_SET = make(HexPattern.fromAngles("qwaqa", HexDir.SOUTH_EAST), modLoc("string/chat/prefix/set"), OpChatPrefixSet)
+	@JvmField
+	val STRING_CHAT_PREFIX_GET = make(HexPattern.fromAngles("ewded", HexDir.NORTH_EAST), modLoc("string/chat/prefix/get"), OpChatPrefixGet)
+	@JvmField
 	val STRING_IOTA = make(HexPattern.fromAngles("wawqwawaw", HexDir.EAST), modLoc("string/iota"), OpIotaString)
 	@JvmField
 	val STRING_ADD = make(HexPattern.fromAngles("waawaqwawqq", HexDir.NORTH_EAST), modLoc("string/add"), OpAddStrings)

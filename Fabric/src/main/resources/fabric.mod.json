@@ -61,6 +61,7 @@
 
   "custom": {
     "cardinal-components": [
+      "moreiotas:chat_prefix_holder"
     ]
   }
 }
