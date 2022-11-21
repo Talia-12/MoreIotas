@@ -26,7 +26,7 @@ object FabricMoreIotasInitializer : ModInitializer {
     }
 
     private fun initListeners() {
-        ServerMessageEvents.CHAT_MESSAGE.register(ChatEventHandler::receiveChat)
+        ServerMessageEvents.ALLOW_CHAT_MESSAGE.register(ChatEventHandler::receiveChat)
     }
 
     private fun initRegistries() {

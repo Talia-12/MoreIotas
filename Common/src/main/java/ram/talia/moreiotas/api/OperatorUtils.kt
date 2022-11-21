@@ -2,6 +2,7 @@ package ram.talia.moreiotas.api
 
 import at.petrak.hexcasting.api.spell.iota.DoubleIota
 import at.petrak.hexcasting.api.spell.iota.Iota
+import at.petrak.hexcasting.api.spell.iota.NullIota
 import at.petrak.hexcasting.api.spell.iota.Vec3Iota
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
@@ -39,6 +40,17 @@ fun List<Iota>.getString(idx: Int, argc: Int = 0): String {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
     if (x is StringIota) {
         return x.string
+    } else {
+        throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "string")
+    }
+}
+
+fun List<Iota>.getStringOrNull(idx: Int, argc: Int = 0): String? {
+    val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
+    return if (x is StringIota) {
+        x.string
+    } else if (x is NullIota) {
+        null
     } else {
         throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "string")
     }

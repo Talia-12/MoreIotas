@@ -64,8 +64,11 @@ public interface IXplatAbstractions {
 //
     boolean isBreakingAllowed(Level level, BlockPos pos, BlockState state, Player player);
 
-    @Nullable
-    String lastMessage(@Nullable Player player);
+    @Nullable String lastMessage(@Nullable Player player);
+
+    void setChatPrefix(Player player, @Nullable String prefix);
+
+    @Nullable String getChatPrefix(Player player);
 //
 //    boolean isPlacingAllowed(Level world, BlockPos pos, ItemStack blockStack, Player player);
 

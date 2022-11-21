@@ -46,4 +46,14 @@ public class ForgeXplatImpl implements IXplatAbstractions {
 	public @Nullable String lastMessage(@Nullable Player player) {
 		return ChatEventHandler.getLastMessage(player);
 	}
+
+	@Override
+	public void setChatPrefix(Player player, @Nullable String prefix) {
+		ChatEventHandler.setPrefix(player, prefix);
+	}
+
+	@Override
+	public @Nullable String getChatPrefix(Player player) {
+		return ChatEventHandler.getPrefix(player);
+	}
 }

@@ -76,6 +76,16 @@ public class FabricXplatImpl implements IXplatAbstractions {
         return ChatEventHandler.lastMessage(player);
     }
 
+    @Override
+    public void setChatPrefix(Player player, String prefix) {
+        ChatEventHandler.setPrefix(player, prefix);
+    }
+
+    @Override
+    public @Nullable String getChatPrefix(Player player) {
+        return ChatEventHandler.getPrefix(player);
+    }
+
     //    @Override
 //    public <T extends BlockEntity> BlockEntityType<T> createBlockEntityType(BiFunction<BlockPos, BlockState, T> func,
 //        Block... blocks) {
