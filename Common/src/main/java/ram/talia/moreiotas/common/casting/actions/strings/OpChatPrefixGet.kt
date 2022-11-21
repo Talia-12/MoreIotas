@@ -8,7 +8,7 @@ import ram.talia.moreiotas.api.asActionResult
 import ram.talia.moreiotas.xplat.IXplatAbstractions
 
 object OpChatPrefixGet : ConstMediaAction {
-    override val argc = 1
+    override val argc = 0
 
     override fun execute(args: List<Iota>, ctx: CastingContext): List<Iota> {
         return IXplatAbstractions.INSTANCE.getChatPrefix(ctx.caster)?.asActionResult ?: null.asActionResult

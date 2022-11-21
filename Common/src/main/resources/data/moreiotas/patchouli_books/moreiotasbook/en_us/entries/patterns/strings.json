@@ -8,54 +8,6 @@
   "pages": [
     {
       "type": "hexcasting:pattern",
-      "op_id": "moreiotas:string/chat/caster",
-      "anchor": "moreiotas:string/chat/caster",
-      "input": "",
-      "output": "str",
-      "text": "moreiotas.page.strings.string/chat/caster"
-    },
-    {
-      "type": "hexcasting:pattern",
-      "op_id": "moreiotas:string/chat/all",
-      "anchor": "moreiotas:string/chat/all",
-      "input": "",
-      "output": "str",
-      "text": "moreiotas.page.strings.string/chat/all"
-    },
-    {
-      "type": "hexcasting:pattern",
-      "op_id": "moreiotas:string/chat/prefix/set",
-      "anchor": "moreiotas:string/chat/prefix/set",
-      "input": "str",
-      "output": "",
-      "text": "moreiotas.page.strings.string/chat/prefix/set"
-    },
-    {
-      "type": "hexcasting:pattern",
-      "op_id": "moreiotas:string/chat/prefix/get",
-      "anchor": "moreiotas:string/chat/prefix/get",
-      "input": "",
-      "output": "str",
-      "text": "moreiotas.page.strings.string/chat/prefix/get"
-    },
-    {
-      "type": "hexcasting:pattern",
-      "op_id": "moreiotas:string/block",
-      "anchor": "moreiotas:string/block",
-      "input": "vec",
-      "output": "str",
-      "text": "moreiotas.page.strings.string/block"
-    },
-    {
-      "type": "hexcasting:pattern",
-      "op_id": "moreiotas:string/iota",
-      "anchor": "moreiotas:string/iota",
-      "input": "any",
-      "output": "str",
-      "text": "moreiotas.page.strings.string/iota"
-    },
-    {
-      "type": "hexcasting:pattern",
       "op_id": "moreiotas:string/add",
       "anchor": "moreiotas:string/add",
       "input": "vec",
@@ -101,6 +53,54 @@
       "input": "",
       "output": "str",
       "text": "moreiotas.page.strings.string/comma"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/chat/caster",
+      "anchor": "moreiotas:string/chat/caster",
+      "input": "",
+      "output": "str",
+      "text": "moreiotas.page.strings.string/chat/caster"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/chat/all",
+      "anchor": "moreiotas:string/chat/all",
+      "input": "",
+      "output": "str",
+      "text": "moreiotas.page.strings.string/chat/all"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/chat/prefix/set",
+      "anchor": "moreiotas:string/chat/prefix/set",
+      "input": "str",
+      "output": "",
+      "text": "moreiotas.page.strings.string/chat/prefix/set"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/chat/prefix/get",
+      "anchor": "moreiotas:string/chat/prefix/get",
+      "input": "",
+      "output": "str",
+      "text": "moreiotas.page.strings.string/chat/prefix/get"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/block",
+      "anchor": "moreiotas:string/block",
+      "input": "vec",
+      "output": "str",
+      "text": "moreiotas.page.strings.string/block"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/iota",
+      "anchor": "moreiotas:string/iota",
+      "input": "any",
+      "output": "str",
+      "text": "moreiotas.page.strings.string/iota"
     }
   ]
 }
