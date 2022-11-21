@@ -1,15 +1,17 @@
 package ram.talia.moreiotas.fabric.cc
 
+import dev.onyxstudios.cca.api.v3.component.ComponentKey
+import dev.onyxstudios.cca.api.v3.component.ComponentRegistry
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer
+import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy
 import dev.onyxstudios.cca.api.v3.item.ItemComponentFactoryRegistry
 import dev.onyxstudios.cca.api.v3.item.ItemComponentInitializer
+import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
 
 class MoreIotasCardinalComponents : EntityComponentInitializer, ItemComponentInitializer {
 	override fun registerEntityComponentFactories(registry: EntityComponentFactoryRegistry) {
-//		registry.registerForPlayers(WISP_CASTING_MANAGER, ::CCWispCastingManager, RespawnCopyStrategy.ALWAYS_COPY)
-//		registry.registerForPlayers(PLAYER_LINKSTORE, ::CCPlayerLinkstore, RespawnCopyStrategy.NEVER_COPY)
-//		registry.registerForPlayers(EVERBOOK, ::CCEverbook, RespawnCopyStrategy.ALWAYS_COPY)
+		registry.registerForPlayers(CHAT_PREFIX_HOLDER, ::CCChatPrefixHolder, RespawnCopyStrategy.ALWAYS_COPY)
 	}
 
 	override fun registerItemComponentFactories(registry: ItemComponentFactoryRegistry) {
@@ -17,20 +19,10 @@ class MoreIotasCardinalComponents : EntityComponentInitializer, ItemComponentIni
 	}
 
 	companion object {
-//		@JvmField
-//		val WISP_CASTING_MANAGER: ComponentKey<CCWispCastingManager> = ComponentRegistry.getOrCreate(
-//			MoreIotasAPI.modLoc("wisp_casting_manager"),
-//			CCWispCastingManager::class.java
-//		)
-//		@JvmField
-//		val PLAYER_LINKSTORE: ComponentKey<CCPlayerLinkstore> = ComponentRegistry.getOrCreate(
-//			MoreIotasAPI.modLoc("player_linkstore"),
-//			CCPlayerLinkstore::class.java
-//		)
-//		@JvmField
-//		val EVERBOOK: ComponentKey<CCEverbook> = ComponentRegistry.getOrCreate(
-//			MoreIotasAPI.modLoc("everbook"),
-//			CCEverbook::class.java
-//		)
+		@JvmField
+		val CHAT_PREFIX_HOLDER: ComponentKey<CCChatPrefixHolder> = ComponentRegistry.getOrCreate(
+			modLoc("chat_prefix_holder"),
+			CCChatPrefixHolder::class.java
+		)
 	}
 }

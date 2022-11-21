@@ -2,14 +2,19 @@ package ram.talia.moreiotas.forge.eventhandlers;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.ServerChatEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 
 public class ChatEventHandler {
+    private static final String TAG_CHAT_PREFIX = "hexal:prefix";
+
     private static final Map<UUID, @Nullable String> prefixes = new HashMap<>();
     private static final Map<UUID, @Nullable String> lastMessages = new HashMap<>();
 
@@ -53,5 +58,23 @@ public class ChatEventHandler {
             event.setCanceled(true);
             lastMessages.put(uuid, text.substring(prefix.length()));
         }
+    }
+
+    @SubscribeEvent
+    public static void playerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        var player = event.getEntity();
+        var uuid = player.getUUID();
+
+        if (prefixes.containsKey(uuid) && prefixes.get(uuid) != null)
+            player.getPersistentData().putString(TAG_CHAT_PREFIX, Objects.requireNonNull(prefixes.get(uuid)));
+    }
+
+    @SubscribeEvent
+    public static void playerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+        var player = event.getEntity();
+        var uuid = player.getUUID();
+
+        if (player.getPersistentData().contains(TAG_CHAT_PREFIX))
+            prefixes.put(uuid, player.getPersistentData().getString(TAG_CHAT_PREFIX));
     }
 }

@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+import ram.talia.moreiotas.fabric.cc.MoreIotasCardinalComponents;
 import ram.talia.moreiotas.fabric.eventhandlers.ChatEventHandler;
 import ram.talia.moreiotas.xplat.IXplatAbstractions;
 
@@ -78,12 +79,12 @@ public class FabricXplatImpl implements IXplatAbstractions {
 
     @Override
     public void setChatPrefix(Player player, String prefix) {
-        ChatEventHandler.setPrefix(player, prefix);
+        MoreIotasCardinalComponents.CHAT_PREFIX_HOLDER.get(player).setPrefix(prefix);
     }
 
     @Override
     public @Nullable String getChatPrefix(Player player) {
-        return ChatEventHandler.getPrefix(player);
+        return MoreIotasCardinalComponents.CHAT_PREFIX_HOLDER.get(player).getPrefix();
     }
 
     //    @Override
