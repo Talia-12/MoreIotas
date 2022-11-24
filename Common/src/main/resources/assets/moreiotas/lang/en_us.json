@@ -69,9 +69,10 @@
 
   "hexcasting.mishap.invalid_value.class.string": "a string",
   "hexcasting.mishap.invalid_value.class.matrix": "a matrix",
+  "hexcasting.mishap.invalid_value.class.matrix.square": "a square matrix",
   "hexcasting.mishap.invalid_value.class.numvecmat": "a number, vector, or matrix",
   "hexcasting.mishap.invalid_value.class.possible_matrix": "an iota able to be converted to a matrix",
   "hexcasting.mishap.invalid_value.matrix.wrong_size": "a matrix %s by %s",
   "hexcasting.mishap.invalid_value.matrix.max_size": "a final matrix less than %1$d by %1$d, was %2$d by %3$d",
-  "hexcasting.mishap.invalid_value.string.max_size": "a string less than %d chars long, was %d",
+  "hexcasting.mishap.invalid_value.string.max_size": "a string less than %d chars long, was %d"
 }
