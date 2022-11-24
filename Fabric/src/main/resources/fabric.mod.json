@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "MoreIotas",
-  "description": "Extension mod for Hex Casting to add new patterns (and whatever else I feel like).",
+  "description": "Addon mod for Hex Casting to add new Iota types.",
   "authors": [
     "Talia"
   ],
