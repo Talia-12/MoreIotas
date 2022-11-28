@@ -118,6 +118,22 @@
       "input": "mat, mat",
       "output": "mat",
       "text": "moreiotas.page.matrices.matrix/concat/hori"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:matrix/split/vert",
+      "anchor": "moreiotas:matrix/split/vert",
+      "input": "mat, num",
+      "output": "mat, mat",
+      "text": "moreiotas.page.matrices.matrix/split/vert"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:matrix/split/hori",
+      "anchor": "moreiotas:matrix/split/hori",
+      "input": "mat, num",
+      "output": "mat, mat",
+      "text": "moreiotas.page.matrices.matrix/split/hori"
     }
   ]
 }

@@ -84,6 +84,16 @@ object Patterns {
 			HexPattern.fromAngles("dwwdqdwwdwdwaqawd", HexDir.SOUTH_EAST),
 			modLoc("matrix/concat/hori"),
 			OpConcatMatrix(false))
+	@JvmField
+	val MATRIX_SPLIT_VERT = make(
+			HexPattern.fromAngles("awdedwawawwaeawwa", HexDir.SOUTH_EAST),
+			modLoc("matrix/split/vert"),
+			OpSplitMatrix(true))
+	@JvmField
+	val MATRIX_SPLIT_HORI = make(
+			HexPattern.fromAngles("dwaqawdwdwwdqdwwd", HexDir.SOUTH_WEST),
+			modLoc("matrix/split/hori"),
+			OpSplitMatrix(false))
 
 	private fun make (pattern: HexPattern, location: ResourceLocation, operator: Action, isPerWorld: Boolean = false): Triple<HexPattern, ResourceLocation, Action> {
 		val triple = Triple(pattern, location, operator)
