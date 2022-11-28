@@ -32,6 +32,22 @@
     },
     {
       "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/find",
+      "anchor": "moreiotas:string/find",
+      "input": "str, str",
+      "output": "num",
+      "text": "moreiotas.page.strings.string/find"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/sub",
+      "anchor": "moreiotas:string/sub",
+      "input": "str, num, num",
+      "output": "str",
+      "text": "moreiotas.page.strings.string/sub"
+    },
+    {
+      "type": "hexcasting:pattern",
       "op_id": "moreiotas:string/empty",
       "anchor": "moreiotas:string/empty",
       "input": "",

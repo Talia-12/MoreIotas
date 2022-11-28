@@ -52,6 +52,10 @@ object Patterns {
 	val STRING_SPLIT = make(HexPattern.fromAngles("aqwaqa", HexDir.EAST), modLoc("string/split"), OpSplitString)
 	@JvmField
 	val STRING_PARSE = make(HexPattern.fromAngles("aqwaq", HexDir.EAST), modLoc("string/parse"), OpParseString)
+	@JvmField
+	val STRING_FIND = make(HexPattern.fromAngles("waqwwaqa", HexDir.EAST), modLoc("string/find"), OpFindString)
+	@JvmField
+	val STRING_SUB = make(HexPattern.fromAngles("aqwwaqwaad", HexDir.EAST), modLoc("string/sub"), OpSubString)
 
 	// ================================ Matrices =======================================
 	@JvmField
