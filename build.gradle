@@ -177,6 +177,20 @@ compileTestKotlin {
     }
 }
 
+private void createReleaseTag() {
+    def tagName = "$modVersion"
+    ("git tag $tagName").execute()
+    ("git push --tags").execute()
+}
+
+// this task requires a keys.properties file in the base directory containing my modrinth key, as well as changelog.md
+// containing the changelog; running it will probably break for you.
+task modrinth {
+    dependsOn ":Fabric:modrinth"
+    dependsOn ":Forge:modrinth"
+    createReleaseTag()
+}
+
 def getGitChangelog = { ->
     try {
         def stdout = new ByteArrayOutputStream()
