@@ -26,6 +26,7 @@
   "hexcasting.spell.moreiotas:matrix/mul": "Multiplication Distillation: Matrix",
   "hexcasting.spell.moreiotas:matrix/transpose": "Transpose Purification",
   "hexcasting.spell.moreiotas:matrix/inverse": "Inverse Purification",
+  "hexcasting.spell.moreiotas:matrix/determinant": "Determinant Purification",
   "hexcasting.spell.moreiotas:matrix/concat/vert": "Tower Distillation",
   "hexcasting.spell.moreiotas:matrix/concat/hori": "Sprawling Distillation",
 
@@ -63,6 +64,7 @@
   "moreiotas.page.matrices.matrix/mul": "Multiplies the first n by m matrix with an m by p matrix.",
   "moreiotas.page.matrices.matrix/transpose": "Accepts an n by m matrix and returns an m by n matrix where every entry has been flipped along the diagonal.",
   "moreiotas.page.matrices.matrix/inverse": "Accepts an n by n matrix and returns the n by n matrix such that in*out = identity.",
+  "moreiotas.page.matrices.matrix/determinant": "Accepts a square matrix and returns the determinant of that matrix. Mishaps for matrices larger than 4x4.",
   "moreiotas.page.matrices.matrix/concat/vert": "Accepts an n by m matrix and an n by p matrix and produces an n by (m+p) matrix by putting the first matrix on top of the second.",
   "moreiotas.page.matrices.matrix/concat/hori": "Accepts an m by n matrix and a p by n matrix and produces an (m+p) by n matrix by putting the first matrix to the left of the second.",
 

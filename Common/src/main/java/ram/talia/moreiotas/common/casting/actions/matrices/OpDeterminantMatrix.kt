@@ -9,7 +9,7 @@ import org.jblas.DoubleMatrix
 import org.jblas.ranges.RangeUtils
 import ram.talia.moreiotas.api.asMatrix
 import ram.talia.moreiotas.api.getNumOrVecOrMatrix
-import ram.talia.moreiotas.api.matrices.SplitIntervalRange
+import ram.talia.moreiotas.api.matrices.HoleyIntervalRange
 import kotlin.math.pow
 
 object OpDeterminantMatrix : ConstMediaAction {
@@ -24,7 +24,8 @@ object OpDeterminantMatrix : ConstMediaAction {
         val matWithoutTop = mat.getRows(RangeUtils.interval(1, mat.rows))
 
         for (i in 0 until mat.rows) {
-            sum += (-1.0).pow(i) * determinant(matWithoutTop.getRows(SplitIntervalRange(0, mat.rows, i)))
+            sum += (-1.0).pow(i) * mat[0, i] *
+                    determinant(matWithoutTop.getColumns(HoleyIntervalRange(0, mat.columns, i)))
         }
 
         return sum

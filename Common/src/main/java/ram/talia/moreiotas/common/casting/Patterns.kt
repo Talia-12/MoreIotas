@@ -73,6 +73,8 @@ object Patterns {
 	@JvmField
 	val MATRIX_INVERSE = make(HexPattern.fromAngles("wwdqdwwdqaq", HexDir.WEST), modLoc("matrix/inverse"), OpInverseMatrix)
 	@JvmField
+	val MATRIX_DETERMINANT = make(HexPattern.fromAngles("aeawwaeawaw", HexDir.WEST), modLoc("matrix/determinant"), OpDeterminantMatrix)
+	@JvmField
 	val MATRIX_CONCAT_VERT = make(
 			HexPattern.fromAngles("awwaeawwawawdedwa", HexDir.SOUTH_WEST),
 			modLoc("matrix/concat/vert"),

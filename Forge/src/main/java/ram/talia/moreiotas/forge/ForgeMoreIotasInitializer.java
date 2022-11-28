@@ -8,7 +8,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.RegisterEvent;
-import org.jblas.DoubleMatrix;
 import ram.talia.moreiotas.forge.cap.CapSyncers;
 import ram.talia.moreiotas.forge.datagen.MoreIotasForgeDataGenerators;
 import ram.talia.moreiotas.api.MoreIotasAPI;
@@ -23,15 +22,12 @@ import java.util.function.Consumer;
 
 @Mod(MoreIotasAPI.MOD_ID)
 public class ForgeMoreIotasInitializer {
-	
+
 	public ForgeMoreIotasInitializer() {
 		MoreIotasAPI.LOGGER.info("Hello Forge World!");
 		initConfig();
 		initRegistry();
 		initListeners();
-
-		DoubleMatrix matrix = DoubleMatrix.valueOf("1 2 3 ; 4 5 6 ; 7 8 9");
-		MoreIotasAPI.LOGGER.info(matrix.toString());
 	}
 	
 	private static void initConfig () {
