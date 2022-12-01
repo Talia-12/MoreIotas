@@ -35,6 +35,10 @@ object Patterns {
 			modLoc("string/comma"),
 			Action.makeConstantOp(StringIota(",")))
 	@JvmField
+	val STRING_NEWLINE = make(HexPattern.fromAngles("waawaw", HexDir.EAST),
+			modLoc("string/newline"),
+			Action.makeConstantOp(StringIota("\n")))
+	@JvmField
 	val STRING_BLOCK = make(HexPattern.fromAngles("awqwawqe", HexDir.EAST), modLoc("string/block"), OpBlockString)
 	@JvmField
 	val STRING_CHAT_CASTER = make(HexPattern.fromAngles("waqa", HexDir.EAST), modLoc("string/chat/caster"), OpChatString(false))
@@ -56,6 +60,8 @@ object Patterns {
 	val STRING_FIND = make(HexPattern.fromAngles("waqwwaqa", HexDir.EAST), modLoc("string/find"), OpFindString)
 	@JvmField
 	val STRING_SUB = make(HexPattern.fromAngles("aqwwaqwaad", HexDir.EAST), modLoc("string/sub"), OpSubString)
+	@JvmField
+	val STRING_LEN = make(HexPattern.fromAngles("waqaeaq", HexDir.EAST), modLoc("string/len"), OpLenString)
 
 	// ================================ Matrices =======================================
 	@JvmField
