@@ -3,12 +3,14 @@ package ram.talia.moreiotas.forge;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.RegisterEvent;
 import ram.talia.moreiotas.forge.cap.CapSyncers;
+import ram.talia.moreiotas.forge.cap.ForgeCapabilityHandler;
 import ram.talia.moreiotas.forge.datagen.MoreIotasForgeDataGenerators;
 import ram.talia.moreiotas.api.MoreIotasAPI;
 import ram.talia.moreiotas.common.casting.RegisterPatterns;
@@ -61,6 +63,9 @@ public class ForgeMoreIotasInitializer {
 //		});
 		
 		modBus.register(MoreIotasForgeDataGenerators.class);
+
+		evBus.addGenericListener(ItemStack.class, ForgeCapabilityHandler::attachItemCaps);
+		modBus.register(ForgeCapabilityHandler.class);
 
 		evBus.register(ChatEventHandler.class);
 		evBus.register(CapSyncers.class);
