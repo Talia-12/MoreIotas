@@ -41,7 +41,8 @@ public class ForgeCapabilityHandler {
         return new SimpleProvider<>(invalidated, capability, LazyOptional.of(supplier));
     }
 
-    private record SimpleProvider<CAP>(BooleanSupplier invalidated, Capability<CAP> capability, LazyOptional<CAP> instance) implements ICapabilityProvider {
+    private record SimpleProvider<CAP>(BooleanSupplier invalidated, Capability<CAP> capability,
+                                       LazyOptional<CAP> instance) implements ICapabilityProvider {
 
         public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
             if (this.invalidated.getAsBoolean()) {
@@ -49,18 +50,6 @@ public class ForgeCapabilityHandler {
             } else {
                 return cap == this.capability ? this.instance.cast() : LazyOptional.empty();
             }
-        }
-
-        public BooleanSupplier invalidated() {
-            return this.invalidated;
-        }
-
-        public Capability<CAP> capability() {
-            return this.capability;
-        }
-
-        public LazyOptional<CAP> instance() {
-            return this.instance;
         }
     }
 }
