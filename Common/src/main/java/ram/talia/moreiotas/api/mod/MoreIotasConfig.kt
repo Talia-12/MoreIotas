@@ -22,11 +22,19 @@ object MoreIotasConfig {
 
     // Simple extensions for resource location configs
     fun anyMatch(keys: List<String>, key: ResourceLocation): Boolean {
-        return keys.stream().map { s: String -> ResourceLocation(s) }.anyMatch { r: ResourceLocation? -> key == r }
+        for (s in keys) {
+            if (ResourceLocation.isValidResourceLocation(s)) {
+                val rl = ResourceLocation(s)
+                if (rl == key) {
+                    return true
+                }
+            }
+        }
+        return false
     }
 
     fun noneMatch(keys: List<String>, key: ResourceLocation): Boolean {
-        return keys.stream().map { s: String -> ResourceLocation(s) }.noneMatch { r: ResourceLocation? -> key == r }
+        return !anyMatch(keys, key)
     }
 
     @JvmStatic
