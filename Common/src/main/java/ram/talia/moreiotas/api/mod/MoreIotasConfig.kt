@@ -9,8 +9,8 @@ object MoreIotasConfig {
     interface ClientConfigAccess { }
 
     interface ServerConfigAccess {
-        val MAX_MATRIX_SIZE: Int
-        val MAX_STRING_LENGTH: Int
+        val maxMatrixSize: Int
+        val maxStringLength: Int
 
         companion object {
             const val DEFAULT_MAX_MATRIX_SIZE: Int = 144
@@ -19,6 +19,11 @@ object MoreIotasConfig {
             const val DEFAULT_MAX_STRING_LENGTH: Int = 1728
             const val MIN_MAX_STRING_LENGTH: Int = 1
             const val MAX_MAX_STRING_LENGTH: Int = 32768
+
+            @JvmStatic
+            val MAX_MATRIX_SIZE: Int = server?.maxMatrixSize ?: DEFAULT_MAX_MATRIX_SIZE
+            @JvmStatic
+            val MAX_STRING_LENGTH: Int = server?.maxStringLength ?: DEFAULT_MAX_STRING_LENGTH
         }
     }
 

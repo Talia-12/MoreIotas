@@ -28,12 +28,12 @@ public class ForgeMoreIotasConfig implements MoreIotasConfig.CommonConfigAccess 
         }
 
             @Override
-        public int getMAX_MATRIX_SIZE() {
+        public int getMaxMatrixSize() {
             return maxMatrixSize.get();
         }
 
         @Override
-        public int getMAX_STRING_LENGTH() {
+        public int getMaxStringLength() {
             return maxStringLength.get();
         }
     }

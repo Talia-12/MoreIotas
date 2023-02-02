@@ -69,12 +69,12 @@ public class FabricMoreIotasConfig extends PartitioningSerializer.GlobalData {
         }
 
         @Override
-        public int getMAX_MATRIX_SIZE() {
+        public int getMaxMatrixSize() {
             return maxMatrixSize;
         }
 
         @Override
-        public int getMAX_STRING_LENGTH() {
+        public int getMaxStringLength() {
             return maxStringLength;
         }
     }

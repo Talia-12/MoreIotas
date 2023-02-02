@@ -9,7 +9,7 @@ import ram.talia.moreiotas.api.asActionResult
 import ram.talia.moreiotas.api.asMatrix
 import ram.talia.moreiotas.api.getNumOrVecOrMatrix
 import ram.talia.moreiotas.api.matrixWrongSize
-import ram.talia.moreiotas.api.spell.iota.MatrixIota
+import ram.talia.moreiotas.api.mod.MoreIotasConfig.ServerConfigAccess.Companion.MAX_MATRIX_SIZE
 
 class OpConcatMatrix(private val concatVertically: Boolean) : ConstMediaAction {
     override val argc = 2
@@ -21,21 +21,21 @@ class OpConcatMatrix(private val concatVertically: Boolean) : ConstMediaAction {
         if (concatVertically) {
             if (mat0.columns != mat1.columns)
                 throw MishapInvalidIota.matrixWrongSize(args[1], 0, null, mat0.columns)
-            if (mat0.rows + mat1.rows > MatrixIota.MAX_SIZE)
+            if (mat0.rows + mat1.rows > MAX_MATRIX_SIZE)
                 throw MishapInvalidIota.of(args[1],
                         0,
                         "matrix.max_size",
-                        MatrixIota.MAX_SIZE,
+                        MAX_MATRIX_SIZE,
                         mat0.rows + mat1.rows,
                         mat0.columns)
         } else {
             if (mat0.rows != mat1.rows)
                 throw MishapInvalidIota.matrixWrongSize(args[1], 0, mat0.rows, null)
-            if (mat0.columns + mat1.columns > MatrixIota.MAX_SIZE)
+            if (mat0.columns + mat1.columns > MAX_MATRIX_SIZE)
                 throw MishapInvalidIota.of(args[1],
                         0,
                         "matrix.max_size",
-                        MatrixIota.MAX_SIZE,
+                        MAX_MATRIX_SIZE,
                         mat0.rows,
                         mat0.columns + mat1.columns)
         }
