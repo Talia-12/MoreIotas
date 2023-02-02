@@ -35,6 +35,9 @@
     ],
     "emi": [
       "ram.talia.moreiotas.fabric.interop.emi.MoreIotasEMIPlugin"
+    ],
+    "modmenu": [
+      "ram.talia.moreiotas.fabric.interop.ModMenuInterop"
     ]
   },
   "mixins": [
