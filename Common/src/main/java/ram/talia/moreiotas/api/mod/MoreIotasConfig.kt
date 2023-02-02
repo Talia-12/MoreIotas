@@ -14,8 +14,10 @@ object MoreIotasConfig {
 
         companion object {
             const val DEFAULT_MAX_MATRIX_SIZE: Int = 144
+            const val MIN_MAX_MATRIX_SIZE: Int = 3
             const val MAX_MAX_MATRIX_SIZE: Int = 512
             const val DEFAULT_MAX_STRING_LENGTH: Int = 1728
+            const val MIN_MAX_STRING_LENGTH: Int = 1
             const val MAX_MAX_STRING_LENGTH: Int = 32768
         }
     }

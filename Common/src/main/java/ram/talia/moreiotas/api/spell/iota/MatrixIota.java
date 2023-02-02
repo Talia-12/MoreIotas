@@ -11,16 +11,17 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import org.jblas.DoubleMatrix;
 import org.jetbrains.annotations.NotNull;
+import ram.talia.moreiotas.api.mod.MoreIotasConfig;
 import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes;
 
 public class MatrixIota extends Iota {
     public MatrixIota(@NotNull DoubleMatrix matrix) throws MishapInvalidIota {
         super(MoreIotasIotaTypes.MATRIX_TYPE, matrix);
-        if (matrix.rows > MAX_SIZE || matrix.columns > MAX_SIZE)
+        if (matrix.rows > MoreIotasConfig.getServer().getMAX_MATRIX_SIZE() || matrix.columns > MoreIotasConfig.getServer().getMAX_MATRIX_SIZE())
             throw MishapInvalidIota.of(this,
                     0,
                     "matrix.max_size",
-                    MatrixIota.MAX_SIZE,
+                    MoreIotasConfig.getServer().getMAX_MATRIX_SIZE(),
                     matrix.rows,
                     matrix.columns);
     }
@@ -139,6 +140,4 @@ public class MatrixIota extends Iota {
     private static final String TAG_ROWS = "rows";
     private static final String TAG_COLS = "cols";
     private static final String TAG_MAT = "mat";
-
-    public static final int MAX_SIZE = 144;
 }

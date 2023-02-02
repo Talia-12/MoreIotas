@@ -50,18 +50,22 @@ public class FabricMoreIotasConfig extends PartitioningSerializer.GlobalData {
     @Config(name = "server")
     private static class Server implements ConfigData, MoreIotasConfig.ServerConfigAccess {
 
-        @ConfigEntry.BoundedDiscrete(min = 2, max = MAX_MAX_MATRIX_SIZE)
+        @ConfigEntry.BoundedDiscrete(min = MIN_MAX_MATRIX_SIZE, max = MAX_MAX_MATRIX_SIZE)
         @ConfigEntry.Gui.Tooltip
         private int maxMatrixSize = DEFAULT_MAX_MATRIX_SIZE;
 
-        @ConfigEntry.BoundedDiscrete(min = 1, max = MAX_MAX_STRING_LENGTH)
+        @ConfigEntry.BoundedDiscrete(min = MIN_MAX_STRING_LENGTH, max = MAX_MAX_STRING_LENGTH)
         @ConfigEntry.Gui.Tooltip
         private int maxStringLength = DEFAULT_MAX_STRING_LENGTH;
 
         @Override
         public void validatePostLoad() throws ValidationException {
-            this.maxMatrixSize = Math.max(this.maxMatrixSize, 2);
-            this.maxStringLength = Math.max(this.maxStringLength, 1);
+            this.maxMatrixSize = bound(this.maxMatrixSize, MIN_MAX_MATRIX_SIZE, MAX_MAX_MATRIX_SIZE);
+            this.maxStringLength = bound(this.maxStringLength, MIN_MAX_STRING_LENGTH, MAX_MAX_STRING_LENGTH);
+        }
+
+        private int bound(int toBind, int lower, int upper) {
+            return Math.min(Math.max(toBind, lower), upper);
         }
 
         @Override
