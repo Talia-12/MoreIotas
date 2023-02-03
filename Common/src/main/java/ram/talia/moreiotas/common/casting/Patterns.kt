@@ -51,6 +51,9 @@ object Patterns {
 	@JvmField
 	val STRING_IOTA = make(HexPattern.fromAngles("wawqwawaw", HexDir.EAST), modLoc("string/iota"), OpIotaString)
 	@JvmField
+	val STRING_ACTION = make(HexPattern.fromAngles("wdwewdwdw", HexDir.NORTH_WEST), modLoc("string/action"), OpActionString)
+
+	@JvmField
 	val STRING_ADD = make(HexPattern.fromAngles("waawaqwawqq", HexDir.NORTH_EAST), modLoc("string/add"), OpAddStrings)
 	@JvmField
 	val STRING_SPLIT = make(HexPattern.fromAngles("aqwaqa", HexDir.EAST), modLoc("string/split"), OpSplitString)
