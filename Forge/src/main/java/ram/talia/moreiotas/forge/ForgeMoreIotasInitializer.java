@@ -1,14 +1,22 @@
 package ram.talia.moreiotas.forge;
 
+import at.petrak.hexcasting.api.mod.HexConfig;
+import at.petrak.hexcasting.forge.ForgeHexConfig;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.IConfigSpec;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.RegisterEvent;
+import org.apache.commons.lang3.tuple.Pair;
+import ram.talia.moreiotas.api.mod.MoreIotasConfig;
 import ram.talia.moreiotas.forge.cap.CapSyncers;
 import ram.talia.moreiotas.forge.cap.ForgeCapabilityHandler;
 import ram.talia.moreiotas.forge.datagen.MoreIotasForgeDataGenerators;
@@ -33,7 +41,16 @@ public class ForgeMoreIotasInitializer {
 	}
 	
 	private static void initConfig () {
-
+		Pair<ForgeMoreIotasConfig, ForgeConfigSpec> config = (new ForgeConfigSpec.Builder()).configure(ForgeMoreIotasConfig::new);
+		Pair<ForgeMoreIotasConfig.Client, ForgeConfigSpec> clientConfig = (new ForgeConfigSpec.Builder()).configure(ForgeMoreIotasConfig.Client::new);
+		Pair<ForgeMoreIotasConfig.Server, ForgeConfigSpec> serverConfig = (new ForgeConfigSpec.Builder()).configure(ForgeMoreIotasConfig.Server::new);
+		MoreIotasConfig.setCommon(config.getLeft());
+		MoreIotasConfig.setClient(clientConfig.getLeft());
+		MoreIotasConfig.setServer(serverConfig.getLeft());
+		ModLoadingContext mlc = ModLoadingContext.get();
+		mlc.registerConfig(ModConfig.Type.COMMON, config.getRight());
+		mlc.registerConfig(ModConfig.Type.CLIENT, clientConfig.getRight());
+		mlc.registerConfig(ModConfig.Type.SERVER, serverConfig.getRight());
 	}
 	
 	private static void initRegistry () {

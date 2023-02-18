@@ -16,6 +16,7 @@ object FabricMoreIotasInitializer : ModInitializer {
     override fun onInitialize() {
         MoreIotasAPI.LOGGER.info("Hello Fabric World!")
 
+        FabricMoreIotasConfig.setup()
         FabricPacketHandler.initServerBound()
 
         initListeners()
