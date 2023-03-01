@@ -2,6 +2,8 @@
 
 package ram.talia.moreiotas.common.casting
 
+import at.petrak.hexcasting.api.PatternRegistry
+import at.petrak.hexcasting.api.PatternRegistry.SpecialHandler
 import at.petrak.hexcasting.api.spell.Action
 import at.petrak.hexcasting.api.spell.math.HexDir
 import at.petrak.hexcasting.api.spell.math.HexPattern
@@ -20,6 +22,22 @@ object Patterns {
 	val PATTERNS: MutableList<Triple<HexPattern, ResourceLocation, Action>> = ArrayList()
 	@JvmField
 	val PER_WORLD_PATTERNS: MutableList<Triple<HexPattern, ResourceLocation, Action>> = ArrayList()
+	@JvmField
+	val SPECIAL_HANDLERS: MutableList<Pair<ResourceLocation, SpecialHandler>> = ArrayList()
+
+	@JvmStatic
+	fun registerPatterns() {
+		try {
+			for ((pattern, location, action) in PATTERNS)
+				PatternRegistry.mapPattern(pattern, location, action)
+			for ((pattern, location, action) in PER_WORLD_PATTERNS)
+				PatternRegistry.mapPattern(pattern, location, action, true)
+			for ((location, handler) in SPECIAL_HANDLERS)
+				PatternRegistry.addSpecialHandler(location, handler)
+		} catch (e: PatternRegistry.RegisterPatternException) {
+			e.printStackTrace()
+		}
+	}
 
 	// ================================ Strings =======================================
 	@JvmField
@@ -108,6 +126,14 @@ object Patterns {
 			modLoc("matrix/split/hori"),
 			OpSplitMatrix(false))
 
+
+	// ================================ Special Handlers =======================================
+//	@JvmField
+//	val EXAMPLE_HANDLER = make(modLoc("example_handler")) {pat ->
+//		return@make Action.makeConstantOp(StringIota("example! $pat"))
+//	}
+
+
 	private fun make (pattern: HexPattern, location: ResourceLocation, operator: Action, isPerWorld: Boolean = false): Triple<HexPattern, ResourceLocation, Action> {
 		val triple = Triple(pattern, location, operator)
 		if (isPerWorld)
@@ -115,5 +141,11 @@ object Patterns {
 		else
 			PATTERNS.add(triple)
 		return triple
+	}
+
+	private fun make (location: ResourceLocation, specialHandler: SpecialHandler): Pair<ResourceLocation, SpecialHandler> {
+		val pair = location to specialHandler
+		SPECIAL_HANDLERS.add(pair)
+		return pair
 	}
 }

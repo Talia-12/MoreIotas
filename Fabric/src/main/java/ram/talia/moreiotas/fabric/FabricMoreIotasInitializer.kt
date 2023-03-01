@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.message.v1.ServerMessageEvents
 import net.minecraft.core.Registry
 import net.minecraft.resources.ResourceLocation
 import ram.talia.moreiotas.api.MoreIotasAPI
-import ram.talia.moreiotas.common.casting.RegisterPatterns
+import ram.talia.moreiotas.common.casting.Patterns
 import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes
 import ram.talia.moreiotas.fabric.eventhandlers.ChatEventHandler
 import ram.talia.moreiotas.fabric.network.FabricPacketHandler
@@ -23,7 +23,7 @@ object FabricMoreIotasInitializer : ModInitializer {
 
         initRegistries()
 
-        RegisterPatterns.registerPatterns()
+        Patterns.registerPatterns()
     }
 
     private fun initListeners() {
