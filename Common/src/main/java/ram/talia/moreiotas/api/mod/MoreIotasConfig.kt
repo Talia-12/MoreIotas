@@ -15,6 +15,7 @@ object MoreIotasConfig {
         companion object {
             const val DEFAULT_MAX_MATRIX_SIZE: Int = 144
             const val MAX_MAX_MATRIX_SIZE: Int = 512
+
             const val DEFAULT_MAX_STRING_LENGTH: Int = 1728
             const val MAX_MAX_STRING_LENGTH: Int = 32768
         }
@@ -22,45 +23,59 @@ object MoreIotasConfig {
 
     // Simple extensions for resource location configs
     fun anyMatch(keys: List<String>, key: ResourceLocation): Boolean {
-        return keys.stream().map { s: String -> ResourceLocation(s) }.anyMatch { r: ResourceLocation? -> key == r }
+        for (s in keys) {
+            if (ResourceLocation.isValidResourceLocation(s)) {
+                val rl = ResourceLocation(s)
+                if (rl == key) {
+                    return true
+                }
+            }
+        }
+        return false
     }
 
     fun noneMatch(keys: List<String>, key: ResourceLocation): Boolean {
-        return keys.stream().map { s: String -> ResourceLocation(s) }.noneMatch { r: ResourceLocation? -> key == r }
+        return !anyMatch(keys, key)
     }
 
+    private object DummyCommon : CommonConfigAccess {  }
+    private object DummyClient : ClientConfigAccess {  }
+    private object DummyServer : ServerConfigAccess {
+        override val MAX_MATRIX_SIZE: Int
+            get() = throw IllegalStateException("Attempted to access property of Dummy Config Object")
+        override val MAX_STRING_LENGTH: Int
+            get() = throw IllegalStateException("Attempted to access property of Dummy Config Object")
+
+    }
+
+
+
     @JvmStatic
-    var common: CommonConfigAccess? = null
+    var common: CommonConfigAccess = DummyCommon
         set(access) {
-            if (access == null)
-                throw Exception("Attempted to set MoreIotasConfig.common to null.")
-            if (field != null) {
+            if (field != DummyCommon) {
                 HexAPI.LOGGER.warn("CommonConfigAccess was replaced! Old {} New {}",
-                        field!!.javaClass.name, access.javaClass.name)
+                        field.javaClass.name, access.javaClass.name)
             }
             field = access
         }
 
     @JvmStatic
-    var client: ClientConfigAccess? = null
+    var client: ClientConfigAccess = DummyClient
         set(access) {
-            if (access == null)
-                throw Exception("Attempted to set MoreIotasConfig.client to null.")
-            if (field != null) {
+            if (field != DummyClient) {
                 HexAPI.LOGGER.warn("ClientConfigAccess was replaced! Old {} New {}",
-                        field!!.javaClass.name, access.javaClass.name)
+                        field.javaClass.name, access.javaClass.name)
             }
             field = access
         }
 
     @JvmStatic
-    var server: ServerConfigAccess? = null
+    var server: ServerConfigAccess = DummyServer
         set(access) {
-            if (access == null)
-                throw Exception("Attempted to set MoreIotasConfig.client to null.")
-            if (field != null) {
+            if (field != DummyServer) {
                 HexAPI.LOGGER.warn("ServerConfigAccess was replaced! Old {} New {}",
-                        field!!.javaClass.name, access.javaClass.name)
+                        field.javaClass.name, access.javaClass.name)
             }
             field = access
         }
