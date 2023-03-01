@@ -1,7 +1,5 @@
 package ram.talia.moreiotas.forge;
 
-import at.petrak.hexcasting.api.mod.HexConfig;
-import at.petrak.hexcasting.forge.ForgeHexConfig;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -11,18 +9,17 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.IConfigSpec;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.RegisterEvent;
 import org.apache.commons.lang3.tuple.Pair;
+import ram.talia.moreiotas.api.MoreIotasAPI;
 import ram.talia.moreiotas.api.mod.MoreIotasConfig;
+import ram.talia.moreiotas.common.casting.Patterns;
+import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes;
 import ram.talia.moreiotas.forge.cap.CapSyncers;
 import ram.talia.moreiotas.forge.cap.ForgeCapabilityHandler;
 import ram.talia.moreiotas.forge.datagen.MoreIotasForgeDataGenerators;
-import ram.talia.moreiotas.api.MoreIotasAPI;
-import ram.talia.moreiotas.common.casting.RegisterPatterns;
-import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes;
 import ram.talia.moreiotas.forge.eventhandlers.ChatEventHandler;
 import ram.talia.moreiotas.forge.network.ForgePacketHandler;
 import thedarkcolour.kotlinforforge.KotlinModLoadingContext;
@@ -69,7 +66,7 @@ public class ForgeMoreIotasInitializer {
 				 ForgePacketHandler.init();
 			 }));
 		
-		modBus.addListener((FMLCommonSetupEvent evt) -> evt.enqueueWork(RegisterPatterns::registerPatterns));
+		modBus.addListener((FMLCommonSetupEvent evt) -> evt.enqueueWork(Patterns::registerPatterns));
 		
 		// We have to do these at some point when the registries are still open
 //		modBus.addGenericListener(Item.class, (GenericEvent<Item> evt) -> HexalRecipeSerializers.registerTypes());
