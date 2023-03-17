@@ -10,7 +10,7 @@ import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import org.jblas.DoubleMatrix
 import ram.talia.moreiotas.api.asActionResult
 import ram.talia.moreiotas.api.asMatrix
-import ram.talia.moreiotas.api.spell.iota.MatrixIota
+import ram.talia.moreiotas.api.mod.MoreIotasConfig
 
 object OpMakeMatrix : ConstMediaAction {
     override val argc = 1
@@ -20,7 +20,7 @@ object OpMakeMatrix : ConstMediaAction {
             is DoubleIota -> return DoubleMatrix.scalar(arg.double).asActionResult
             is Vec3Iota -> return arg.vec3.asMatrix.asActionResult
             is ListIota -> {
-                var list = arg.list
+                val list = arg.list
                 if (!list.nonEmpty)
                     return DoubleMatrix.EMPTY.asActionResult
 
@@ -32,8 +32,8 @@ object OpMakeMatrix : ConstMediaAction {
                 }
                 val numCols = list.size()
 
-                if (numRows > MatrixIota.MAX_SIZE || numCols > MatrixIota.MAX_SIZE)
-                    throw MishapInvalidIota.of(arg, 0, "matrix.max_size", MatrixIota.MAX_SIZE, numRows, numCols)
+                if (numRows > MoreIotasConfig.server.maxMatrixSize || numCols > MoreIotasConfig.server.maxMatrixSize)
+                    throw MishapInvalidIota.of(arg, 0, "matrix.max_size", MoreIotasConfig.server.maxMatrixSize, numRows, numCols)
 
                 val matrix = DoubleMatrix(numRows, numCols)
 

@@ -22,18 +22,18 @@ public class ForgeMoreIotasConfig implements MoreIotasConfig.CommonConfigAccess 
         public Server(ForgeConfigSpec.Builder builder) {
             builder.push("Spells");
             maxMatrixSize = builder.comment("How large can matrices be")
-                    .defineInRange("maxMatrixSize", DEFAULT_MAX_MATRIX_SIZE, 0, MAX_MAX_MATRIX_SIZE);
+                    .defineInRange("maxMatrixSize", DEFAULT_MAX_MATRIX_SIZE, MIN_MAX_MATRIX_SIZE, MAX_MAX_MATRIX_SIZE);
             maxStringLength = builder.comment("How long can strings be")
-                    .defineInRange("maxStringLength", DEFAULT_MAX_STRING_LENGTH, 0, MAX_MAX_STRING_LENGTH);
+                    .defineInRange("maxStringLength", DEFAULT_MAX_STRING_LENGTH, MIN_MAX_STRING_LENGTH, MAX_MAX_STRING_LENGTH);
         }
 
             @Override
-        public int getMAX_MATRIX_SIZE() {
+        public int getMaxMatrixSize() {
             return maxMatrixSize.get();
         }
 
         @Override
-        public int getMAX_STRING_LENGTH() {
+        public int getMaxStringLength() {
             return maxStringLength.get();
         }
     }

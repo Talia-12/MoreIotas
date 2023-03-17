@@ -133,6 +133,14 @@
       "input": "any",
       "output": "str",
       "text": "moreiotas.page.strings.string/iota"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/action",
+      "anchor": "moreiotas:string/action",
+      "input": "pattern",
+      "output": "str | null",
+      "text": "moreiotas.page.strings.string/action"
     }
   ]
 }

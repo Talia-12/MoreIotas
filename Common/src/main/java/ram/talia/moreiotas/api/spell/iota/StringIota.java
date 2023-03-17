@@ -10,13 +10,14 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import org.jetbrains.annotations.NotNull;
+import ram.talia.moreiotas.api.mod.MoreIotasConfig;
 import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes;
 
 public class StringIota extends Iota {
     public StringIota(@NotNull String string) throws MishapInvalidIota {
         super(MoreIotasIotaTypes.STRING_TYPE, string);
-        if (string.length() > MAX_SIZE)
-            throw MishapInvalidIota.of(this, 0, "string.max_size", MAX_SIZE, string.length());
+        if (string.length() > MoreIotasConfig.getServer().getMaxStringLength())
+            throw MishapInvalidIota.of(this, 0, "string.max_size", MoreIotasConfig.getServer().getMaxStringLength(), string.length());
     }
 
     public String getString() {
@@ -66,6 +67,4 @@ public class StringIota extends Iota {
             return 0xff_ff55ff;
         }
     };
-
-    public static final int MAX_SIZE = 1728;
 }
