@@ -7,13 +7,10 @@ import at.petrak.hexcasting.api.PatternRegistry.SpecialHandler
 import at.petrak.hexcasting.api.spell.Action
 import at.petrak.hexcasting.api.spell.math.HexDir
 import at.petrak.hexcasting.api.spell.math.HexPattern
-import at.petrak.hexcasting.common.casting.operators.selectors.*
 import net.minecraft.resources.ResourceLocation
 import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
 import ram.talia.moreiotas.api.spell.iota.StringIota
-import ram.talia.moreiotas.common.casting.actions.*
 import ram.talia.moreiotas.common.casting.actions.matrices.*
-import ram.talia.moreiotas.common.casting.actions.spells.*
 import ram.talia.moreiotas.common.casting.actions.strings.*
 
 object Patterns {
@@ -57,15 +54,17 @@ object Patterns {
 			modLoc("string/newline"),
 			Action.makeConstantOp(StringIota("\n")))
 	@JvmField
-	val STRING_BLOCK = make(HexPattern.fromAngles("awqwawqe", HexDir.EAST), modLoc("string/block"), OpBlockString)
+	val STRING_BLOCK_GET = make(HexPattern.fromAngles("awqwawqe", HexDir.EAST), modLoc("string/block/get"), OpGetBlockString)
+	@JvmField
+	val STRING_BLOCK_SET = make(HexPattern.fromAngles("dwewdweq", HexDir.WEST), modLoc("string/block/set"), OpSetBlockString)
 	@JvmField
 	val STRING_CHAT_CASTER = make(HexPattern.fromAngles("waqa", HexDir.EAST), modLoc("string/chat/caster"), OpChatString(false))
 	@JvmField
 	val STRING_CHAT_ALL = make(HexPattern.fromAngles("wded", HexDir.EAST), modLoc("string/chat/all"), OpChatString(true))
 	@JvmField
-	val STRING_CHAT_PREFIX_SET = make(HexPattern.fromAngles("qwaqa", HexDir.SOUTH_EAST), modLoc("string/chat/prefix/set"), OpChatPrefixSet)
+	val STRING_CHAT_PREFIX_SET = make(HexPattern.fromAngles("qwaqa", HexDir.SOUTH_EAST), modLoc("string/chat/prefix/set"), OpSetChatPrefix)
 	@JvmField
-	val STRING_CHAT_PREFIX_GET = make(HexPattern.fromAngles("ewded", HexDir.NORTH_EAST), modLoc("string/chat/prefix/get"), OpChatPrefixGet)
+	val STRING_CHAT_PREFIX_GET = make(HexPattern.fromAngles("ewded", HexDir.NORTH_EAST), modLoc("string/chat/prefix/get"), OpGetChatPrefix)
 	@JvmField
 	val STRING_IOTA = make(HexPattern.fromAngles("wawqwawaw", HexDir.EAST), modLoc("string/iota"), OpIotaString)
 	@JvmField

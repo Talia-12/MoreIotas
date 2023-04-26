@@ -12,6 +12,8 @@ object MoreIotasConfig {
         val maxMatrixSize: Int
         val maxStringLength: Int
 
+        val setBlockStringCost: Int
+
         companion object {
             const val DEFAULT_MAX_MATRIX_SIZE: Int = 144
             const val MIN_MAX_MATRIX_SIZE: Int = 3
@@ -20,6 +22,8 @@ object MoreIotasConfig {
             const val DEFAULT_MAX_STRING_LENGTH: Int = 1728
             const val MIN_MAX_STRING_LENGTH: Int = 1
             const val MAX_MAX_STRING_LENGTH: Int = 32768
+
+            const val DEFAULT_SET_BLOCK_STRING_COST = 0.01
         }
     }
 
@@ -46,6 +50,8 @@ object MoreIotasConfig {
         override val maxMatrixSize: Int
             get() = throw IllegalStateException("Attempted to access property of Dummy Config Object")
         override val maxStringLength: Int
+            get() = throw IllegalStateException("Attempted to access property of Dummy Config Object")
+        override val setBlockStringCost: Int
             get() = throw IllegalStateException("Attempted to access property of Dummy Config Object")
     }
 
