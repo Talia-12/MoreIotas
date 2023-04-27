@@ -106,7 +106,7 @@
       "type": "hexcasting:pattern",
       "op_id": "moreiotas:string/chat/prefix/set",
       "anchor": "moreiotas:string/chat/prefix/set",
-      "input": "str",
+      "input": "str | null",
       "output": "",
       "text": "moreiotas.page.strings.string/chat/prefix/set"
     },
@@ -115,7 +115,7 @@
       "op_id": "moreiotas:string/chat/prefix/get",
       "anchor": "moreiotas:string/chat/prefix/get",
       "input": "",
-      "output": "str",
+      "output": "str | null",
       "text": "moreiotas.page.strings.string/chat/prefix/get"
     },
     {
@@ -149,6 +149,14 @@
       "input": "pattern",
       "output": "str | null",
       "text": "moreiotas.page.strings.string/action"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:string/case",
+      "anchor": "moreiotas:string/case",
+      "input": "str, bool | null",
+      "output": "str",
+      "text": "moreiotas.page.strings.string/case"
     }
   ]
 }

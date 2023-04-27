@@ -22,6 +22,7 @@
   "hexcasting.spell.moreiotas:string/find": "Discoverer's Distillation",
   "hexcasting.spell.moreiotas:string/sub": "Winnowing Distillation",
   "hexcasting.spell.moreiotas:string/len": "Length Distillation: Str",
+  "hexcasting.spell.moreiotas:string/case": "Case Distillation",
 
   "hexcasting.spell.moreiotas:matrix/make": "Transformation Purification",
   "hexcasting.spell.moreiotas:matrix/unmake": "Restoration Purification",
@@ -38,11 +39,13 @@
   "hexcasting.spell.moreiotas:matrix/split/vert": "Toppling Gambit",
   "hexcasting.spell.moreiotas:matrix/split/hori": "Mitosis Gambit",
 
+  "hexcasting.spell.book.moreiotas:string/action": "Patternmaster's Prfct.",
+  "hexcasting.spell.book.moreiotas:string/len": "Length Dstl.: Str",
+
   "hexcasting.spell.book.moreiotas:matrix/make": "Transformation Prfct.",
   "hexcasting.spell.book.moreiotas:matrix/unmake": "Restoration Prfct.",
   "hexcasting.spell.book.moreiotas:matrix/add": "Add. Dstl.: Matrix",
   "hexcasting.spell.book.moreiotas:matrix/mul": "Mul. Dstl.: Matrix",
-  "hexcasting.spell.book.moreiotas:string/len": "Length Dstl.: Str",
 
   "moreiotas.entry.strings": "Strings",
   "moreiotas.page.strings.string/empty": "Add an empty string to the stack, useful for combining with other strings.",
@@ -63,6 +66,7 @@
   "moreiotas.page.strings.string/find": "Removes two strings from the top of the stack, and returns the first index of the first string where the second string is a substring.",
   "moreiotas.page.strings.string/sub": "Removes a string and two positive integers from the top of the stack, and returns the substring from the first to the second (inclusive first, exclusive second).",
   "moreiotas.page.strings.string/len": "Removes a string and returns its length.",
+  "moreiotas.page.strings.string/case": "Removes a string and a bool or null. If it was true, return the string in upper case. If false, lowercase. If null, toggle each character's case.",
 
   "moreiotas.entry.matrices": "Matrices",
   "moreiotas.page.matrices.0": "Matrices are a helpful tool for manipulating vectors to do as I wish, able to represent any linear transformation that can be applied to a vector. Of note with these patterns is that many are forgiving with their inputs, accepting in place of matrices things that can be easily mapped to matrices, namely numbers and vectors.",

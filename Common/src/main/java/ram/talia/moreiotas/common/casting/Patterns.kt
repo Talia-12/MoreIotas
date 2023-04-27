@@ -82,6 +82,8 @@ object Patterns {
 	val STRING_SUB = make(HexPattern.fromAngles("aqwwaqwaad", HexDir.EAST), modLoc("string/sub"), OpSubString)
 	@JvmField
 	val STRING_LEN = make(HexPattern.fromAngles("waqaeaq", HexDir.EAST), modLoc("string/len"), OpLenString)
+	@JvmField
+	val STRING_CASE = make(HexPattern.fromAngles("dwwdwwdwdd", HexDir.WEST), modLoc("string/case"), OpCaseString)
 
 	// ================================ Matrices =======================================
 	@JvmField

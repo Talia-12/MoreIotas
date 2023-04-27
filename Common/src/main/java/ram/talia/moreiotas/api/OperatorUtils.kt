@@ -1,10 +1,6 @@
 package ram.talia.moreiotas.api
 
-import at.petrak.hexcasting.api.spell.iota.DoubleIota
-import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.iota.ListIota
-import at.petrak.hexcasting.api.spell.iota.NullIota
-import at.petrak.hexcasting.api.spell.iota.Vec3Iota
+import at.petrak.hexcasting.api.spell.iota.*
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
 import com.mojang.datafixers.util.Either
@@ -37,6 +33,15 @@ operator fun DoubleMatrix.times(mat: DoubleMatrix): DoubleMatrix = this.mmul(mat
 operator fun DoubleMatrix.plus(mat: DoubleMatrix): DoubleMatrix = this.add(mat)
 operator fun DoubleMatrix.minus(mat: DoubleMatrix): DoubleMatrix = this.sub(mat)
 operator fun DoubleMatrix.unaryMinus(): DoubleMatrix = this.mul(-1.0)
+
+fun List<Iota>.getBoolOrNull(idx: Int, argc: Int = 0): Boolean? {
+    val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
+    return when (x) {
+        is BooleanIota -> x.bool
+        is NullIota -> null
+        else -> throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "booleannull")
+    }
+}
 
 fun List<Iota>.getString(idx: Int, argc: Int = 0): String {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
