@@ -1,5 +1,6 @@
 package ram.talia.moreiotas.fabric;
 
+import at.petrak.hexcasting.api.misc.MediaConstants;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
@@ -49,7 +50,6 @@ public class FabricMoreIotasConfig extends PartitioningSerializer.GlobalData {
 
     @Config(name = "server")
     private static class Server implements ConfigData, MoreIotasConfig.ServerConfigAccess {
-
         @ConfigEntry.BoundedDiscrete(min = MIN_MAX_MATRIX_SIZE, max = MAX_MAX_MATRIX_SIZE)
         @ConfigEntry.Gui.Tooltip
         private int maxMatrixSize = DEFAULT_MAX_MATRIX_SIZE;
@@ -58,13 +58,20 @@ public class FabricMoreIotasConfig extends PartitioningSerializer.GlobalData {
         @ConfigEntry.Gui.Tooltip
         private int maxStringLength = DEFAULT_MAX_STRING_LENGTH;
 
+        private double setBlockStringCost = DEFAULT_SET_BLOCK_STRING_COST;
+
         @Override
         public void validatePostLoad() throws ValidationException {
             this.maxMatrixSize = bound(this.maxMatrixSize, MIN_MAX_MATRIX_SIZE, MAX_MAX_MATRIX_SIZE);
             this.maxStringLength = bound(this.maxStringLength, MIN_MAX_STRING_LENGTH, MAX_MAX_STRING_LENGTH);
+
+            this.setBlockStringCost = bound(this.setBlockStringCost, DEF_MIN_COST, DEF_MAX_COST);
         }
 
         private int bound(int toBind, int lower, int upper) {
+            return Math.min(Math.max(toBind, lower), upper);
+        }
+        private double bound(double toBind, double lower, double upper) {
             return Math.min(Math.max(toBind, lower), upper);
         }
 
@@ -76,6 +83,11 @@ public class FabricMoreIotasConfig extends PartitioningSerializer.GlobalData {
         @Override
         public int getMaxStringLength() {
             return maxStringLength;
+        }
+
+        @Override
+        public int getSetBlockStringCost() {
+            return (int) (this.setBlockStringCost * MediaConstants.DUST_UNIT);
         }
     }
 }

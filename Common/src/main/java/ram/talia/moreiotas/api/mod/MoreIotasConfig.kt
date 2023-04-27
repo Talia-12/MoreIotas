@@ -15,6 +15,9 @@ object MoreIotasConfig {
         val setBlockStringCost: Int
 
         companion object {
+            const val DEF_MIN_COST = 0.0001
+            const val DEF_MAX_COST = 10_000.0
+
             const val DEFAULT_MAX_MATRIX_SIZE: Int = 144
             const val MIN_MAX_MATRIX_SIZE: Int = 3
             const val MAX_MAX_MATRIX_SIZE: Int = 512

@@ -123,14 +123,14 @@
       "op_id": "moreiotas:string/block/get",
       "anchor": "moreiotas:string/block/get",
       "input": "vec",
-      "output": "str",
+      "output": "str | [str]",
       "text": "moreiotas.page.strings.string/block/get"
     },
     {
       "type": "hexcasting:pattern",
       "op_id": "moreiotas:string/block/set",
       "anchor": "moreiotas:string/block/set",
-      "input": "vec, str",
+      "input": "vec, str | [str]",
       "output": "",
       "text": "moreiotas.page.strings.string/block/set"
     },

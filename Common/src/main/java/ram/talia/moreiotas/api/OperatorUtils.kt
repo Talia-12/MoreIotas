@@ -2,10 +2,12 @@ package ram.talia.moreiotas.api
 
 import at.petrak.hexcasting.api.spell.iota.DoubleIota
 import at.petrak.hexcasting.api.spell.iota.Iota
+import at.petrak.hexcasting.api.spell.iota.ListIota
 import at.petrak.hexcasting.api.spell.iota.NullIota
 import at.petrak.hexcasting.api.spell.iota.Vec3Iota
 import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.api.spell.mishaps.MishapNotEnoughArgs
+import com.mojang.datafixers.util.Either
 import net.minecraft.core.BlockPos
 import net.minecraft.core.Position
 import net.minecraft.world.phys.Vec3
@@ -47,12 +49,29 @@ fun List<Iota>.getString(idx: Int, argc: Int = 0): String {
 
 fun List<Iota>.getStringOrNull(idx: Int, argc: Int = 0): String? {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    return if (x is StringIota) {
-        x.string
-    } else if (x is NullIota) {
-        null
-    } else {
-        throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "string")
+    return when (x) {
+        is StringIota -> x.string
+        is NullIota -> null
+        else -> throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "string")
+    }
+}
+
+fun List<Iota>.getStringOrList(idx: Int, argc: Int = 0): Either<String, List<String>> {
+    val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
+    return when (x) {
+        is StringIota -> Either.left(x.string)
+        is ListIota -> {
+            val list = mutableListOf<String>()
+
+            for (iota in x.list) {
+                if (iota !is StringIota)
+                    throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "stringstringlist")
+                list.add(iota.string)
+            }
+
+            Either.right(list)
+        }
+        else -> throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "stringstringlist")
     }
 }
 
@@ -109,9 +128,9 @@ fun MishapInvalidIota.Companion.matrixWrongSize(perpetrator: Iota,
         throw Exception("Need at least one of expectedRows and expectedColumns non-null.")
 
     return if (expectedRows == null)
-        MishapInvalidIota.of(perpetrator, reverseIdx, "matrix.wrong_size", "n", expectedColumns!!)
+        of(perpetrator, reverseIdx, "matrix.wrong_size", "n", expectedColumns!!)
     else if (expectedColumns == null)
-        MishapInvalidIota.of(perpetrator, reverseIdx, "matrix.wrong_size", expectedRows, "n")
+        of(perpetrator, reverseIdx, "matrix.wrong_size", expectedRows, "n")
     else
-        MishapInvalidIota.of(perpetrator, reverseIdx, "matrix.wrong_size", expectedRows, expectedColumns)
+        of(perpetrator, reverseIdx, "matrix.wrong_size", expectedRows, expectedColumns)
 }
