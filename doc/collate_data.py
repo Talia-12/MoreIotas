@@ -194,7 +194,10 @@ def do_format(root_data, obj, *names):
 
 def identity(x): return x
 
-pattern_pat = re.compile(r'HexPattern\.fromAngles\("([qweasd]+)", HexDir\.(\w+)\),\s*modLoc\("([^"]+)"\)(?:[^val]*[^\(](true)\))?')
+pattern_pat = re.compile(
+	r'HexPattern\.fromAngles\("([qweasd]+)", HexDir\.(\w+)\),\s*modLoc\("([^"]+)"\),[^,]+?(?:makeConstantOp|Op\w+).*?(\btrue)?\)(?:[^\)]+?\bval\b|(?:(?!\bval\b)(?:.))+$)',
+    re.S,
+)
 pattern_stubs = [(None, "ram/talia/moreiotas/common/casting/Patterns.kt")]
 def fetch_patterns(root_data):
 	registry = {}
