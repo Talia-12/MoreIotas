@@ -41,12 +41,15 @@ object OpSetBlockString : SpellAction {
                 val blockEntity = ctx.world.getBlockEntity(pos) ?: return@map
 
                 if (blockEntity is SignBlockEntity) {
-                    val lines = it.split('\n', limit = SignBlockEntity.LINES)
+                    val lines = it.split("\n")
 
                     for (i in 0 until SignBlockEntity.LINES)
                         blockEntity.setMessage(i, Component.literal(""))
-                    for ((i, line) in lines.withIndex())
+                    for ((i, line) in lines.withIndex()) {
+                        if (i >= SignBlockEntity.LINES)
+                            break
                         blockEntity.setMessage(i, Component.literal(line))
+                    }
 
                 } else if (blockEntity is LecternBlockEntity) {
                     val book = blockEntity.book.copy()
@@ -64,9 +67,13 @@ object OpSetBlockString : SpellAction {
                 val blockEntity = ctx.world.getBlockEntity(pos) ?: return@map
 
                 if (blockEntity is SignBlockEntity) {
-                    val lines = list.take(SignBlockEntity.LINES)
+                    val lines = list.flatMap { it.split("\n") }
 
+                    for (i in 0 until SignBlockEntity.LINES)
+                        blockEntity.setMessage(i, Component.literal(""))
                     for ((i, line) in lines.withIndex()) {
+                        if (i >= SignBlockEntity.LINES)
+                            break
                         blockEntity.setMessage(i, Component.literal(line))
                     }
                 } else if (blockEntity is LecternBlockEntity) {

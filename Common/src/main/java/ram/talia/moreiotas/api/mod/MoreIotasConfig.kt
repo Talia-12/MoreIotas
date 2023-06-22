@@ -2,6 +2,7 @@ package ram.talia.moreiotas.api.mod
 
 import at.petrak.hexcasting.api.HexAPI
 import net.minecraft.resources.ResourceLocation
+import ram.talia.moreiotas.api.MoreIotasAPI
 
 object MoreIotasConfig {
     interface CommonConfigAccess { }
@@ -62,7 +63,7 @@ object MoreIotasConfig {
     var common: CommonConfigAccess = DummyCommon
         set(access) {
             if (field != DummyCommon) {
-                HexAPI.LOGGER.warn("CommonConfigAccess was replaced! Old {} New {}",
+                MoreIotasAPI.LOGGER.warn("CommonConfigAccess was replaced! Old {} New {}",
                         field.javaClass.name, access.javaClass.name)
             }
             field = access
@@ -72,7 +73,7 @@ object MoreIotasConfig {
     var client: ClientConfigAccess = DummyClient
         set(access) {
             if (field != DummyClient) {
-                HexAPI.LOGGER.warn("ClientConfigAccess was replaced! Old {} New {}",
+                MoreIotasAPI.LOGGER.warn("ClientConfigAccess was replaced! Old {} New {}",
                         field.javaClass.name, access.javaClass.name)
             }
             field = access
@@ -82,7 +83,7 @@ object MoreIotasConfig {
     var server: ServerConfigAccess = DummyServer
         set(access) {
             if (field != DummyServer) {
-                HexAPI.LOGGER.warn("ServerConfigAccess was replaced! Old {} New {}",
+                MoreIotasAPI.LOGGER.warn("ServerConfigAccess was replaced! Old {} New {}",
                         field.javaClass.name, access.javaClass.name)
             }
             field = access

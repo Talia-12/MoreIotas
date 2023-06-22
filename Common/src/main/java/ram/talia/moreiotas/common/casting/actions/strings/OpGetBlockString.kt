@@ -26,9 +26,9 @@ object OpGetBlockString : ConstMediaAction {
         val blockEntity = ctx.world.getBlockEntity(pos)
 
         if (blockEntity is SignBlockEntity) {
-            var string = ""
-            for (i in 0 until SignBlockEntity.LINES) {
-                string += blockEntity.getMessage(i, false).string
+            var string = blockEntity.getMessage(0, false).string
+            for (i in 1 until SignBlockEntity.LINES) {
+                string += "\n" + blockEntity.getMessage(i, false).string
             }
 
             return string.asActionResult
