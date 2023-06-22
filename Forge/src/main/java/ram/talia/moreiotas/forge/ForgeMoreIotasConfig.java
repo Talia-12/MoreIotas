@@ -21,6 +21,7 @@ public class ForgeMoreIotasConfig implements MoreIotasConfig.CommonConfigAccess 
         private static ForgeConfigSpec.IntValue maxStringLength;
 
         private static ForgeConfigSpec.DoubleValue setBlockStringCost;
+        private static ForgeConfigSpec.DoubleValue nameCost;
 
         public Server(ForgeConfigSpec.Builder builder) {
             builder.push("Spells");
@@ -31,6 +32,8 @@ public class ForgeMoreIotasConfig implements MoreIotasConfig.CommonConfigAccess 
 
             setBlockStringCost = builder.comment("How much dust should string/block/set cost?")
                     .defineInRange("setBlockStringCost", DEFAULT_SET_BLOCK_STRING_COST, DEF_MIN_COST, DEF_MAX_COST);
+            nameCost = builder.comment("How much dust should string/name cost?")
+                    .defineInRange("nameCost", DEFAULT_NAME_COST, DEF_MIN_COST, DEF_MAX_COST);
         }
 
             @Override
@@ -46,6 +49,11 @@ public class ForgeMoreIotasConfig implements MoreIotasConfig.CommonConfigAccess 
         @Override
         public int getSetBlockStringCost() {
             return (int) (setBlockStringCost.get() * MediaConstants.DUST_UNIT);
+        }
+
+        @Override
+        public int getNameCost() {
+            return (int) (nameCost.get() * MediaConstants.DUST_UNIT);
         }
     }
 }

@@ -1,6 +1,5 @@
 package ram.talia.moreiotas.api.mod
 
-import at.petrak.hexcasting.api.HexAPI
 import net.minecraft.resources.ResourceLocation
 import ram.talia.moreiotas.api.MoreIotasAPI
 
@@ -14,6 +13,7 @@ object MoreIotasConfig {
         val maxStringLength: Int
 
         val setBlockStringCost: Int
+        val nameCost: Int
 
         companion object {
             const val DEF_MIN_COST = 0.0001
@@ -28,6 +28,7 @@ object MoreIotasConfig {
             const val MAX_MAX_STRING_LENGTH: Int = 32768
 
             const val DEFAULT_SET_BLOCK_STRING_COST = 0.01
+            const val DEFAULT_NAME_COST = 0.01
         }
     }
 
@@ -56,6 +57,8 @@ object MoreIotasConfig {
         override val maxStringLength: Int
             get() = throw IllegalStateException("Attempted to access property of Dummy Config Object")
         override val setBlockStringCost: Int
+            get() = throw IllegalStateException("Attempted to access property of Dummy Config Object")
+        override val nameCost: Int
             get() = throw IllegalStateException("Attempted to access property of Dummy Config Object")
     }
 

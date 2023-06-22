@@ -62,13 +62,17 @@ object Patterns {
 	@JvmField
 	val STRING_CHAT_ALL = make(HexPattern.fromAngles("wded", HexDir.EAST), modLoc("string/chat/all"), OpChatString(true))
 	@JvmField
-	val STRING_CHAT_PREFIX_SET = make(HexPattern.fromAngles("qwaqa", HexDir.SOUTH_EAST), modLoc("string/chat/prefix/set"), OpSetChatPrefix)
-	@JvmField
 	val STRING_CHAT_PREFIX_GET = make(HexPattern.fromAngles("ewded", HexDir.NORTH_EAST), modLoc("string/chat/prefix/get"), OpGetChatPrefix)
+	@JvmField
+	val STRING_CHAT_PREFIX_SET = make(HexPattern.fromAngles("qwaqa", HexDir.SOUTH_EAST), modLoc("string/chat/prefix/set"), OpSetChatPrefix)
 	@JvmField
 	val STRING_IOTA = make(HexPattern.fromAngles("wawqwawaw", HexDir.EAST), modLoc("string/iota"), OpIotaString)
 	@JvmField
 	val STRING_ACTION = make(HexPattern.fromAngles("wdwewdwdw", HexDir.NORTH_WEST), modLoc("string/action"), OpActionString)
+	@JvmField
+	val STRING_NAME_GET = make(HexPattern.fromAngles("deqqeddqwqqqwq", HexDir.SOUTH_EAST), modLoc("string/name/get"), OpNameGet)
+	@JvmField
+	val STRING_NAME_SET = make(HexPattern.fromAngles("aqeeqaaeweeewe", HexDir.SOUTH_WEST), modLoc("string/name/set"), OpNameSet)
 
 	@JvmField
 	val STRING_ADD = make(HexPattern.fromAngles("waawaqwawqq", HexDir.NORTH_EAST), modLoc("string/add"), OpAddStrings)

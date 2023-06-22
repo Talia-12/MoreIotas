@@ -59,6 +59,7 @@ public class FabricMoreIotasConfig extends PartitioningSerializer.GlobalData {
         private int maxStringLength = DEFAULT_MAX_STRING_LENGTH;
 
         private double setBlockStringCost = DEFAULT_SET_BLOCK_STRING_COST;
+        private double nameCost = DEFAULT_NAME_COST;
 
         @Override
         public void validatePostLoad() throws ValidationException {
@@ -66,6 +67,7 @@ public class FabricMoreIotasConfig extends PartitioningSerializer.GlobalData {
             this.maxStringLength = bound(this.maxStringLength, MIN_MAX_STRING_LENGTH, MAX_MAX_STRING_LENGTH);
 
             this.setBlockStringCost = bound(this.setBlockStringCost, DEF_MIN_COST, DEF_MAX_COST);
+            this.nameCost = bound(this.nameCost, DEF_MIN_COST, DEF_MAX_COST);
         }
 
         private int bound(int toBind, int lower, int upper) {
@@ -88,6 +90,11 @@ public class FabricMoreIotasConfig extends PartitioningSerializer.GlobalData {
         @Override
         public int getSetBlockStringCost() {
             return (int) (this.setBlockStringCost * MediaConstants.DUST_UNIT);
+        }
+
+        @Override
+        public int getNameCost() {
+            return (int) (this.nameCost * MediaConstants.DUST_UNIT);
         }
     }
 }
