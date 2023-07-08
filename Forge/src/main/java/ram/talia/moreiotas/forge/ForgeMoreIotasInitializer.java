@@ -17,6 +17,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import ram.talia.moreiotas.api.MoreIotasAPI;
 import ram.talia.moreiotas.api.mod.MoreIotasConfig;
 import ram.talia.moreiotas.common.lib.hex.MoreIotasActions;
+import ram.talia.moreiotas.common.lib.hex.MoreIotasArithmetics;
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes;
 import ram.talia.moreiotas.forge.cap.CapSyncers;
 import ram.talia.moreiotas.forge.cap.ForgeCapabilityHandler;
@@ -54,6 +55,7 @@ public class ForgeMoreIotasInitializer {
 	private static void initRegistry () {
 		bind(HexRegistries.IOTA_TYPE, MoreIotasIotaTypes::registerTypes);
 		bind(HexRegistries.ACTION, MoreIotasActions::register);
+		bind(HexRegistries.ARITHMETIC, MoreIotasArithmetics::register);
 	}
 	
 	private static void initListeners () {

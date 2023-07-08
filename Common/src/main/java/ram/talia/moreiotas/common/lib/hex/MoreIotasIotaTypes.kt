@@ -21,9 +21,9 @@ object MoreIotasIotaTypes {
     private val TYPES: MutableMap<ResourceLocation, IotaType<*>> = LinkedHashMap()
 
     @JvmField
-    val STRING_TYPE: IotaType<StringIota> = type("string", StringIota.TYPE)
+    val STRING: IotaType<StringIota> = type("string", StringIota.TYPE)
     @JvmField
-    val MATRIX_TYPE: IotaType<MatrixIota> = type("matrix", MatrixIota.TYPE)
+    val MATRIX: IotaType<MatrixIota> = type("matrix", MatrixIota.TYPE)
 
     private fun <U : Iota, T : IotaType<U>> type(name: String, type: T): T {
         val old = TYPES.put(modLoc(name), type)

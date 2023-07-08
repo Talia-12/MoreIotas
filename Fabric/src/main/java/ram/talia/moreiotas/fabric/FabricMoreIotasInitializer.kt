@@ -7,6 +7,7 @@ import net.minecraft.core.Registry
 import net.minecraft.resources.ResourceLocation
 import ram.talia.moreiotas.api.MoreIotasAPI
 import ram.talia.moreiotas.common.lib.hex.MoreIotasActions
+import ram.talia.moreiotas.common.lib.hex.MoreIotasArithmetics
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes
 import ram.talia.moreiotas.fabric.eventhandlers.ChatEventHandler
 import ram.talia.moreiotas.fabric.network.FabricPacketHandler
@@ -32,6 +33,7 @@ object FabricMoreIotasInitializer : ModInitializer {
     private fun initRegistries() {
         MoreIotasIotaTypes.registerTypes(bind(IXplatAbstractions.INSTANCE.iotaTypeRegistry))
         MoreIotasActions.register(bind(IXplatAbstractions.INSTANCE.actionRegistry))
+        MoreIotasArithmetics.register(bind(IXplatAbstractions.INSTANCE.arithmeticRegistry))
     }
 
 

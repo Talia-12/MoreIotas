@@ -15,7 +15,7 @@ import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes;
 
 public class StringIota extends Iota {
     public StringIota(@NotNull String string) throws MishapInvalidIota {
-        super(MoreIotasIotaTypes.STRING_TYPE, string);
+        super(MoreIotasIotaTypes.STRING, string);
         if (string.length() > MoreIotasConfig.getServer().getMaxStringLength())
             throw MishapInvalidIota.of(this, 0, "string.max_size", MoreIotasConfig.getServer().getMaxStringLength(), string.length());
     }

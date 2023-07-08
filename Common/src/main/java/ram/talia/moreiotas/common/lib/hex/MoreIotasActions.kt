@@ -66,18 +66,16 @@ object MoreIotasActions {
 	@JvmField
 	val STRING_NAME_SET = make("string/name/set", HexPattern.fromAngles("aqeeqaaeweeewe", HexDir.SOUTH_WEST), OpNameSet)
 
-	@JvmField
-	val STRING_ADD = make("string/add", HexPattern.fromAngles("waawaqwawqq", HexDir.NORTH_EAST), OpAddStrings)
+//	@JvmField
+//	val STRING_ADD = make("string/add", HexPattern.fromAngles("waawaqwawqq", HexDir.NORTH_EAST), OpAddStrings)
 	@JvmField
 	val STRING_SPLIT = make("string/split", HexPattern.fromAngles("aqwaqa", HexDir.EAST), OpSplitString)
 	@JvmField
 	val STRING_PARSE = make("string/parse", HexPattern.fromAngles("aqwaq", HexDir.EAST), OpParseString)
-	@JvmField
-	val STRING_FIND = make("string/find", HexPattern.fromAngles("waqwwaqa", HexDir.EAST), OpFindString)
-	@JvmField
-	val STRING_SUB = make("string/sub", HexPattern.fromAngles("aqwwaqwaad", HexDir.EAST), OpSubString)
-	@JvmField
-	val STRING_LEN = make("string/len", HexPattern.fromAngles("waqaeaq", HexDir.EAST), OpLenString)
+//	@JvmField
+//	val STRING_FIND = make("string/find", HexPattern.fromAngles("waqwwaqa", HexDir.EAST), OpFindString)
+//	@JvmField
+//	val STRING_SUB = make("string/sub", HexPattern.fromAngles("aqwwaqwaad", HexDir.EAST), OpSubString)
 	@JvmField
 	val STRING_CASE = make("string/case", HexPattern.fromAngles("dwwdwwdwdd", HexDir.WEST), OpCaseString)
 

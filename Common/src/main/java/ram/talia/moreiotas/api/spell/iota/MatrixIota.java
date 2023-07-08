@@ -16,7 +16,7 @@ import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes;
 
 public class MatrixIota extends Iota {
     public MatrixIota(@NotNull DoubleMatrix matrix) throws MishapInvalidIota {
-        super(MoreIotasIotaTypes.MATRIX_TYPE, matrix);
+        super(MoreIotasIotaTypes.MATRIX, matrix);
         if (matrix.rows > MoreIotasConfig.getServer().getMaxMatrixSize() || matrix.columns > MoreIotasConfig.getServer().getMaxMatrixSize())
             throw MishapInvalidIota.of(this,
                     0,
