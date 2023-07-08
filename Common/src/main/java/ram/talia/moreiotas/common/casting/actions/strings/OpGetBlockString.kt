@@ -1,34 +1,35 @@
 package ram.talia.moreiotas.common.casting.actions.strings
 
-import at.petrak.hexcasting.api.spell.ConstMediaAction
-import at.petrak.hexcasting.api.spell.asActionResult
-import at.petrak.hexcasting.api.spell.casting.CastingContext
-import at.petrak.hexcasting.api.spell.getBlockPos
-import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.iota.ListIota
+import at.petrak.hexcasting.api.casting.asActionResult
+import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.getBlockPos
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.iota.ListIota
 import at.petrak.hexcasting.api.utils.getList
 import net.minecraft.nbt.Tag
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.entity.LecternBlockEntity
 import net.minecraft.world.level.block.entity.SignBlockEntity
+import net.minecraft.world.level.block.entity.SignText
 import ram.talia.moreiotas.api.asActionResult
 import ram.talia.moreiotas.api.spell.iota.StringIota
 
 object OpGetBlockString : ConstMediaAction {
     override val argc = 1
 
-    override fun execute(args: List<Iota>, ctx: CastingContext): List<Iota> {
+    override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
         val pos = args.getBlockPos(0, argc)
 
-        ctx.assertVecInRange(pos)
+        env.assertVecInRange(pos.center)
 
-        val blockEntity = ctx.world.getBlockEntity(pos)
+        val blockEntity = env.world.getBlockEntity(pos)
 
         if (blockEntity is SignBlockEntity) {
-            var string = blockEntity.getMessage(0, false).string
-            for (i in 1 until SignBlockEntity.LINES) {
-                string += "\n" + blockEntity.getMessage(i, false).string
+            var string = blockEntity.getText(true).getMessage(0, false).string
+            for (i in 1 until SignText.LINES) {
+                string += "\n" + blockEntity.getText(true).getMessage(i, false).string
             }
 
             return string.asActionResult

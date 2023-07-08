@@ -1,9 +1,9 @@
 package ram.talia.moreiotas.api.spell.iota;
 
-import at.petrak.hexcasting.api.spell.iota.DoubleIota;
-import at.petrak.hexcasting.api.spell.iota.Iota;
-import at.petrak.hexcasting.api.spell.iota.IotaType;
-import at.petrak.hexcasting.api.spell.mishaps.MishapInvalidIota;
+import at.petrak.hexcasting.api.casting.iota.DoubleIota;
+import at.petrak.hexcasting.api.casting.iota.Iota;
+import at.petrak.hexcasting.api.casting.iota.IotaType;
+import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import at.petrak.hexcasting.api.utils.HexUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.*;
@@ -12,7 +12,7 @@ import net.minecraft.server.level.ServerLevel;
 import org.jblas.DoubleMatrix;
 import org.jetbrains.annotations.NotNull;
 import ram.talia.moreiotas.api.mod.MoreIotasConfig;
-import ram.talia.moreiotas.common.lib.MoreIotasIotaTypes;
+import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes;
 
 public class MatrixIota extends Iota {
     public MatrixIota(@NotNull DoubleMatrix matrix) throws MishapInvalidIota {

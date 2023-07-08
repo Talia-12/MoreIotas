@@ -1,12 +1,12 @@
 package ram.talia.moreiotas.common.casting.actions.matrices
 
-import at.petrak.hexcasting.api.spell.ConstMediaAction
-import at.petrak.hexcasting.api.spell.asActionResult
-import at.petrak.hexcasting.api.spell.casting.CastingContext
-import at.petrak.hexcasting.api.spell.iota.DoubleIota
-import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.iota.ListIota
-import at.petrak.hexcasting.api.spell.iota.Vec3Iota
+import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
+import at.petrak.hexcasting.api.casting.asActionResult
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.iota.DoubleIota
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.iota.ListIota
+import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import net.minecraft.world.phys.Vec3
 import ram.talia.moreiotas.api.asVec3
 import ram.talia.moreiotas.api.getMatrix
@@ -14,7 +14,7 @@ import ram.talia.moreiotas.api.getMatrix
 object OpUnmakeMatrix : ConstMediaAction {
     override val argc = 1
 
-    override fun execute(args: List<Iota>, ctx: CastingContext): List<Iota> {
+    override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
         val mat = args.getMatrix(0, argc)
 
         if (mat.rows == 1 && mat.columns == 1)
