@@ -1,6 +1,6 @@
 package ram.talia.moreiotas.fabric.cc
 
-import at.petrak.hexcasting.api.spell.iota.ListIota
+import at.petrak.hexcasting.api.casting.iota.ListIota
 import at.petrak.hexcasting.api.utils.getList
 import at.petrak.hexcasting.fabric.cc.HexCardinalComponents.IOTA_HOLDER
 import at.petrak.hexcasting.fabric.cc.adimpl.CCItemIotaHolder
@@ -14,7 +14,6 @@ import dev.onyxstudios.cca.api.v3.item.ItemComponentInitializer
 import net.minecraft.nbt.Tag
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.Items
-import ram.talia.moreiotas.api.MoreIotasAPI
 import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
 import ram.talia.moreiotas.api.spell.iota.StringIota
 
@@ -31,8 +30,7 @@ class MoreIotasCardinalComponents : EntityComponentInitializer, ItemComponentIni
 		}
 		registry.register(Items.WRITTEN_BOOK, IOTA_HOLDER) { stack ->
 			CCItemIotaHolder.Static(stack) {
-				s -> MoreIotasAPI.LOGGER.debug("${s.tag}")
-				s.tag.getList("pages", Tag.TAG_STRING)?.map {
+				s -> s.tag.getList("pages", Tag.TAG_STRING)?.map {
 					StringIota(Component.Serializer.fromJson(it.asString)?.string ?: "")
 				}?.let { ListIota(it) }
 			}

@@ -1,7 +1,7 @@
 package ram.talia.moreiotas.forge.cap
 
-import at.petrak.hexcasting.api.spell.iota.Iota
-import at.petrak.hexcasting.api.spell.iota.ListIota
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.iota.ListIota
 import at.petrak.hexcasting.api.utils.getList
 import net.minecraft.nbt.Tag
 import net.minecraft.network.chat.Component
