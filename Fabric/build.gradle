@@ -37,6 +37,12 @@ loom {
 
 repositories {
     mavenCentral()
+
+    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
+    flatDir {
+        dir 'libs'
+    }
+
     maven { url "https://maven.shedaniel.me/" }
     maven {
         url 'https://ladysnake.jfrog.io/artifactory/mods'
@@ -71,7 +77,7 @@ dependencies {
     modImplementation("$modID:hexcasting-fabric-$minecraftVersion:$hexcastingVersion") {
         exclude module: "phosphor"
     }
-    modImplementation "vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FABRIC"
+    modImplementation "vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FABRIC-SNAPSHOT"
 
     modImplementation "me.zeroeightsix:fiber:$fiberVersion"
     include "me.zeroeightsix:fiber:$fiberVersion"
@@ -82,8 +88,8 @@ dependencies {
     modImplementation "com.jamieswhiteshirt:reach-entity-attributes:2.1.1"
     include "com.jamieswhiteshirt:reach-entity-attributes:2.1.1"
 
-    modImplementation "io.github.tropheusj:serialization-hooks:$serializationHooksVersion"
-    include "io.github.tropheusj:serialization-hooks:$serializationHooksVersion"
+    modImplementation "$modID:serialization-hooks:$serializationHooksVersion"
+    include "$modID:serialization-hooks:$serializationHooksVersion"
 
     // Optional integrations
 
@@ -93,9 +99,8 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
-    modImplementation "dev.emi:emi:${emiVersion}"
+    modImplementation "dev.emi:emi-fabric:${emiVersion}"
 
-    modImplementation "maven.modrinth:gravity-api:$gravityApiVersion"
     modApi("com.github.Virtuoel:Pehkui:${pehkuiVersion}", {
         exclude group: "net.fabricmc.fabric-api"
     })
