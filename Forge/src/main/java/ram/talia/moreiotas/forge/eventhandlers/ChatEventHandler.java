@@ -3,7 +3,6 @@ package ram.talia.moreiotas.forge.eventhandlers;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.jetbrains.annotations.Nullable;
 
@@ -13,7 +12,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class ChatEventHandler {
-    private static final String TAG_CHAT_PREFIX = "hexal:prefix";
+    private static final String TAG_CHAT_PREFIX = "moreiotas:prefix";
 
     private static final Map<UUID, @Nullable String> prefixes = new HashMap<>();
     private static final Map<UUID, @Nullable String> lastMessages = new HashMap<>();

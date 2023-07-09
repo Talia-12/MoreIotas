@@ -7,7 +7,7 @@ import at.petrak.hexcasting.api.casting.iota.Iota
 import org.jblas.ranges.IntervalRange
 import ram.talia.moreiotas.api.asMatrix
 import ram.talia.moreiotas.api.getNumOrVecOrMatrix
-import ram.talia.moreiotas.api.spell.iota.MatrixIota
+import ram.talia.moreiotas.api.casting.iota.MatrixIota
 
 class OpSplitMatrix(private val splitVertically: Boolean) : ConstMediaAction {
     override val argc = 2

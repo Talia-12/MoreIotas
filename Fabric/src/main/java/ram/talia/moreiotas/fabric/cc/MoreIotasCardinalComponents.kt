@@ -15,7 +15,7 @@ import net.minecraft.nbt.Tag
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.Items
 import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
-import ram.talia.moreiotas.api.spell.iota.StringIota
+import ram.talia.moreiotas.api.casting.iota.StringIota
 
 class MoreIotasCardinalComponents : EntityComponentInitializer, ItemComponentInitializer {
 	override fun registerEntityComponentFactories(registry: EntityComponentFactoryRegistry) {
@@ -31,7 +31,7 @@ class MoreIotasCardinalComponents : EntityComponentInitializer, ItemComponentIni
 		registry.register(Items.WRITTEN_BOOK, IOTA_HOLDER) { stack ->
 			CCItemIotaHolder.Static(stack) {
 				s -> s.tag.getList("pages", Tag.TAG_STRING)?.map {
-					StringIota(Component.Serializer.fromJson(it.asString)?.string ?: "")
+                StringIota(Component.Serializer.fromJson(it.asString)?.string ?: "")
 				}?.let { ListIota(it) }
 			}
 		}

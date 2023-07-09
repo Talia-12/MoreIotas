@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.entity.LecternBlockEntity
 import net.minecraft.world.level.block.entity.SignBlockEntity
 import net.minecraft.world.level.block.entity.SignText
 import ram.talia.moreiotas.api.asActionResult
-import ram.talia.moreiotas.api.spell.iota.StringIota
+import ram.talia.moreiotas.api.casting.iota.StringIota
 
 object OpGetBlockString : ConstMediaAction {
     override val argc = 1

@@ -8,7 +8,7 @@ import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes
 import ram.talia.moreiotas.api.asActionResult
-import ram.talia.moreiotas.api.spell.iota.StringIota
+import ram.talia.moreiotas.api.casting.iota.StringIota
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes
 import kotlin.math.abs
 import kotlin.math.roundToInt

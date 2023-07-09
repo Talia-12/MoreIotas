@@ -6,8 +6,8 @@ import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
 import net.minecraft.world.phys.Vec3
 import org.jblas.DoubleMatrix
-import ram.talia.moreiotas.api.spell.iota.MatrixIota
-import ram.talia.moreiotas.api.spell.iota.StringIota
+import ram.talia.moreiotas.api.casting.iota.MatrixIota
+import ram.talia.moreiotas.api.casting.iota.StringIota
 import ram.talia.moreiotas.api.util.Anyone
 
 fun Iterator<IndexedValue<Iota>>.nextString(argc: Int = 0): String {

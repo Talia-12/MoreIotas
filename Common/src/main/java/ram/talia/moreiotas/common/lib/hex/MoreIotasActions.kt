@@ -9,9 +9,10 @@ import at.petrak.hexcasting.api.casting.math.HexDir
 import at.petrak.hexcasting.api.casting.math.HexPattern
 import net.minecraft.resources.ResourceLocation
 import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
-import ram.talia.moreiotas.api.spell.iota.StringIota
+import ram.talia.moreiotas.api.casting.iota.StringIota
 import ram.talia.moreiotas.common.casting.actions.matrices.*
 import ram.talia.moreiotas.common.casting.actions.strings.*
+import ram.talia.moreiotas.common.casting.actions.types.*
 import java.util.function.BiConsumer
 
 object MoreIotasActions {
@@ -90,12 +91,12 @@ object MoreIotasActions {
 	val MATRIX_ZERO = make("matrix/zero", HexPattern.fromAngles("awwaeawwa", HexDir.SOUTH_WEST), OpZeroMatrix)
 	@JvmField
 	val MATRIX_ROTATION = make("matrix/rotation", HexPattern.fromAngles("awwaeawwawawddw", HexDir.SOUTH_WEST), OpRotationMatrix)
-	@JvmField
-	val MATRIX_ADD = make("matrix/add", HexPattern.fromAngles("waawawaeawwaea", HexDir.EAST), OpAddMatrix)
-	@JvmField
-	val MATRIX_MUL = make("matrix/mul", HexPattern.fromAngles("waqawawwaeaww", HexDir.SOUTH_EAST), OpMulMatrix)
-	@JvmField
-	val MATRIX_TRANSPOSE = make("matrix/transpose", HexPattern.fromAngles("wwaeawwaede", HexDir.EAST), OpTransposeMatrix)
+//	@JvmField
+//	val MATRIX_ADD = make("matrix/add", HexPattern.fromAngles("waawawaeawwaea", HexDir.EAST), OpAddMatrix)
+//	@JvmField
+//	val MATRIX_MUL = make("matrix/mul", HexPattern.fromAngles("waqawawwaeaww", HexDir.SOUTH_EAST), OpMulMatrix)
+//	@JvmField
+//	val MATRIX_TRANSPOSE = make("matrix/transpose", HexPattern.fromAngles("wwaeawwaede", HexDir.EAST), OpTransposeMatrix)
 	@JvmField
 	val MATRIX_INVERSE = make("matrix/inverse", HexPattern.fromAngles("wwdqdwwdqaq", HexDir.WEST), OpInverseMatrix)
 	@JvmField
@@ -121,10 +122,28 @@ object MoreIotasActions {
 			HexPattern.fromAngles("dwaqawdwdwwdqdwwd", HexDir.SOUTH_WEST),
 			OpSplitMatrix(false))
 
+	// ================================ Types =======================================
 
-	fun make(name: String, pattern: HexPattern, action: Action): ActionRegistryEntry = make(name, ActionRegistryEntry(pattern, action))
+	@JvmField
+	val TYPE_BLOCK_ITEM = make("type/block_item", HexPattern.fromAngles("qaqqaea", HexDir.EAST), OpTypeBlockItem)
+	@JvmField
+	val TYPE_ENTITY = make("type/entity", HexPattern.fromAngles("qawde", HexDir.SOUTH_WEST), OpTypeEntity)
+	@JvmField
+	val TYPE_IOTA = make("type/iota", HexPattern.fromAngles("awd", HexDir.SOUTH_WEST), OpTypeIota)
+	@JvmField
+	val TYPE_ITEM_HELD = make("type/item_held", HexPattern.fromAngles("edeedqd", HexDir.SOUTH_WEST), OpTypeItemHeld)
 
-	fun make(name: String, are: ActionRegistryEntry): ActionRegistryEntry {
+	@JvmField
+	val GET_ENTITY_TYPE = make("get_entity/type", HexPattern.fromAngles("dadqqqqqdad", HexDir.NORTH_EAST), OpGetEntityAtDyn)
+	@JvmField
+	val ZONE_ENTITY_TYPE = make("zone_entity/type", HexPattern.fromAngles("waweeeeewaw", HexDir.SOUTH_EAST), OpGetEntitiesByDyn(false))
+	@JvmField
+	val ZONE_ENTITY_NOT_TYPE = make("zone_entity/not_type", HexPattern.fromAngles("wdwqqqqqwdw", HexDir.NORTH_EAST), OpGetEntitiesByDyn(true))
+
+
+	private fun make(name: String, pattern: HexPattern, action: Action): ActionRegistryEntry = make(name, ActionRegistryEntry(pattern, action))
+
+	private fun make(name: String, are: ActionRegistryEntry): ActionRegistryEntry {
 		return if (ACTIONS.put(modLoc(name), are) != null) {
 			throw IllegalArgumentException("Typo? Duplicate id $name")
 		} else {
@@ -132,7 +151,7 @@ object MoreIotasActions {
 		}
 	}
 
-	fun make(name: String, oa: OperationAction): ActionRegistryEntry {
+	private fun make(name: String, oa: OperationAction): ActionRegistryEntry {
 		val are = ActionRegistryEntry(oa.pattern, oa)
 		return if (ACTIONS.put(modLoc(name), are) != null) {
 			throw IllegalArgumentException("Typo? Duplicate id $name")

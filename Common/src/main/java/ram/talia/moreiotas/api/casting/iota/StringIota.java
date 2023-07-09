@@ -1,4 +1,4 @@
-package ram.talia.moreiotas.api.spell.iota;
+package ram.talia.moreiotas.api.casting.iota;
 
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
@@ -58,7 +58,7 @@ public class StringIota extends Iota {
             if (!(tag instanceof StringTag stag)) {
                 return Component.translatable("hexcasting.spelldata.unknown");
             }
-            return Component.translatable("hexal.tooltip.string", stag.getAsString())
+            return Component.translatable("moreiotas.tooltip.string", stag.getAsString())
                     .withStyle(ChatFormatting.LIGHT_PURPLE);
         }
 

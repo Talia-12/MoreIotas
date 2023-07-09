@@ -1,4 +1,4 @@
-package ram.talia.moreiotas.common.casting.arithmetic.operator
+package ram.talia.moreiotas.common.casting.arithmetic
 
 import at.petrak.hexcasting.api.casting.arithmetic.Arithmetic
 import at.petrak.hexcasting.api.casting.arithmetic.Arithmetic.*
@@ -12,11 +12,10 @@ import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.math.HexPattern
 import org.jblas.DoubleMatrix
 import org.jblas.MatrixFunctions
-import ram.talia.moreiotas.api.spell.iota.MatrixIota
+import ram.talia.moreiotas.api.casting.iota.MatrixIota
 import ram.talia.moreiotas.common.casting.arithmetic.operator.matrix.OperatorMatrixAdd
 import ram.talia.moreiotas.common.casting.arithmetic.operator.matrix.OperatorMatrixDiv
 import ram.talia.moreiotas.common.casting.arithmetic.operator.matrix.OperatorMatrixMul
-import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes.MATRIX
 import java.util.function.Function
 import java.util.function.UnaryOperator
@@ -73,7 +72,9 @@ object MatrixArithmetic : Arithmetic {
     ) }
 
     private fun make1(op: UnaryOperator<DoubleMatrix>): OperatorUnary = OperatorUnary(IotaMultiPredicate.all(IotaPredicate.ofType(MATRIX)))
-    { i: Iota -> MatrixIota(
-        op.apply(Operator.downcast(i, MATRIX).matrix)
-    ) }
+    { i: Iota ->
+        MatrixIota(
+                op.apply(Operator.downcast(i, MATRIX).matrix)
+        )
+    }
 }

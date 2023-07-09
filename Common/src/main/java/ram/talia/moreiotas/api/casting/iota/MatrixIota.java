@@ -1,4 +1,4 @@
-package ram.talia.moreiotas.api.spell.iota;
+package ram.talia.moreiotas.api.casting.iota;
 
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;

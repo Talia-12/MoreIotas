@@ -11,9 +11,8 @@ import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate
 import at.petrak.hexcasting.api.casting.iota.DoubleIota
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.math.HexPattern
-import ram.talia.moreiotas.api.spell.iota.StringIota
+import ram.talia.moreiotas.api.casting.iota.StringIota
 import ram.talia.moreiotas.common.casting.arithmetic.operator.string.*
-import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes.STRING
 import java.util.function.BinaryOperator
 import java.util.function.Function
@@ -57,12 +56,16 @@ object StringArithmetic : Arithmetic {
     ) }
 
     private fun make1(op: UnaryOperator<String>): OperatorUnary = OperatorUnary(IotaMultiPredicate.all(IotaPredicate.ofType(STRING)))
-    { i: Iota -> StringIota(
-        op.apply(Operator.downcast(i, STRING).string)
-    ) }
+    { i: Iota ->
+        StringIota(
+                op.apply(Operator.downcast(i, STRING).string)
+        )
+    }
 
     private fun make2(op: BinaryOperator<String>): OperatorBinary = OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(STRING)))
-    { i: Iota, j: Iota -> StringIota(
-        op.apply(Operator.downcast(i, STRING).string, Operator.downcast(i, STRING).string)
-    ) }
+    { i: Iota, j: Iota ->
+        StringIota(
+            op.apply(Operator.downcast(i, STRING).string, Operator.downcast(j, STRING).string)
+        )
+    }
 }
