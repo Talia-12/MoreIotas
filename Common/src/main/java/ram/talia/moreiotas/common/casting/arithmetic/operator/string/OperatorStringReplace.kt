@@ -3,6 +3,7 @@ package ram.talia.moreiotas.common.casting.arithmetic.operator.string
 import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.iota.DoubleIota
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
@@ -19,7 +20,7 @@ object OperatorStringReplace : Operator(3,
         IotaMultiPredicate.triple(IotaPredicate.ofType(STRING),
         IotaPredicate.or(IotaPredicate.ofType(DOUBLE), IotaPredicate.ofType(STRING)),
         IotaPredicate.ofType(STRING))) {
-    override fun apply(iotas: Iterable<Iota>): Iterable<Iota> {
+    override fun apply(iotas: Iterable<Iota>, env: CastingEnvironment): Iterable<Iota> {
         val it = iotas.iterator().withIndex()
         val replaceIn = it.nextString(arity)
         val (_, x) = it.next()
