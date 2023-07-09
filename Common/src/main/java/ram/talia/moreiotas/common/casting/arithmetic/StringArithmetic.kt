@@ -14,6 +14,7 @@ import at.petrak.hexcasting.api.casting.math.HexPattern
 import ram.talia.moreiotas.api.spell.iota.StringIota
 import ram.talia.moreiotas.common.casting.arithmetic.operator.string.*
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes
+import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes.STRING
 import java.util.function.BinaryOperator
 import java.util.function.Function
 import java.util.function.UnaryOperator
@@ -50,18 +51,18 @@ object StringArithmetic : Arithmetic {
         else -> throw InvalidOperatorException("$pattern is not a valid operator in Arithmetic $this.")
     }
 
-    private fun make1Double(op: Function<String, Double>): OperatorUnary = OperatorUnary(IotaMultiPredicate.all(IotaPredicate.ofType(MoreIotasIotaTypes.STRING)))
+    private fun make1Double(op: Function<String, Double>): OperatorUnary = OperatorUnary(IotaMultiPredicate.all(IotaPredicate.ofType(STRING)))
     { i: Iota -> DoubleIota(
-            op.apply(Operator.downcast(i, MoreIotasIotaTypes.STRING).string)
+            op.apply(Operator.downcast(i, STRING).string)
     ) }
 
-    private fun make1(op: UnaryOperator<String>): OperatorUnary = OperatorUnary(IotaMultiPredicate.all(IotaPredicate.ofType(MoreIotasIotaTypes.STRING)))
+    private fun make1(op: UnaryOperator<String>): OperatorUnary = OperatorUnary(IotaMultiPredicate.all(IotaPredicate.ofType(STRING)))
     { i: Iota -> StringIota(
-        op.apply(Operator.downcast(i, MoreIotasIotaTypes.STRING).string)
+        op.apply(Operator.downcast(i, STRING).string)
     ) }
 
-    private fun make2(op: BinaryOperator<String>): OperatorBinary = OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(MoreIotasIotaTypes.STRING)))
+    private fun make2(op: BinaryOperator<String>): OperatorBinary = OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(STRING)))
     { i: Iota, j: Iota -> StringIota(
-        op.apply(Operator.downcast(i, MoreIotasIotaTypes.STRING).string, Operator.downcast(i, MoreIotasIotaTypes.STRING).string)
+        op.apply(Operator.downcast(i, STRING).string, Operator.downcast(i, STRING).string)
     ) }
 }
