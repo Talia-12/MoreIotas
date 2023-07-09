@@ -51,17 +51,17 @@ object MatrixArithmetic : Arithmetic {
         MUL -> OperatorMatrixMul
         DIV -> OperatorMatrixDiv
         ABS -> make1Double { it.norm2() }
-        POW -> TODO()
+        POW -> OperatorMatrixMul // TODO
         FLOOR -> make1(MatrixFunctions::floor)
         CEIL -> make1(MatrixFunctions::ceil)
-        SIN -> TODO()
-        COS -> TODO()
-        TAN -> TODO()
-        ARCSIN -> TODO()
-        ARCCOS -> TODO()
-        ARCTAN -> TODO()
-        ARCTAN2 -> TODO()
-        LOG -> TODO()
+        SIN -> make1(MatrixFunctions::floor) // TODO
+        COS -> make1(MatrixFunctions::floor) // TODO
+        TAN -> make1(MatrixFunctions::floor) // TODO
+        ARCSIN -> make1(MatrixFunctions::floor) // TODO
+        ARCCOS -> make1(MatrixFunctions::floor) // TODO
+        ARCTAN -> make1(MatrixFunctions::floor) // TODO
+        ARCTAN2 -> OperatorMatrixMul // TODO
+        LOG -> OperatorMatrixMul // TODO
         REV -> make1(DoubleMatrix::transpose)
         else -> throw InvalidOperatorException("$pattern is not a valid operator in Arithmetic $this.")
     }

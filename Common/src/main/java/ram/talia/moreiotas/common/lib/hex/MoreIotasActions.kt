@@ -147,13 +147,13 @@ object MoreIotasActions {
 	// ================================ Item Stacks =======================================
 
 	@JvmField
-	val ITEM_GET_MAIN_HAND = make("item/get_main_hand", HexPattern.fromAngles("adeq", HexDir.EAST), OpGetHeldItem(InteractionHand.MAIN_HAND))
+	val ITEM_GET_MAIN_HAND = make("item/main_hand", HexPattern.fromAngles("adeq", HexDir.EAST), OpGetHeldItem(InteractionHand.MAIN_HAND))
 	@JvmField
-	val ITEM_GET_OFF_HAND = make("item/get_off_hand", HexPattern.fromAngles("qeda", HexDir.EAST), OpGetHeldItem(InteractionHand.OFF_HAND))
+	val ITEM_GET_OFF_HAND = make("item/off_hand", HexPattern.fromAngles("qeda", HexDir.EAST), OpGetHeldItem(InteractionHand.OFF_HAND))
 	@JvmField
-	val ITEM_GET_INVENTORY_STACKS = make("item/get_inventory/stacks", HexPattern.fromAngles("aqwed", HexDir.NORTH_EAST), OpGetInventoryContents(returnStacks = true))
+	val ITEM_GET_INVENTORY_STACKS = make("item/inventory/stacks", HexPattern.fromAngles("aqwed", HexDir.NORTH_EAST), OpGetInventoryContents(returnStacks = true))
 	@JvmField
-	val ITEM_GET_INVENTORY_ITEMS = make("item/get_inventory/items", HexPattern.fromAngles("dewqa", HexDir.NORTH_EAST), OpGetInventoryContents(returnStacks = false))
+	val ITEM_GET_INVENTORY_ITEMS = make("item/inventory/items", HexPattern.fromAngles("dewqa", HexDir.NORTH_EAST), OpGetInventoryContents(returnStacks = false))
 	@JvmField
 	val ITEM_PROP_SIZE_SET = make("item/prop/size/set", HexPattern.fromAngles("adeeedew", HexDir.EAST), OpSetItemCount)
 
