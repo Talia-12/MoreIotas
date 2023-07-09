@@ -125,7 +125,7 @@ object MoreIotasActions {
 	// ================================ Types =======================================
 
 	@JvmField
-	val TYPE_BLOCK_ITEM = make("type/block_item", HexPattern.fromAngles("qaqqaea", HexDir.EAST), OpTypeBlockItem)
+	val TYPE_TO_ITEM = make("type/to_item", OperationAction(HexPattern.fromAngles("qaqqaea", HexDir.EAST)))
 	@JvmField
 	val TYPE_ENTITY = make("type/entity", HexPattern.fromAngles("qawde", HexDir.SOUTH_WEST), OpTypeEntity)
 	@JvmField
