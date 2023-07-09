@@ -8,8 +8,12 @@ import at.petrak.hexcasting.api.casting.castables.OperationAction
 import at.petrak.hexcasting.api.casting.math.HexDir
 import at.petrak.hexcasting.api.casting.math.HexPattern
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.world.InteractionHand
 import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
 import ram.talia.moreiotas.api.casting.iota.StringIota
+import ram.talia.moreiotas.common.casting.actions.items.OpGetHeldItem
+import ram.talia.moreiotas.common.casting.actions.items.OpGetInventoryContents
+import ram.talia.moreiotas.common.casting.actions.items.OpSetItemCount
 import ram.talia.moreiotas.common.casting.actions.matrices.*
 import ram.talia.moreiotas.common.casting.actions.strings.*
 import ram.talia.moreiotas.common.casting.actions.types.*
@@ -139,6 +143,19 @@ object MoreIotasActions {
 	val ZONE_ENTITY_TYPE = make("zone_entity/type", HexPattern.fromAngles("waweeeeewaw", HexDir.SOUTH_EAST), OpGetEntitiesByDyn(false))
 	@JvmField
 	val ZONE_ENTITY_NOT_TYPE = make("zone_entity/not_type", HexPattern.fromAngles("wdwqqqqqwdw", HexDir.NORTH_EAST), OpGetEntitiesByDyn(true))
+
+	// ================================ Item Stacks =======================================
+
+	@JvmField
+	val ITEM_GET_MAIN_HAND = make("item/get_main_hand", HexPattern.fromAngles("adeq", HexDir.EAST), OpGetHeldItem(InteractionHand.MAIN_HAND))
+	@JvmField
+	val ITEM_GET_OFF_HAND = make("item/get_off_hand", HexPattern.fromAngles("qeda", HexDir.EAST), OpGetHeldItem(InteractionHand.OFF_HAND))
+	@JvmField
+	val ITEM_GET_INVENTORY_STACKS = make("item/get_inventory/stacks", HexPattern.fromAngles("aqwed", HexDir.NORTH_EAST), OpGetInventoryContents(returnStacks = true))
+	@JvmField
+	val ITEM_GET_INVENTORY_ITEMS = make("item/get_inventory/items", HexPattern.fromAngles("dewqa", HexDir.NORTH_EAST), OpGetInventoryContents(returnStacks = false))
+	@JvmField
+	val ITEM_PROP_SIZE_SET = make("item/prop/size/set", HexPattern.fromAngles("adeeedew", HexDir.EAST), OpSetItemCount)
 
 
 	private fun make(name: String, pattern: HexPattern, action: Action): ActionRegistryEntry = make(name, ActionRegistryEntry(pattern, action))

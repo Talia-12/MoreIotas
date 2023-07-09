@@ -29,6 +29,8 @@ object MoreIotasIotaTypes {
     val ENTITY_TYPE: IotaType<EntityTypeIota> = type("entity_type", EntityTypeIota.TYPE)
     @JvmField
     val ITEM_TYPE: IotaType<ItemTypeIota> = type("item_type", ItemTypeIota.TYPE)
+    @JvmField
+    val ITEM_STACK: IotaType<ItemStackIota> = type("item_stack", ItemStackIota.TYPE)
 
     private fun <U : Iota, T : IotaType<U>> type(name: String, type: T): T {
         val old = TYPES.put(modLoc(name), type)

@@ -4,8 +4,12 @@
   "hexcasting.iota.moreiotas:iota_type": "Iota Type",
   "hexcasting.iota.moreiotas:entity_type": "Entity Type",
   "hexcasting.iota.moreiotas:item_type": "Item Type",
+  "hexcasting.iota.moreiotas:item_stack": "Item Stack",
 
   "moreiotas.spelldata.entity_type": "Type",
+
+  "moreiotas.tooltip.stack.empty": "Empty Stack",
+  "moreiotas.tooltip.stack.format": "%dx %s",
 
   "moreiotas.tooltip.string": "\"%s\"",
 
@@ -23,12 +27,8 @@
   "hexcasting.action.moreiotas:string/action": "Patternmaster's Purification",
   "hexcasting.action.moreiotas:string/name/get": "Moniker Purification",
   "hexcasting.action.moreiotas:string/name/set": "Name",
-  "hexcasting.action.moreiotas:string/add": "Concatenation Distillation",
   "hexcasting.action.moreiotas:string/split": "Separation Distillation",
   "hexcasting.action.moreiotas:string/parse": "Input Purification",
-  "hexcasting.action.moreiotas:string/find": "Discoverer's Distillation",
-  "hexcasting.action.moreiotas:string/sub": "Winnowing Distillation",
-  "hexcasting.action.moreiotas:string/len": "Length Distillation: Str",
   "hexcasting.action.moreiotas:string/case": "Case Distillation",
 
   "hexcasting.action.moreiotas:matrix/make": "Transformation Purification",
@@ -36,9 +36,6 @@
   "hexcasting.action.moreiotas:matrix/identity": "Identity Purification",
   "hexcasting.action.moreiotas:matrix/zero": "Zero Distillation",
   "hexcasting.action.moreiotas:matrix/rotation": "Rotation Distillation",
-  "hexcasting.action.moreiotas:matrix/add": "Addition Distillation: Matrix",
-  "hexcasting.action.moreiotas:matrix/mul": "Multiplication Distillation: Matrix",
-  "hexcasting.action.moreiotas:matrix/transpose": "Transpose Purification",
   "hexcasting.action.moreiotas:matrix/inverse": "Inverse Purification",
   "hexcasting.action.moreiotas:matrix/determinant": "Determinant Purification",
   "hexcasting.action.moreiotas:matrix/concat/vert": "Tower Distillation",
@@ -55,13 +52,17 @@
   "hexcasting.action.moreiotas:zone_entity/type": "Zone Exaltation: Type",
   "hexcasting.action.moreiotas:zone_entity/not_type": "Zone Exaltation: Not-Type",
 
+
+  "hexcasting.action.moreiotas:item/get_main_hand": "Duelist's Purification",
+  "hexcasting.action.moreiotas:item/get_off_hand": "Shieldbearer's Purification",
+  "hexcasting.action.moreiotas:item/get_inventory/stacks": "Hoarder's Distillation",
+  "hexcasting.action.moreiotas:item/get_inventory/items": "Collector's Distillation",
+  "hexcasting.action.moreiotas:item/prop/size/set": "Treasurer's Distillation",
+
   "hexcasting.action.book.moreiotas:string/action": "Patternmaster's Prfct.",
-  "hexcasting.action.book.moreiotas:string/len": "Length Dstl.: Str",
 
   "hexcasting.action.book.moreiotas:matrix/make": "Transformation Prfct.",
   "hexcasting.action.book.moreiotas:matrix/unmake": "Restoration Prfct.",
-  "hexcasting.action.book.moreiotas:matrix/add": "Add. Dstl.: Matrix",
-  "hexcasting.action.book.moreiotas:matrix/mul": "Mul. Dstl.: Matrix",
 
   "moreiotas.entry.strings": "Strings",
   "moreiotas.page.strings.string/empty": "Add an empty string to the stack, useful for combining with other strings.",
@@ -85,6 +86,14 @@
   "moreiotas.page.strings.string/sub": "Removes a string and two positive integers from the top of the stack, and returns the substring from the first to the second (inclusive first, exclusive second).",
   "moreiotas.page.strings.string/len": "Removes a string and returns its length.",
   "moreiotas.page.strings.string/case": "Removes a string and a bool or null. If it was true, return the string in upper case. If false, lowercase. If null, toggle each character's case.",
+
+
+
+
+  "moreiotas.entry.item_iotas": "Item Iotas",
+  "moreiotas.page.item_iotas.0": "I have discovered two additional types of iotas I can manipulate.$(br2) Item Type Iotas describe a singular item stripped of its properties, such as damage or enchantments.$(br2) Item Stack Iotas describe a stack of items as they might appear in my inventory, amount, custom names, enchantments, and all.",
+  "moreiotas.page.item_iotas.1": "It would also seem Item Stack iotas referring to Foci containing other Item Stack iotas are somewhat faulty. A limit to the depth of my thought perhaps.",
+
 
   "moreiotas.entry.matrices": "Matrices",
   "moreiotas.page.matrices.0": "Matrices are a helpful tool for manipulating vectors to do as I wish, able to represent any linear transformation that can be applied to a vector. Of note with these patterns is that many are forgiving with their inputs, accepting in place of matrices things that can be easily mapped to matrices, namely numbers and vectors.",
@@ -117,6 +126,15 @@
   "moreiotas.page.types.zone_entity/type": "Remove an entity type, a position, and a radius from the stack, and returns a list of all entities of that type within that radius of that position.",
   "moreiotas.page.types.zone_entity/not_type": "Remove an entity type, a position, and a radius from the stack, and returns a list of all entities not of that type within that radius of that position",
 
+  "moreiotas.entry.items": "Items",
+  "moreiotas.page.items.item/prop/item": "Transforms the $(l:moreiotas:casting/item_iotas)Item Stack$() at the top of the stack into its Item.",
+  "moreiotas.page.items.item/prop/size": "Transforms the Item Stack at the top of the stack into its size.",
+  "moreiotas.page.items.item/prop/size/set": "Transforms the Item Stack at the top of the stack into its size.",
+  "moreiotas.page.items.item/get_main_hand": "Transforms the entity at the top of the stack into the Item Stack in its main hand. Also works on Item Frames and dropped items.",
+  "moreiotas.page.items.item/get_off_hand": "Transforms the entity at the top of the stack into the Item Stack in its off hand.",
+  "moreiotas.page.items.item/inventory/stacks": "Removes two vectors from the stack representing position and side. Returns a list of Item Stacks in the block at the given position accessible from the given side (or all if second vector is zero).",
+  "moreiotas.page.items.item/inventory/items": "Removes two vectors from the stack representing position and side. Returns a list of Items in the block at the given position accessible from the given side (or all if second vector is zero).",
+
   "hexcasting.mishap.invalid_value.class.string": "a string",
   "hexcasting.mishap.invalid_value.class.matrix": "a matrix",
   "hexcasting.mishap.invalid_value.class.matrix.square": "a square matrix",
@@ -124,5 +142,7 @@
   "hexcasting.mishap.invalid_value.class.possible_matrix": "an iota able to be converted to a matrix",
   "hexcasting.mishap.invalid_value.matrix.wrong_size": "a matrix %s by %s",
   "hexcasting.mishap.invalid_value.matrix.max_size": "a final matrix less than %1$d by %1$d, was %2$d by %3$d",
-  "hexcasting.mishap.invalid_value.string.max_size": "a string less than %d chars long, was %d"
+  "hexcasting.mishap.invalid_value.string.max_size": "a string less than %d chars long, was %d",
+  "hexcasting.mishap.bad_item.item.read.offhand": "an entity with an offhand",
+  "hexcasting.mishap.bad_item.item.read.any": "an entity that can hold items"
 }

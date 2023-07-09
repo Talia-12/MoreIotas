@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation
 import ram.talia.moreiotas.api.MoreIotasAPI.modLoc
 import ram.talia.moreiotas.common.casting.arithmetic.MatrixArithmetic
 import ram.talia.moreiotas.common.casting.arithmetic.StringArithmetic
-import ram.talia.moreiotas.common.casting.arithmetic.TypeArithmetic
+import ram.talia.moreiotas.common.casting.arithmetic.ItemArithmetic
 import java.util.function.BiConsumer
 
 object MoreIotasArithmetics {
@@ -20,7 +20,7 @@ object MoreIotasArithmetics {
 
     val STRING: StringArithmetic = make("string", StringArithmetic)
     val MATRIX: MatrixArithmetic = make("matrix", MatrixArithmetic)
-    val TYPE: TypeArithmetic = make("type", TypeArithmetic)
+    val ITEM: ItemArithmetic = make("type", ItemArithmetic)
 
     private fun <T : Arithmetic> make(name: String, arithmetic: T): T {
         val old = ARITHMETICS.put(modLoc(name), arithmetic)

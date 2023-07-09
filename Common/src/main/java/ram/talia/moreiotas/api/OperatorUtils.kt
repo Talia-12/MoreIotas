@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos
 import net.minecraft.core.Position
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.item.Item
+import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.phys.Vec3
 import org.jblas.DoubleMatrix
@@ -115,6 +116,13 @@ fun List<Iota>.getEntityType(idx: Int, argc: Int = 0): EntityType<*> {
     throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "type.entity")
 }
 
+fun List<Iota>.getItemStack(index: Int, argc: Int = 0): ItemStack {
+    val x = this.getOrElse(index) { throw MishapNotEnoughArgs(index + 1, this.size) }
+
+    return (x as? ItemStackIota)?.itemStack
+        ?: throw MishapInvalidIota.of(x, if (argc == 0) index else argc - (index + 1), "item_stack")
+}
+
 inline val String.asActionResult get() = listOf(StringIota(this))
 inline val DoubleMatrix.asActionResult get() = listOf(MatrixIota(this))
 inline val IotaType<*>.asActionResult get() = listOf(IotaTypeIota(this))
@@ -122,6 +130,7 @@ inline val Block.asActionResult get() = listOf(ItemTypeIota(this))
 inline val EntityType<*>.asActionResult get() = listOf(EntityTypeIota(this))
 inline val Item.asActionResult get() = listOf(ItemTypeIota(this))
 inline val List<Item>.asActionResult get() = this.map { ItemTypeIota(it) }.asActionResult
+inline val ItemStack.asActionResult get() = listOf(ItemStackIota.createFiltered(this))
 
 inline val Vec3.asMatrix get() = DoubleMatrix(3, 1, this.x, this.y, this.z)
 inline val BlockPos.asMatrix get() = DoubleMatrix(1, 3, this.x.toDouble(), this.y.toDouble(), this.z.toDouble())
