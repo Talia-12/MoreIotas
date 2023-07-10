@@ -45,6 +45,6 @@ side = "BOTH"
 [[dependencies.moreiotas]]
 modId = "hexcasting"
 mandatory = true
-versionRange = "[0.11.1,)"
+versionRange = "[0.11.1-6,)"
 ordering = "NONE"
 side = "BOTH"

@@ -14,6 +14,6 @@ object OpSplitString : ConstMediaAction {
         val toSplit = args.getString(0, argc)
         val splitOn = args.getString(1, argc)
 
-        return toSplit.split(splitOn).map { s -> StringIota(s) }.asActionResult
+        return toSplit.split(splitOn).map { s -> StringIota.make(s) }.asActionResult
     }
 }

@@ -11,10 +11,10 @@ import ram.talia.moreiotas.api.casting.iota.StringIota
 object BookHelpers {
     @JvmStatic
     fun getWritableIota(s: ItemStack): Iota?
-            = s.tag.getList("pages", Tag.TAG_STRING)?.map { StringIota(it.asString) }?.let { ListIota(it) }
+            = s.tag.getList("pages", Tag.TAG_STRING)?.map { StringIota.make(it.asString) }?.let { ListIota(it) }
 
     @JvmStatic
     fun getWrittenIota(s: ItemStack): Iota? = s.tag.getList("pages", Tag.TAG_STRING)?.map {
-        StringIota(Component.Serializer.fromJson(it.asString)?.string ?: "")
+        StringIota.make(Component.Serializer.fromJson(it.asString)?.string ?: "")
         }?.let { ListIota(it) }
 }

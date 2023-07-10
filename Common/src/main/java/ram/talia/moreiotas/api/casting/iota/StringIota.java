@@ -14,10 +14,18 @@ import ram.talia.moreiotas.api.mod.MoreIotasConfig;
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes;
 
 public class StringIota extends Iota {
-    public StringIota(@NotNull String string) throws MishapInvalidIota {
+    private StringIota(@NotNull String string) {
         super(MoreIotasIotaTypes.STRING, string);
+    }
+
+    public static StringIota make(@NotNull String string) throws MishapInvalidIota {
         if (string.length() > MoreIotasConfig.getServer().getMaxStringLength())
-            throw MishapInvalidIota.of(this, 0, "string.max_size", MoreIotasConfig.getServer().getMaxStringLength(), string.length());
+            throw MishapInvalidIota.of(new StringIota(string), 0, "string.max_size", MoreIotasConfig.getServer().getMaxStringLength(), string.length());
+        return new StringIota(string);
+    }
+
+    public static StringIota makeUnchecked(@NotNull String string) {
+        return new StringIota(string);
     }
 
     public String getString() {
@@ -47,7 +55,7 @@ public class StringIota extends Iota {
             var stag = HexUtils.downcast(tag, StringTag.TYPE);
 
             try {
-                return new StringIota(stag.getAsString());
+                return StringIota.make(stag.getAsString());
             } catch (MishapInvalidIota e) {
                 throw new IllegalArgumentException(e);
             }

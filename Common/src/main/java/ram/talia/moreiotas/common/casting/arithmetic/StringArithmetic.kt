@@ -57,14 +57,14 @@ object StringArithmetic : Arithmetic {
 
     private fun make1(op: UnaryOperator<String>): OperatorUnary = OperatorUnary(IotaMultiPredicate.all(IotaPredicate.ofType(STRING)))
     { i: Iota ->
-        StringIota(
-                op.apply(Operator.downcast(i, STRING).string)
+        StringIota.make(
+            op.apply(Operator.downcast(i, STRING).string)
         )
     }
 
     private fun make2(op: BinaryOperator<String>): OperatorBinary = OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(STRING)))
     { i: Iota, j: Iota ->
-        StringIota(
+        StringIota.make(
             op.apply(Operator.downcast(i, STRING).string, Operator.downcast(j, STRING).string)
         )
     }

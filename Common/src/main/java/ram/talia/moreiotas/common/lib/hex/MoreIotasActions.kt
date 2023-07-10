@@ -37,19 +37,19 @@ object MoreIotasActions {
 	@JvmField
 	val STRING_EMPTY = make("string/empty",
 			HexPattern.fromAngles("awdwa", HexDir.SOUTH_EAST),
-			Action.makeConstantOp(StringIota("")))
+			Action.makeConstantOp(StringIota.makeUnchecked("")))
 	@JvmField
 	val STRING_SPACE = make("string/space",
 			HexPattern.fromAngles("awdwaaww", HexDir.SOUTH_EAST),
-			Action.makeConstantOp(StringIota(" ")))
+			Action.makeConstantOp(StringIota.makeUnchecked(" ")))
 	@JvmField
 	val STRING_COMMA = make("string/comma",
 			HexPattern.fromAngles("qa", HexDir.EAST),
-			Action.makeConstantOp(StringIota(",")))
+			Action.makeConstantOp(StringIota.makeUnchecked(",")))
 	@JvmField
 	val STRING_NEWLINE = make("string/newline",
 			HexPattern.fromAngles("waawaw", HexDir.EAST),
-			Action.makeConstantOp(StringIota("\n")))
+			Action.makeConstantOp(StringIota.makeUnchecked("\n")))
 	@JvmField
 	val STRING_BLOCK_GET = make("string/block/get", HexPattern.fromAngles("awqwawqe", HexDir.EAST), OpGetBlockString)
 	@JvmField

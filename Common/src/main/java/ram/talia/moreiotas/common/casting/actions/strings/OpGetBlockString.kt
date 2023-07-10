@@ -38,10 +38,10 @@ object OpGetBlockString : ConstMediaAction {
             val book = blockEntity.book
 
             return if (book.`is`(Items.WRITABLE_BOOK))
-                    book.tag.getList("pages", Tag.TAG_STRING)?.map { StringIota(it.asString) }?.let { listOf(ListIota(it)) } ?: null.asActionResult
+                    book.tag.getList("pages", Tag.TAG_STRING)?.map { StringIota.make(it.asString) }?.let { listOf(ListIota(it)) } ?: null.asActionResult
                 else if (book.`is`(Items.WRITTEN_BOOK))
                     book.tag.getList("pages", Tag.TAG_STRING)?.map {
-                        StringIota(Component.Serializer.fromJson(it.asString)?.string ?: "")
+                        StringIota.make(Component.Serializer.fromJson(it.asString)?.string ?: "")
                     }?.let { listOf(ListIota(it)) } ?: null.asActionResult
                 else null.asActionResult
         }

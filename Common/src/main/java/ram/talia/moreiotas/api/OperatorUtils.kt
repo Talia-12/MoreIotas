@@ -123,7 +123,7 @@ fun List<Iota>.getItemStack(index: Int, argc: Int = 0): ItemStack {
         ?: throw MishapInvalidIota.of(x, if (argc == 0) index else argc - (index + 1), "item_stack")
 }
 
-inline val String.asActionResult get() = listOf(StringIota(this))
+inline val String.asActionResult get() = listOf(StringIota.make(this))
 inline val DoubleMatrix.asActionResult get() = listOf(MatrixIota(this))
 inline val IotaType<*>.asActionResult get() = listOf(IotaTypeIota(this))
 inline val Block.asActionResult get() = listOf(ItemTypeIota(this))

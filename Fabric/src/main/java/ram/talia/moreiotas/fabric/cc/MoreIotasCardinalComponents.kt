@@ -25,13 +25,13 @@ class MoreIotasCardinalComponents : EntityComponentInitializer, ItemComponentIni
 	override fun registerItemComponentFactories(registry: ItemComponentFactoryRegistry) {
 		registry.register(Items.WRITABLE_BOOK, IOTA_HOLDER) { stack ->
 			CCItemIotaHolder.Static(stack) {
-				s -> s.tag.getList("pages", Tag.TAG_STRING)?.map { StringIota(it.asString) }?.let { ListIota(it) }
+				s -> s.tag.getList("pages", Tag.TAG_STRING)?.map { StringIota.make(it.asString) }?.let { ListIota(it) }
 			}
 		}
 		registry.register(Items.WRITTEN_BOOK, IOTA_HOLDER) { stack ->
 			CCItemIotaHolder.Static(stack) {
 				s -> s.tag.getList("pages", Tag.TAG_STRING)?.map {
-                StringIota(Component.Serializer.fromJson(it.asString)?.string ?: "")
+                StringIota.make(Component.Serializer.fromJson(it.asString)?.string ?: "")
 				}?.let { ListIota(it) }
 			}
 		}
