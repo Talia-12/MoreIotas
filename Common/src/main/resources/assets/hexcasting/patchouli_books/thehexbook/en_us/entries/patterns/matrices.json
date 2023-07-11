@@ -81,6 +81,7 @@
     },
     {
       "type": "hexcasting:pattern",
+      "header": "hexcasting.action.moreiotas:matrix/transpose",
       "op_id": "hexcasting:reverse",
       "anchor": "moreiotas:matrix/transpose",
       "input": "mat",

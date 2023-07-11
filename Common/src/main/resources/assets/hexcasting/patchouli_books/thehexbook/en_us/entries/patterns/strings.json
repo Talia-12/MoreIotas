@@ -8,6 +8,7 @@
   "pages": [
     {
       "type": "hexcasting:pattern",
+      "header": "hexcasting.action.moreiotas:string/add",
       "op_id": "hexcasting:add",
       "anchor": "moreiotas:string/add",
       "input": "str, str",
@@ -32,6 +33,7 @@
     },
     {
       "type": "hexcasting:pattern",
+      "header": "hexcasting.action.moreiotas:string/find",
       "op_id": "hexcasting:index_of",
       "anchor": "moreiotas:string/find",
       "input": "str, str",
@@ -40,6 +42,7 @@
     },
     {
       "type": "hexcasting:pattern",
+      "header": "hexcasting.action.moreiotas:string/sub",
       "op_id": "hexcasting:slice",
       "anchor": "moreiotas:string/sub",
       "input": "str, num, num",
