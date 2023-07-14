@@ -93,7 +93,9 @@ object Patterns {
 	@JvmField
 	val MATRIX_MAKE = make(HexPattern.fromAngles("awwaeawwaadwa", HexDir.SOUTH_WEST), modLoc("matrix/make"), OpMakeMatrix)
 	@JvmField
-	val MATRIX_UNMAKE = make(HexPattern.fromAngles("dwwdqdwwddawd", HexDir.SOUTH_EAST), modLoc("matrix/unmake"), OpUnmakeMatrix)
+	val MATRIX_UNMAKE = make(HexPattern.fromAngles("dwwdqdwwddawd", HexDir.SOUTH_EAST), modLoc("matrix/unmake"), OpUnmakeMatrix(false))
+	@JvmField
+	val MATRIX_UNMAKE_DIRECT = make(HexPattern.fromAngles("dwwdqdwwdwdwa", HexDir.SOUTH_EAST), modLoc("matrix/unmake/direct"), OpUnmakeMatrix(true))
 	@JvmField
 	val MATRIX_IDENTITY = make(HexPattern.fromAngles("awwaeawwaqw", HexDir.SOUTH_WEST), modLoc("matrix/identity"), OpIdentityMatrix)
 	@JvmField
