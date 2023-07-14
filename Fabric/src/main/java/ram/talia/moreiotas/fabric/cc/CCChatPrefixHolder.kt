@@ -8,8 +8,10 @@ import net.minecraft.world.entity.player.Player
 class CCChatPrefixHolder(private val player: Player, var prefix: String? = null) : AutoSyncedComponent {
 
     override fun readFromNbt(tag: CompoundTag) {
-        if (tag.hasString(TAG_CHAT_PREFIX))
-            prefix = tag.getString(TAG_CHAT_PREFIX)
+        prefix = if (tag.hasString(TAG_CHAT_PREFIX))
+            tag.getString(TAG_CHAT_PREFIX)
+        else
+            null
     }
 
     override fun writeToNbt(tag: CompoundTag) {
