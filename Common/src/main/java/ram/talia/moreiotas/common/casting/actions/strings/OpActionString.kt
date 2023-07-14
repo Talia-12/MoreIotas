@@ -24,12 +24,14 @@ object OpActionString : ConstMediaAction {
     override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
         val pattern = args.getPattern(0, argc)
 
-        when (pattern) {
-            INTROSPECTION -> return Component.translatable("hexcasting.action.rawhook.hexcasting:open_paren").string.asActionResult
-            RETROSPECTION -> return Component.translatable("hexcasting.action.rawhook.hexcasting:close_paren").string.asActionResult
-            CONSIDERATION -> return Component.translatable("hexcasting.action.rawhook.hexcasting:escape").string.asActionResult
-            EVANITION     -> return Component.translatable("hexcasting.action.rawhook.hexcasting:undo").string.asActionResult
-        }
+        if (pattern.sigsEqual(INTROSPECTION))
+            return Component.translatable("hexcasting.action.rawhook.hexcasting:open_paren").string.asActionResult
+        if (pattern.sigsEqual(RETROSPECTION))
+            return Component.translatable("hexcasting.action.rawhook.hexcasting:close_paren").string.asActionResult
+        if (pattern.sigsEqual(CONSIDERATION))
+            return Component.translatable("hexcasting.action.rawhook.hexcasting:escape").string.asActionResult
+        if (pattern.sigsEqual(EVANITION))
+            return Component.translatable("hexcasting.action.rawhook.hexcasting:undo").string.asActionResult
 
         val action = PatternRegistryManifest.matchPattern(pattern, env.world, true) ?: return null.asActionResult
 
