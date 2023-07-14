@@ -43,6 +43,7 @@
 
   "hexcasting.action.moreiotas:matrix/make": "Transformation Purification",
   "hexcasting.action.moreiotas:matrix/unmake": "Restoration Purification",
+  "hexcasting.action.moreiotas:matrix/unmake/direct": "Restoration Purification II",
   "hexcasting.action.moreiotas:matrix/identity": "Identity Purification",
   "hexcasting.action.moreiotas:matrix/zero": "Zero Distillation",
   "hexcasting.action.moreiotas:matrix/rotation": "Rotation Distillation",
@@ -78,6 +79,7 @@
 
   "hexcasting.action.book.moreiotas:matrix/make": "Transformation Prfct.",
   "hexcasting.action.book.moreiotas:matrix/unmake": "Restoration Prfct.",
+  "hexcasting.action.book.moreiotas:matrix/unmake/direct": "Restoration Prfct. II",
 
   "moreiotas.entry.strings": "Strings",
   "moreiotas.page.strings.string/empty": "Add an empty string to the stack, useful for combining with other strings.",
@@ -88,8 +90,8 @@
   "moreiotas.page.strings.string/block/set": "Removes a vector and a string from the stack. If that vector is pointing at a sign or lectern, it writes that string to that sign or lectern. Costs a hundredth of an $(l:items/amethyst)$(item)Amethyst Dust/$.",
   "moreiotas.page.strings.string/chat/caster": "Adds the last message the caster sent to the stack as a string.",
   "moreiotas.page.strings.string/chat/all": "Adds the last message anyone sent to the stack as a string.",
-  "moreiotas.page.strings.string/chat/prefix/set": "Accepts a string; All future chat messages starting with that string won't be seen by others, and only messages prefixed with that string can be read by $(l:moreiotas:patterns/strings#moreiotas:string/chat/caster)$(action)Whisper Reflection/$.",
-  "moreiotas.page.strings.string/chat/prefix/get": "Returns the last string you passed to $(l:moreiotas:patterns/strings#moreiotas:string/chat/prefix/set)$(action)Sifter's Gambit/$.",
+  "moreiotas.page.strings.string/chat/prefix/set": "Accepts a string; All future chat messages starting with that string won't be seen by others, and only messages prefixed with that string can be read by $(l:patterns/strings#moreiotas:string/chat/caster)$(action)Whisper Reflection/$.",
+  "moreiotas.page.strings.string/chat/prefix/get": "Returns the last string you passed to $(l:patterns/strings#moreiotas:string/chat/prefix/set)$(action)Sifter's Gambit/$.",
   "moreiotas.page.strings.string/iota": "Converts the iota on top of the stack into a string.",
   "moreiotas.page.strings.string/action": "Converts the pattern on top of the stack into the string for that pattern's name. If there is no action associated with that pattern, or if the associated pattern is a Great Spell, it returns null.",
   "moreiotas.page.strings.string/name/get": "Takes an entity and returns that entity's name. If it is an item entity, return the item's name.",
@@ -117,7 +119,8 @@
   "moreiotas.page.matrices.matrix/make.0": "Converts the iota on top of the stack into a matrix. This iota can be a number, vector, or list.",
   "moreiotas.page.matrices.matrix/make.1": "If it is a number, it becomes a 1x1 matrix. If it's a vector, it becomes a 3x1 matrix. If it's a list, it must be a list of purely numbers, purely vectors, or purely lists of numbers (each of which must be the same length). If it's a list of numbers it'll be 1 by n, if it's a list of vectors it'll be 3 by n, and if it's a list of lists it'll be n by m, where n is the inner list length and m is the outer list length.",
   "moreiotas.page.matrices.matrix/unmake.0": "Converts the iota on top of the stack back from a matrix into a number, vector, or list depending on the vector's size.",
-  "moreiotas.page.matrices.matrix/unmake.1": "A 1x1 matrix will become a number. A 1x3 or 3x1 matrix will become a vector. A 3 by n or n by 3 matrix will become a list of vectors, and any matrix not covered by the previous will become a list of list of numbers, with each inner list being one column of the matrix.",
+  "moreiotas.page.matrices.matrix/unmake.1": "A 1x1 matrix will become a number. A 1x3 or 3x1 matrix will become a vector. A 3 by n or n by 3 matrix will become a list of vectors, and any matrix not covered by the previous will become a list of lists of numbers, with each inner list being one column of the matrix.",
+  "moreiotas.page.matrices.matrix/unmake/direct": "As $(l:patterns/matrices#moreiotas:matrix/unmake)$(action)Restoration Purification/$, except it always returns a list of lists of numbers.",
   "moreiotas.page.matrices.matrix/identity": "Accepts a positive integer n, and returns an n by n matrix with 1 along the diagonal and 0 elsewhere.",
   "moreiotas.page.matrices.matrix/zero": "Accepts positive integers n and m, and returns an n by m matrix of zeros.",
   "moreiotas.page.matrices.matrix/rotation": "Accepts a vec v and number θ, and returns a matrix representing rotating by θ radians around v.",
