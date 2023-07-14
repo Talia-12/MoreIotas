@@ -5,12 +5,14 @@ import at.petrak.hexcasting.api.casting.PatternShapeMatch
 import at.petrak.hexcasting.api.casting.asActionResult
 import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.eval.SpecialPatterns.*
 import at.petrak.hexcasting.api.casting.getPattern
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.mod.HexTags
 import at.petrak.hexcasting.api.utils.isOfTag
 import at.petrak.hexcasting.common.casting.PatternRegistryManifest
 import at.petrak.hexcasting.xplat.IXplatAbstractions
+import net.minecraft.network.chat.Component
 import ram.talia.moreiotas.api.asActionResult
 
 /**
@@ -21,6 +23,13 @@ object OpActionString : ConstMediaAction {
 
     override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
         val pattern = args.getPattern(0, argc)
+
+        when (pattern) {
+            INTROSPECTION -> return Component.translatable("hexcasting.action.rawhook.hexcasting:open_paren").string.asActionResult
+            RETROSPECTION -> return Component.translatable("hexcasting.action.rawhook.hexcasting:close_paren").string.asActionResult
+            CONSIDERATION -> return Component.translatable("hexcasting.action.rawhook.hexcasting:escape").string.asActionResult
+            EVANITION     -> return Component.translatable("hexcasting.action.rawhook.hexcasting:undo").string.asActionResult
+        }
 
         val action = PatternRegistryManifest.matchPattern(pattern, env.world, true) ?: return null.asActionResult
 
