@@ -1,19 +1,19 @@
 package ram.talia.moreiotas.common.casting.arithmetic.operator.matrix
 
 import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator
-import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate
-import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate
+import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate.any
+import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate.ofType
+import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate.or
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
-import at.petrak.hexcasting.common.lib.hex.HexIotaTypes.DOUBLE
-import at.petrak.hexcasting.common.lib.hex.HexIotaTypes.LIST
+import at.petrak.hexcasting.common.lib.hex.HexIotaTypes.*
 import ram.talia.moreiotas.api.*
 import ram.talia.moreiotas.common.casting.arithmetic.operator.nextNumOrVecOrMatrix
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes.MATRIX
 
 class OperatorMatrixAdd(private val subtract: Boolean)
-    : Operator(2, IotaMultiPredicate.any(IotaPredicate.ofType(MATRIX), IotaPredicate.or(IotaPredicate.ofType(DOUBLE), IotaPredicate.ofType(LIST)))) {
+    : Operator(2, any(ofType(MATRIX), or(ofType(DOUBLE), ofType(VEC3)))) {
     override fun apply(iotas: Iterable<Iota>, env: CastingEnvironment): Iterable<Iota> {
         val it = iotas.iterator().withIndex()
         val mat0 = it.nextNumOrVecOrMatrix(arity).asMatrix

@@ -81,6 +81,46 @@
     },
     {
       "type": "hexcasting:pattern",
+      "op_id": "hexcasting:div",
+      "anchor": "moreiotas:matrix/div",
+      "input": "mat, mat",
+      "output": "mat",
+      "text": "moreiotas.page.matrices.matrix/div"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:pow",
+      "anchor": "moreiotas:matrix/pow",
+      "input": "mat, int",
+      "output": "mat",
+      "text": "moreiotas.page.matrices.matrix/pow"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:altmul",
+      "anchor": "moreiotas:matrix/mul/elem",
+      "input": "mat, mat",
+      "output": "mat",
+      "text": "moreiotas.page.matrices.matrix/mul/elem"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:altdiv",
+      "anchor": "moreiotas:matrix/div/elem",
+      "input": "mat, mat",
+      "output": "mat",
+      "text": "moreiotas.page.matrices.matrix/div/elem"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "moreiotas:altpow",
+      "anchor": "moreiotas:matrix/pow/elem",
+      "input": "mat, mat",
+      "output": "mat",
+      "text": "moreiotas.page.matrices.matrix/pow/elem"
+    },
+    {
+      "type": "hexcasting:pattern",
       "header": "hexcasting.action.moreiotas:matrix/transpose",
       "op_id": "hexcasting:reverse",
       "anchor": "moreiotas:matrix/transpose",

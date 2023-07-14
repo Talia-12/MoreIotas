@@ -85,6 +85,16 @@ object MoreIotasActions {
 	val STRING_CASE = make("string/case", HexPattern.fromAngles("dwwdwwdwdd", HexDir.WEST), OpCaseString)
 
 	// ================================ Matrices =======================================
+	// Operator Actions
+	@JvmField
+	val ALTADD = make("altadd", OperationAction(HexPattern.fromAngles("waawawaeawwaea", HexDir.EAST)))
+	@JvmField
+	val ALTMUL = make("altmul", OperationAction(HexPattern.fromAngles("waqawawwaeaww", HexDir.SOUTH_EAST)))
+	@JvmField
+	val ALTDIV = make("altdiv", OperationAction(HexPattern.fromAngles("wdedwdwwdqdww", HexDir.NORTH_EAST)))
+	@JvmField
+	val ALTPOW = make("altpow", OperationAction(HexPattern.fromAngles("wedewqawwawqwa", HexDir.NORTH_EAST)))
+
 	@JvmField
 	val MATRIX_MAKE = make("matrix/make", HexPattern.fromAngles("awwaeawwaadwa", HexDir.SOUTH_WEST), OpMakeMatrix)
 	@JvmField
@@ -95,10 +105,6 @@ object MoreIotasActions {
 	val MATRIX_ZERO = make("matrix/zero", HexPattern.fromAngles("awwaeawwa", HexDir.SOUTH_WEST), OpZeroMatrix)
 	@JvmField
 	val MATRIX_ROTATION = make("matrix/rotation", HexPattern.fromAngles("awwaeawwawawddw", HexDir.SOUTH_WEST), OpRotationMatrix)
-//	@JvmField
-//	val MATRIX_ADD = make("matrix/add", HexPattern.fromAngles("waawawaeawwaea", HexDir.EAST), OpAddMatrix)
-//	@JvmField
-//	val MATRIX_MUL = make("matrix/mul", HexPattern.fromAngles("waqawawwaeaww", HexDir.SOUTH_EAST), OpMulMatrix)
 //	@JvmField
 //	val MATRIX_TRANSPOSE = make("matrix/transpose", HexPattern.fromAngles("wwaeawwaede", HexDir.EAST), OpTransposeMatrix)
 	@JvmField

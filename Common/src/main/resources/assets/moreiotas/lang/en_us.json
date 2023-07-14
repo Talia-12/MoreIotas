@@ -1,4 +1,6 @@
 {
+  "hexcasting.mishap.invalid_value.matrix.nonsingular": "a non-singular matrix.",
+
   "hexcasting.iota.moreiotas:string": "String",
   "hexcasting.iota.moreiotas:matrix": "Matrix",
   "hexcasting.iota.moreiotas:iota_type": "Iota Type",
@@ -34,6 +36,11 @@
   "hexcasting.action.moreiotas:string/sub": "Winnowing Distillation",
   "hexcasting.action.moreiotas:string/case": "Case Distillation",
 
+  "hexcasting.action.moreiotas:altadd": "Additive Distillation II",
+  "hexcasting.action.moreiotas:altmul": "Multiplicative Distillation II",
+  "hexcasting.action.moreiotas:altdiv": "Division Distillation II",
+  "hexcasting.action.moreiotas:altpow": "Power Distillation II",
+
   "hexcasting.action.moreiotas:matrix/make": "Transformation Purification",
   "hexcasting.action.moreiotas:matrix/unmake": "Restoration Purification",
   "hexcasting.action.moreiotas:matrix/identity": "Identity Purification",
@@ -64,6 +71,10 @@
   "hexcasting.action.moreiotas:item/prop/size/set": "Treasurer's Distillation",
 
   "hexcasting.action.book.moreiotas:string/action": "Patternmaster's Prfct.",
+
+  "hexcasting.action.book.moreiotas:altadd": "Additive Dstl. II",
+  "hexcasting.action.book.moreiotas:altmul": "Multiplicative Dstl. II",
+  "hexcasting.action.book.moreiotas:altdiv": "Division Dstl. II",
 
   "hexcasting.action.book.moreiotas:matrix/make": "Transformation Prfct.",
   "hexcasting.action.book.moreiotas:matrix/unmake": "Restoration Prfct.",
@@ -111,7 +122,12 @@
   "moreiotas.page.matrices.matrix/zero": "Accepts positive integers n and m, and returns an n by m matrix of zeros.",
   "moreiotas.page.matrices.matrix/rotation": "Accepts a vec v and number θ, and returns a matrix representing rotating by θ radians around v.",
   "moreiotas.page.matrices.matrix/add": "Adds two matrices together; they must have the same number of columns and rows.",
-  "moreiotas.page.matrices.matrix/mul": "Multiplies the first n by m matrix with an m by p matrix.",
+  "moreiotas.page.matrices.matrix/mul": "Multiplies the first n by m by with an m by p matrix.",
+  "moreiotas.page.matrices.matrix/div": "Divides the first n by m matrix with an m by m matrix.",
+  "moreiotas.page.matrices.matrix/pow": "Accepts a square matrix and an integer, and raises the matrix to the power of the integer.",
+  "moreiotas.page.matrices.matrix/mul/elem": "Multiplies the first n by m matrix elementwise with another n by m matrix.",
+  "moreiotas.page.matrices.matrix/div/elem": "Divides the first n by m matrix elementwise by another n by m matrix.",
+  "moreiotas.page.matrices.matrix/pow/elem": "Raises the first n by m matrix elementwise to the power of another n by m matrix.",
   "moreiotas.page.matrices.matrix/transpose": "Accepts an n by m matrix and returns an m by n matrix where every entry has been flipped along the diagonal.",
   "moreiotas.page.matrices.matrix/inverse": "Accepts an n by n matrix and returns the n by n matrix such that in*out = identity.",
   "moreiotas.page.matrices.matrix/determinant": "Accepts a square matrix and returns the determinant of that matrix. Mishaps for matrices larger than 4x4.",
