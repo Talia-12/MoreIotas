@@ -88,12 +88,12 @@ public class FabricMoreIotasConfig extends PartitioningSerializer.GlobalData {
         }
 
         @Override
-        public int getSetBlockStringCost() {
+        public long getSetBlockStringCost() {
             return (int) (this.setBlockStringCost * MediaConstants.DUST_UNIT);
         }
 
         @Override
-        public int getNameCost() {
+        public long getNameCost() {
             return (int) (this.nameCost * MediaConstants.DUST_UNIT);
         }
     }
