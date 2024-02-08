@@ -18,8 +18,9 @@ abstract class OperatorShim(arity: Int, accepts: IotaMultiPredicate) : Operator(
         continuation: SpellContinuation
     ): OperationResult {
         val stack = image.stack.toMutableList()
-        val input = mutableListOf(stack.removeFirst(),stack.removeFirst())
-        stack.addAll(apply(input,env))
+        val input = stack.reversed().slice(0 until arity)
+        val outputStack = stack.subList(0, stack.size - arity)
+        outputStack.addAll(apply(input, env))
         return OperationResult(
             image.copy(stack),
             listOf(),
