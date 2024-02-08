@@ -1,6 +1,5 @@
 package ram.talia.moreiotas.common.casting.arithmetic.operator.type
 
-import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate.*
 import at.petrak.hexcasting.api.casting.asActionResult
@@ -18,8 +17,9 @@ import net.minecraft.world.item.Items
 import ram.talia.moreiotas.api.asActionResult
 import ram.talia.moreiotas.api.casting.iota.ItemStackIota
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes.ITEM_STACK
+import ram.talia.moreiotas.common.lib.hex.OperatorShim
 
-object OperatorExtractItem : Operator(1, IotaMultiPredicate.all(any(ofType(VEC3), ofType(ENTITY), ofType(ITEM_STACK)))) {
+object OperatorExtractItem : OperatorShim(1, IotaMultiPredicate.all(any(ofType(VEC3), ofType(ENTITY), ofType(ITEM_STACK)))) {
     override fun apply(iotas: Iterable<Iota>, env: CastingEnvironment): Iterable<Iota> {
         val iota = iotas.first()
 

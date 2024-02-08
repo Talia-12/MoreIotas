@@ -1,6 +1,5 @@
 package ram.talia.moreiotas.common.casting.arithmetic.operator.string
 
-import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
@@ -10,10 +9,11 @@ import at.petrak.hexcasting.common.lib.hex.HexIotaTypes.DOUBLE
 import ram.talia.moreiotas.api.asActionResult
 import ram.talia.moreiotas.common.casting.arithmetic.operator.nextString
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes.STRING
+import ram.talia.moreiotas.common.lib.hex.OperatorShim
 import kotlin.math.max
 import kotlin.math.min
 
-object OperatorStringSlice : Operator(3, IotaMultiPredicate.triple(IotaPredicate.ofType(STRING), IotaPredicate.ofType(DOUBLE), IotaPredicate.ofType(DOUBLE))) {
+object OperatorStringSlice : OperatorShim(3, IotaMultiPredicate.triple(IotaPredicate.ofType(STRING), IotaPredicate.ofType(DOUBLE), IotaPredicate.ofType(DOUBLE))) {
     override fun apply(iotas: Iterable<Iota>, env: CastingEnvironment): Iterable<Iota> {
         val it = iotas.iterator().withIndex()
         val string = it.nextString(arity)
