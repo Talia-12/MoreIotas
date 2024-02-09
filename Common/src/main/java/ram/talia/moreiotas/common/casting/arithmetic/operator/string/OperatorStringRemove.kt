@@ -1,6 +1,5 @@
 package ram.talia.moreiotas.common.casting.arithmetic.operator.string
 
-import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
@@ -12,10 +11,11 @@ import ram.talia.moreiotas.api.asActionResult
 import ram.talia.moreiotas.api.casting.iota.StringIota
 import ram.talia.moreiotas.common.casting.arithmetic.operator.nextString
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes.STRING
+import ram.talia.moreiotas.common.lib.hex.OperatorShim
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
-object OperatorStringRemove : Operator(2, IotaMultiPredicate.pair(IotaPredicate.ofType(STRING), IotaPredicate.or(IotaPredicate.ofType(STRING), IotaPredicate.ofType(DOUBLE)))) {
+object OperatorStringRemove : OperatorShim(2, IotaMultiPredicate.pair(IotaPredicate.ofType(STRING), IotaPredicate.or(IotaPredicate.ofType(STRING), IotaPredicate.ofType(DOUBLE)))) {
     override fun apply(iotas: Iterable<Iota>, env: CastingEnvironment): Iterable<Iota> {
         val it = iotas.iterator().withIndex()
         val removeFrom = it.nextString(arity)

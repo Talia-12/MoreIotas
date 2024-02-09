@@ -11,6 +11,7 @@ import com.mojang.datafixers.util.Either
 import net.minecraft.core.BlockPos
 import net.minecraft.nbt.StringTag
 import net.minecraft.network.chat.Component
+import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.item.DyeColor
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.entity.LecternBlockEntity
@@ -43,7 +44,7 @@ object OpSetBlockString : SpellAction {
                 val blockEntity = env.world.getBlockEntity(pos) ?: return@map
 
                 if (blockEntity is SignBlockEntity) {
-                    if (blockEntity.playerWhoMayEdit != null && blockEntity.playerWhoMayEdit != env.caster?.uuid)
+                    if (blockEntity.playerWhoMayEdit != null && blockEntity.playerWhoMayEdit != (env.castingEntity as? ServerPlayer)?.uuid)
                         return@map
 
                     val lines = inputString.split("\n")

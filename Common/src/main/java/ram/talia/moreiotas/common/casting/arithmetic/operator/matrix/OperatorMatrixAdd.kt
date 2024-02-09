@@ -1,6 +1,5 @@
 package ram.talia.moreiotas.common.casting.arithmetic.operator.matrix
 
-import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate.any
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate.ofType
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate.or
@@ -11,9 +10,10 @@ import at.petrak.hexcasting.common.lib.hex.HexIotaTypes.*
 import ram.talia.moreiotas.api.*
 import ram.talia.moreiotas.common.casting.arithmetic.operator.nextNumOrVecOrMatrix
 import ram.talia.moreiotas.common.lib.hex.MoreIotasIotaTypes.MATRIX
+import ram.talia.moreiotas.common.lib.hex.OperatorShim
 
 class OperatorMatrixAdd(private val subtract: Boolean)
-    : Operator(2, any(ofType(MATRIX), or(ofType(DOUBLE), ofType(VEC3)))) {
+    : OperatorShim(2, any(ofType(MATRIX), or(ofType(DOUBLE), ofType(VEC3)))) {
     override fun apply(iotas: Iterable<Iota>, env: CastingEnvironment): Iterable<Iota> {
         val it = iotas.iterator().withIndex()
         val mat0 = it.nextNumOrVecOrMatrix(arity).asMatrix
