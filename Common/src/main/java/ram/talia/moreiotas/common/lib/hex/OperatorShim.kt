@@ -22,7 +22,7 @@ abstract class OperatorShim(arity: Int, accepts: IotaMultiPredicate) : Operator(
         val outputStack = stack.subList(0, stack.size - arity)
         outputStack.addAll(apply(input, env))
         return OperationResult(
-            image.copy(stack),
+            image.copy(outputStack),
             listOf(),
             continuation,
             HexEvalSounds.NORMAL_EXECUTE
